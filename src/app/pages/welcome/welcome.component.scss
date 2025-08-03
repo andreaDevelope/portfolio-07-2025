@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+button {
+  position: fixed;
+  left: 0; /* distanza dal bordo sinistro */
+  top: 50%; /* metà altezza viewport */
+  transform: translateY(-50%); /* effettivo centramento */
+  background-color: #3b82f6; /* blu tech */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* pill shape */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 20; /* sempre sopra tutto */
+  font-weight: 600;
+}
+.container {
+  margin-inline: auto;
+  position: relative;
+  padding-inline: 1.5rem;
+  padding-block: 1rem;
+  perspective: 1000px;
+
+  .hero,
+  .projects {
+    position: absolute;
+    width: 60vw;
+    min-height: 70vh;
+    transition: transform 0.8s ease, z-index 0.8s ease;
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+  }
+
+  .hero {
+    background-color: aqua;
+    z-index: 10;
+    transform: rotateY(0deg);
+    header {
+      display: flex;
+      justify-content: space-between;
+      .logo {
+        img {
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  .projects {
+    background-color: fuchsia;
+    left: 60%;
+    top: 50px;
+    transform: translateX(-50%) rotateY(-180deg);
+    z-index: 5;
+  }
+
+  &.flipped {
+    .hero {
+      transform: rotateY(180deg);
+      z-index: 5;
+    }
+
+    .projects {
+      transform: translateX(-50%) rotateY(0deg);
+      z-index: 10;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+    /* la card hero occupa 90 % larghezza, centrata */
+    .hero {
+      position: relative;
+      width: 90vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%) rotateY(0deg);
+      z-index: 10;
+    }
+
+    .projects {
+      width: 90vw;
+      display: block;
+      top: 1rem;
+      left: 0.5rem; /* forza il bordo sinistro */
+      transform: translateX(-98%); /* solo un “peek” iniziale */
+      transition: transform 0.8s ease;
+      z-index: 9; /* sotto la hero quando chiusa */
+    }
+
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      .card {
+        margin-block: 0.5rem;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    /* logica flip: cambiamo solo il colore della hero */
+    &.flipped {
+      .hero {
+        /* nessuna rotazione 3D per evitare glitch su mobile */
+        transform: translateX(-50%);
+      }
+      .projects {
+        transform: translateX(0);
+        z-index: 11; /* sopra la hero */
+      }
+    }
+  }
+}
