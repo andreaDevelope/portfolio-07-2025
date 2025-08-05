@@ -11,17 +11,22 @@ export class WelcomeComponent {
   projects: IProject[] = [
     {
       img: '../../../assets/img/project1.png',
-      description: 'Descrizione progetto 1',
+      title: 'Landing & Brand Robot',
+      description:
+        'Landing page responsive in Angular+SCSS con illustrazione robot del brand.',
       isFlipped: false,
     },
     {
       img: '../../../assets/img/project2.png',
+      title: '',
       description: 'Descrizione progetto 2',
       isFlipped: false,
     },
     {
       img: '../../../assets/img/project3.png',
-      description: 'Descrizione progetto 3',
+      title: 'Dashboard Analytics',
+      description:
+        'Grafici interattivi per vendite e KPI realizzati in Angular con Recharts.',
       isFlipped: false,
     },
   ];
