@@ -3,9 +3,7 @@
 </button>
 
 <div class="container" [class.flipped]="isFlipped">
-  <!-- HERO (e, su mobile flipped, anche PROJECTS) -->
   <div class="section hero">
-    <!-- Contenuto Hero always -->
     <ng-container>
       <header>
         <div class="logo">
@@ -17,26 +15,29 @@
         </div>
       </header>
       <div class="hero-body">
-        <!-- Qui il tuo contenuto principale della hero -->
         <h1>Benvenuto nel mio Portfolio</h1>
       </div>
     </ng-container>
   </div>
 
-  <!-- PROJECTS card separata (desktop-only) -->
   <div class="section projects">
-    <!-- Contenuto Projects per desktop -->
     <h2>I miei progetti</h2>
     <div class="projects-grid">
-      <!-- es. card singole -->
-      <div class="card">
-        <img src="../../../assets/img/project1.png" alt="project.png" />
-      </div>
-      <div class="card">
-        <img src="../../../assets/img/project2.png" alt="project.png" />
-      </div>
-      <div class="card">
-        <img src="../../../assets/img/project3.png" alt="project.png" />
+      <div class="card" *ngFor="let project of projects">
+        <div class="card-inner" [class.flipped]="project.isFlipped">
+          <div class="card-front">
+            <img [src]="project.img" alt="project.png" />
+            <button class="flip-btn" (click)="toggleCardFlip(project)">
+              Info
+            </button>
+          </div>
+          <div class="card-back">
+            <p>{{ project.description }}</p>
+            <button class="flip-btn" (click)="toggleCardFlip(project)">
+              Torna
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
