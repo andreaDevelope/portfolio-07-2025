@@ -99,7 +99,7 @@
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 2rem;
       .card {
         flex: 1 1 calc(33% - 1rem); /* 3 colonne responsive */
         max-width: 300px;
@@ -128,6 +128,7 @@
 
 h2 {
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 .projects-grid {
@@ -172,6 +173,10 @@ h2 {
       }
 
       .card-back {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
         background-color: rgba(59, 130, 246, 0.9);
         color: #fff;
         padding: 1rem;
