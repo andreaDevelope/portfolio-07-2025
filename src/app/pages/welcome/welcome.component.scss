@@ -3,19 +3,20 @@
   margin: 0;
   padding: 0;
 }
-button {
+
+.toggle-main {
   position: fixed;
-  left: 0; /* distanza dal bordo sinistro */
-  top: 50%; /* metà altezza viewport */
-  transform: translateY(-50%); /* effettivo centramento */
-  background-color: #3b82f6; /* blu tech */
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #3b82f6;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
-  border-radius: 9999px; /* pill shape */
+  border-radius: 9999px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  z-index: 20; /* sempre sopra tutto */
+  z-index: 20;
   font-weight: 600;
 }
 .container {
@@ -98,9 +99,12 @@ button {
     .projects-grid {
       display: flex;
       flex-wrap: wrap;
+      gap: 1rem;
       .card {
-        margin-block: 0.5rem;
-        width: 100%;
+        flex: 1 1 calc(33% - 1rem); /* 3 colonne responsive */
+        max-width: 300px;
+        position: relative; /* crea stacking context */
+        perspective: 800px; /* mantieni solo qui */
         img {
           width: 100%;
           height: 100%;
@@ -122,13 +126,19 @@ button {
   }
 }
 
+h2 {
+  margin-bottom: 1rem;
+}
+
 .projects-grid {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   perspective: 1000px;
 
   .card {
-    width: 300px;
+    max-width: 500px;
     height: 200px;
     position: relative;
 
@@ -138,28 +148,27 @@ button {
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
+      z-index: 1;
 
       &.flipped {
         transform: rotateY(180deg);
+        z-index: 5;
       }
 
       .card-front,
       .card-back {
         position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
-        backface-visibility: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-radius: 12px;
-        overflow: hidden;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       .card-front {
         background-color: #fff;
+        position: relative; // serve per ancorare il btn
+        overflow: visible;
       }
 
       .card-back {
@@ -179,14 +188,16 @@ button {
         opacity: 1;
       }
     }
-
     .flip-btn {
       position: absolute;
-      bottom: 10px;
+      bottom: -1.5rem; // sporge sotto l’immagine
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
       background-color: rgba(0, 0, 0, 0.6);
       color: #fff;
       border: none;
-      border-radius: 20px;
+      border-radius: 1rem;
       padding: 0.4rem 0.8rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -194,6 +205,43 @@ button {
       &:hover {
         background-color: rgba(0, 0, 0, 0.8);
       }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -0.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 0.6rem solid transparent;
+        border-right: 0.6rem solid transparent;
+        border-bottom: 0.6rem solid rgba(0, 0, 0, 0.6);
+      }
     }
   }
+}
+
+/* fade-in/fade-out dei bottoni sincronizzato al flip */
+.flip-btn {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Info-button (front) visibile solo quando NON flipped */
+.card-inner:not(.flipped) .card-front .flip-btn {
+  opacity: 1;
+  transition-delay: 0.4s; /* compare dopo metà della rotazione */
+}
+.card-inner.flipped .card-front .flip-btn {
+  opacity: 0;
+  transition-delay: 0s; /* scompare immediatamente all’inizio del flip */
+}
+
+/* Torna-button (back) visibile solo quando flipped */
+.card-inner.flipped .card-back .flip-btn {
+  opacity: 1;
+  transition-delay: 0.4s; /* compare dopo metà della rotazione */
+}
+.card-inner:not(.flipped) .card-back .flip-btn {
+  opacity: 0;
+  transition-delay: 0s; /* scompare immediatamente all’inizio del flip indietro */
 }
