@@ -3,4 +3,5 @@ export interface IProject {
   title: string;
   description: string;
   isFlipped: boolean;
+  techs: String[];
 }

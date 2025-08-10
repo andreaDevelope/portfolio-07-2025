@@ -57,6 +57,7 @@
     top: 50px;
     transform: translateX(-50%) rotateY(-180deg);
     z-index: 5;
+    padding-bottom: 2rem;
   }
 
   &.flipped {
@@ -102,12 +103,12 @@
       gap: 2rem;
       .card {
         flex: 1 1 calc(33% - 1rem); /* 3 colonne responsive */
-        max-width: 300px;
+        max-width: 500px;
+        min-width: 200px;
         position: relative; /* crea stacking context */
-        perspective: 800px; /* mantieni solo qui */
+        perspective: 800px;
         img {
           width: 100%;
-          height: 100%;
         }
       }
     }
@@ -140,8 +141,7 @@ h2 {
 
   .card {
     max-width: 500px;
-    height: 200px;
-    position: relative;
+    height: auto;
 
     .card-inner {
       width: 100%;
