@@ -10,7 +10,7 @@
   top: 50%;
   transform: translateY(-50%);
   background-color: #3b82f6;
-  color: white;
+  color: #fff;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 9999px;
@@ -19,6 +19,7 @@
   z-index: 20;
   font-weight: 600;
 }
+
 .container {
   margin-inline: auto;
   position: relative;
@@ -43,10 +44,8 @@
     header {
       display: flex;
       justify-content: space-between;
-      .logo {
-        img {
-          width: 50px;
-        }
+      .logo img {
+        width: 50px;
       }
     }
   }
@@ -65,64 +64,9 @@
       transform: rotateY(180deg);
       z-index: 5;
     }
-
     .projects {
       transform: translateX(-50%) rotateY(0deg);
       z-index: 10;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
-    /* la card hero occupa 90 % larghezza, centrata */
-    .hero {
-      position: relative;
-      width: 90vw;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%) rotateY(0deg);
-      z-index: 10;
-    }
-
-    .projects {
-      width: 90vw;
-      display: block;
-      top: 1rem;
-      left: 0.5rem; /* forza il bordo sinistro */
-      transform: translateX(-98%); /* solo un “peek” iniziale */
-      transition: transform 0.8s ease;
-      z-index: 9; /* sotto la hero quando chiusa */
-    }
-
-    .projects-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      .card {
-        flex: 1 1 calc(33% - 1rem); /* 3 colonne responsive */
-        max-width: 500px;
-        min-width: 200px;
-        position: relative; /* crea stacking context */
-        perspective: 800px;
-        img {
-          width: 100%;
-        }
-      }
-    }
-
-    /* logica flip: cambiamo solo il colore della hero */
-    &.flipped {
-      .hero {
-        /* nessuna rotazione 3D per evitare glitch su mobile */
-        transform: translateX(-50%);
-      }
-      .projects {
-        transform: translateX(0);
-        z-index: 11; /* sopra la hero */
-      }
     }
   }
 }
@@ -150,7 +94,6 @@ h2 {
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
       z-index: 1;
-
       &.flipped {
         transform: rotateY(180deg);
         z-index: 5;
@@ -168,8 +111,15 @@ h2 {
 
       .card-front {
         background-color: #fff;
-        position: relative; // serve per ancorare il btn
+        position: relative;
         overflow: visible;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
       }
 
       .card-back {
@@ -188,18 +138,18 @@ h2 {
           text-align: center;
         }
       }
-
       &.flipped .card-back {
         opacity: 1;
       }
     }
+
     .flip-btn {
       position: absolute;
-      bottom: -1.5rem; // sporge sotto l’immagine
+      bottom: -1.5rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
       border: none;
       border-radius: 1rem;
@@ -208,7 +158,7 @@ h2 {
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: rgba(0, 0, 0, 0.8);
+        background: rgba(0, 0, 0, 0.8);
       }
 
       &::before {
@@ -225,28 +175,175 @@ h2 {
   }
 }
 
-/* fade-in/fade-out dei bottoni sincronizzato al flip */
+.tech-list {
+  width: 70%;
+  list-style: none;
+  text-align: center;
+
+  margin-block: 0.5rem;
+  padding: 0;
+  li {
+    margin-block: 2rem;
+    font-size: 0.95rem;
+  }
+}
+
 .flip-btn {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
-
-/* Info-button (front) visibile solo quando NON flipped */
 .card-inner:not(.flipped) .card-front .flip-btn {
   opacity: 1;
-  transition-delay: 0.4s; /* compare dopo metà della rotazione */
+  transition-delay: 0.4s;
 }
 .card-inner.flipped .card-front .flip-btn {
   opacity: 0;
-  transition-delay: 0s; /* scompare immediatamente all’inizio del flip */
+  transition-delay: 0s;
 }
-
-/* Torna-button (back) visibile solo quando flipped */
 .card-inner.flipped .card-back .flip-btn {
   opacity: 1;
-  transition-delay: 0.4s; /* compare dopo metà della rotazione */
+  transition-delay: 0.4s;
 }
 .card-inner:not(.flipped) .card-back .flip-btn {
   opacity: 0;
-  transition-delay: 0s; /* scompare immediatamente all’inizio del flip indietro */
+  transition-delay: 0s;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-inline: 1rem;
+    padding-block: 0.5rem;
+
+    .hero {
+      position: relative;
+      width: 90vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%) rotateY(0deg);
+      z-index: 10;
+    }
+
+    .projects {
+      width: 90vw;
+      display: block;
+      top: 1rem;
+      left: 0.5rem;
+      transform: translateX(-98%);
+      transition: transform 0.8s ease;
+      z-index: 9;
+    }
+
+    &.flipped {
+      .hero {
+        transform: translateX(-50%);
+      }
+      .projects {
+        transform: translateX(0);
+        z-index: 11;
+      }
+    }
+  }
+
+  .carousel {
+    position: relative;
+    margin-inline: auto;
+    max-width: 90vw;
+  }
+
+  .viewport {
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 1rem;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .slide {
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .slide .card {
+    width: 100%;
+    max-width: 500px;
+  }
+  .slide .card .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+  }
+  .nav.prev {
+    left: -0.25rem;
+  }
+  .nav.next {
+    right: -0.25rem;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    button {
+      width: 20px;
+      height: 20px;
+    }
+    .dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .active .dot {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    .card {
+      flex: 1 1 calc(33% - 1rem);
+      max-width: 500px;
+      min-width: 200px;
+      position: relative;
+      perspective: 800px;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .card-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-back .project-desc {
+    margin-top: 1.5rem;
+    inline-size: 200px;
+    width: 70%;
+    word-wrap: break-word;
+    text-align: left;
+  }
 }

@@ -4,14 +4,20 @@ import { CommonModule } from '@angular/common';
 import { WelcomeRoutingModule } from './welcome-routing.module';
 import { WelcomeComponent } from './welcome.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
-  declarations: [
-    WelcomeComponent
-  ],
+  declarations: [WelcomeComponent],
   imports: [
     CommonModule,
-    WelcomeRoutingModule
-  ]
+    WelcomeRoutingModule,
+    LayoutModule, //opsionale
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+  ],
 })
-export class WelcomeModule { }
+export class WelcomeModule {}

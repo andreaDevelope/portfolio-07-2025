@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IProject } from '../../interfaces/iproject';
+import { map, Observable } from 'rxjs';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-welcome',
@@ -8,6 +10,8 @@ import { IProject } from '../../interfaces/iproject';
 })
 export class WelcomeComponent {
   isFlipped = false;
+  isMobile$!: Observable<boolean>;
+  currentIndex = 0;
   projects: IProject[] = [
     {
       img: '../../../assets/img/project1.png',
@@ -94,11 +98,39 @@ export class WelcomeComponent {
     },
   ];
 
+  constructor(private bp: BreakpointObserver) {
+    this.isMobile$ = this.bp
+      .observe('(max-width: 768px)')
+      .pipe(map((r) => r.matches));
+  }
+
   toggleFlip() {
     this.isFlipped = !this.isFlipped;
   }
 
   toggleCardFlip(project: IProject) {
     project.isFlipped = !project.isFlipped;
+  }
+
+  // carosello
+  private slideWidth(vp: HTMLElement): number {
+    return vp.clientWidth;
+  }
+
+  next(vp: HTMLElement) {
+    vp.scrollBy({ left: this.slideWidth(vp), behavior: 'smooth' });
+  }
+
+  prev(vp: HTMLElement) {
+    vp.scrollBy({ left: -this.slideWidth(vp), behavior: 'smooth' });
+  }
+
+  goTo(i: number, vp: HTMLElement) {
+    vp.scrollTo({ left: i * this.slideWidth(vp), behavior: 'smooth' });
+    this.currentIndex = i;
+  }
+
+  onScroll(vp: HTMLElement) {
+    this.currentIndex = Math.round(vp.scrollLeft / this.slideWidth(vp));
   }
 }
