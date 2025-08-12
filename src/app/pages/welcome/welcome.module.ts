@@ -14,7 +14,7 @@ import { LayoutModule } from '@angular/cdk/layout';
   imports: [
     CommonModule,
     WelcomeRoutingModule,
-    LayoutModule, //opsionale
+    LayoutModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,

@@ -25,24 +25,6 @@
     <!-- MOBILE: carosello Material-like -->
     <ng-container *ngIf="isMobile$ | async; else desktopGrid">
       <div class="carousel" role="region" aria-label="Progetti in evidenza">
-        <!-- frecce -->
-        <button
-          mat-mini-fab
-          class="nav prev"
-          (click)="prev(vp)"
-          aria-label="Precedente"
-        >
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-        <button
-          mat-mini-fab
-          class="nav next"
-          (click)="next(vp)"
-          aria-label="Successivo"
-        >
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-
         <!-- viewport -->
         <div
           #vp
@@ -56,9 +38,6 @@
               <div class="card-inner" [class.flipped]="project.isFlipped">
                 <div class="card-front">
                   <img [src]="project.img" [alt]="project.title || 'project'" />
-                  <button class="flip-btn" (click)="toggleCardFlip(project)">
-                    Info
-                  </button>
                 </div>
                 <div class="card-back">
                   <h3 class="project-title">{{ project.title }}</h3>
@@ -68,9 +47,26 @@
                   <ul class="tech-list" *ngIf="project.techs?.length">
                     <li *ngFor="let tech of project.techs">✓ {{ tech }}</li>
                   </ul>
-                  <button class="flip-btn" (click)="toggleCardFlip(project)">
-                    Torna
-                  </button>
+
+                  <!-- frecce -->
+                  <div class="carousel-nav-container">
+                    <button
+                      mat-mini-fab
+                      class="nav prev"
+                      (click)="prev(vp)"
+                      aria-label="Precedente"
+                    >
+                      <mat-icon>chevron_left</mat-icon>
+                    </button>
+                    <button
+                      mat-mini-fab
+                      class="nav next"
+                      (click)="next(vp)"
+                      aria-label="Successivo"
+                    >
+                      <mat-icon>chevron_right</mat-icon>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
