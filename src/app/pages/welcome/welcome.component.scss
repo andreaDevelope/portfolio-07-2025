@@ -16,7 +16,7 @@
   border-radius: 9999px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  z-index: 20;
+  z-index: 1000;
   font-weight: 600;
 }
 
@@ -27,31 +27,32 @@
   padding-block: 1rem;
   perspective: 1000px;
 
+  .section {
+    width: 90%;
+  }
+
   .hero,
   .projects {
     position: absolute;
-    width: 60vw;
-    min-height: 70vh;
     transition: transform 0.8s ease, z-index 0.8s ease;
     padding-inline: 1rem;
     padding-block: 0.5rem;
   }
 
   .hero {
-    background-color: aqua;
     z-index: 10;
     transform: rotateY(0deg);
     header {
       display: flex;
       justify-content: space-between;
-      .logo img {
-        width: 50px;
-      }
     }
   }
 
+  .logo img {
+    width: 50px;
+  }
+
   .projects {
-    background-color: fuchsia;
     left: 60%;
     top: 50px;
     transform: translateX(-50%) rotateY(-180deg);
@@ -215,12 +216,31 @@ h2 {
     padding-block: 0.5rem;
 
     .hero {
-      position: relative;
-      width: 90vw;
+      width: 95%;
       left: 50%;
       top: 0;
       transform: translateX(-50%) rotateY(0deg);
-      z-index: 10;
+      z-index: 0;
+      .hero-body {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 1rem;
+        background-color: #212121;
+        color: #fafafa;
+
+        .header-container {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .mat-mdc-card-subtitle {
+          color: #fafafa;
+        }
+        img {
+          width: 100px;
+          border-radius: 1rem;
+        }
+      }
     }
 
     .projects {
@@ -276,6 +296,7 @@ h2 {
   .slide .card {
     width: 100%;
     max-width: 500px;
+    background-color: #212121;
   }
   .slide .card .card-front img {
     width: 100%;
@@ -323,6 +344,7 @@ h2 {
       min-width: 200px;
       position: relative;
       perspective: 800px;
+
       img {
         width: 100%;
       }
@@ -343,5 +365,13 @@ h2 {
     width: 70%;
     word-wrap: break-word;
     text-align: left;
+  }
+}
+
+@media (max-width: 440px) {
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

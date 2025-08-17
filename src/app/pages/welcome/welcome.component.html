@@ -1,121 +1,167 @@
-<button class="toggle-main" (click)="toggleFlip()">
+<button class="toggle-main" mat-fab (click)="toggleFlip()">
   {{ isFlipped ? "AC" : "Progetti" }}
 </button>
 
 <div class="container" [class.flipped]="isFlipped">
   <div class="section hero">
-    <ng-container>
-      <header>
-        <div class="logo">
-          <img src="../../../assets/img/ceccarelli-logo.jpeg" alt="logo" />
-        </div>
-        <div class="nav">
-          <a href="#">Home</a>
-          <a href="#">Contatti</a>
-        </div>
-      </header>
-      <div class="hero-body">
-        <h1>Benvenuto nel mio Portfolio</h1>
+    <!-- Hero in card -->
+    <mat-card class="hero-body">
+      <div class="header-container">
+        <mat-card-header>
+          <mat-card-title
+            >Benvenuto, <br />
+            Sono Andrea Ceccarelli.</mat-card-title
+          >
+          <mat-card-subtitle>Web Developer</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../../assets/img/foto.jpg" alt="foto.jpg" />
       </div>
-    </ng-container>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="toggleFlip()">
+          Guarda i progetti
+        </button>
+        <a
+          mat-stroked-button
+          color="primary"
+          href="mailto:tuo.email@esempio.com"
+          >Scrivimi</a
+        >
+      </mat-card-actions>
+    </mat-card>
   </div>
 
   <div class="section projects">
     <h2>I miei progetti</h2>
-    <!-- MOBILE: carosello Material-like -->
-    <ng-container *ngIf="isMobile$ | async; else desktopGrid">
-      <div class="carousel" role="region" aria-label="Progetti in evidenza">
-        <!-- viewport -->
-        <div
-          #vp
-          class="viewport"
-          (scroll)="onScroll(vp)"
-          tabindex="0"
-          aria-live="polite"
-        >
-          <div class="slide" *ngFor="let project of projects">
-            <div class="card">
-              <div class="card-inner" [class.flipped]="project.isFlipped">
-                <div class="card-front">
-                  <img [src]="project.img" [alt]="project.title || 'project'" />
-                </div>
-                <div class="card-back">
-                  <h3 class="project-title">{{ project.title }}</h3>
-                  <p class="project-desc">
-                    {{ project.description }}
-                  </p>
-                  <ul class="tech-list" *ngIf="project.techs?.length">
-                    <li *ngFor="let tech of project.techs">✓ {{ tech }}</li>
-                  </ul>
 
-                  <!-- frecce -->
-                  <div class="carousel-nav-container">
-                    <button
-                      mat-mini-fab
-                      class="nav prev"
-                      (click)="prev(vp)"
-                      aria-label="Precedente"
-                    >
-                      <mat-icon>chevron_left</mat-icon>
-                    </button>
-                    <button
-                      mat-mini-fab
-                      class="nav next"
-                      (click)="next(vp)"
-                      aria-label="Successivo"
-                    >
-                      <mat-icon>chevron_right</mat-icon>
-                    </button>
-                  </div>
+    <!-- MOBILE: carosello -->
+    <div
+      class="carousel"
+      role="region"
+      aria-label="Progetti in evidenza"
+      *ngIf="isMobile$ | async; else desktopGrid"
+    >
+      <!-- viewport -->
+      <div
+        #vp
+        class="viewport"
+        (scroll)="onScroll(vp)"
+        tabindex="0"
+        aria-live="polite"
+      >
+        <div class="slide" *ngFor="let project of projects">
+          <!-- Card Material per progetto -->
+          <mat-card class="card">
+            <div class="card-inner" [class.flipped]="project.isFlipped">
+              <div class="card-front">
+                <img
+                  mat-card-image
+                  [src]="project.img"
+                  [alt]="project.title || 'project'"
+                />
+              </div>
+              <div class="card-back">
+                <mat-card-header>
+                  <mat-card-title class="project-title">{{
+                    project.title
+                  }}</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <p class="project-desc">{{ project.description }}</p>
+
+                  <mat-chip-set *ngIf="project.techs?.length" class="tech-list">
+                    <mat-chip *ngFor="let tech of project.techs" selected>{{
+                      tech
+                    }}</mat-chip>
+                  </mat-chip-set>
+                </mat-card-content>
+
+                <div class="carousel-nav-container">
+                  <button
+                    mat-mini-fab
+                    class="nav prev"
+                    (click)="prev(vp)"
+                    aria-label="Precedente"
+                  >
+                    <mat-icon>chevron_left</mat-icon>
+                  </button>
+                  <button
+                    mat-mini-fab
+                    class="nav next"
+                    (click)="next(vp)"
+                    aria-label="Successivo"
+                  >
+                    <mat-icon>chevron_right</mat-icon>
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- indicatori -->
-        <div class="dots" *ngIf="projects.length > 1">
-          <button
-            mat-icon-button
-            *ngFor="let _ of projects; let i = index"
-            [class.active]="i === currentIndex"
-            (click)="goTo(i, vp)"
-            [attr.aria-label]="'Vai alla slide ' + (i + 1)"
-          >
-            <span class="dot"></span>
-          </button>
+          </mat-card>
         </div>
       </div>
-    </ng-container>
 
-    <!-- DESKTOP: la tua griglia rimane identica -->
+      <!-- indicatori -->
+      <div class="dots" *ngIf="projects.length > 1">
+        <button
+          mat-icon-button
+          *ngFor="let _ of projects; let i = index"
+          [class.active]="i === currentIndex"
+          (click)="goTo(i, vp)"
+          [attr.aria-label]="'Vai alla slide ' + (i + 1)"
+        >
+          <span class="dot"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- DESKTOP -->
     <ng-template #desktopGrid>
       <div class="projects-grid">
-        <div class="card" *ngFor="let project of projects">
+        <mat-card class="card" *ngFor="let project of projects">
           <div class="card-inner" [class.flipped]="project.isFlipped">
             <div class="card-front">
-              <img [src]="project.img" alt="project.png" />
-              <button class="flip-btn" (click)="toggleCardFlip(project)">
+              <img mat-card-image [src]="project.img" alt="project.png" />
+              <button
+                mat-stroked-button
+                color="primary"
+                class="flip-btn"
+                (click)="toggleCardFlip(project)"
+              >
                 Info
               </button>
             </div>
             <div class="card-back">
-              <h3 class="project-title">{{ project.title }}</h3>
-              <p class="project-desc">
-                <span class="desc-inner" data-debug="CIAO">{{
-                  project.description
-                }}</span>
-              </p>
+              <mat-card-header>
+                <mat-card-title class="project-title">{{
+                  project.title
+                }}</mat-card-title>
+              </mat-card-header>
 
-              <ul class="tech-list" *ngIf="project.techs?.length">
-                <li *ngFor="let tech of project.techs">✓ {{ tech }}</li>
-              </ul>
-              <button class="flip-btn" (click)="toggleCardFlip(project)">
+              <mat-card-content>
+                <p class="project-desc">
+                  <span class="desc-inner" data-debug="CIAO">{{
+                    project.description
+                  }}</span>
+                </p>
+
+                <mat-chip-set *ngIf="project.techs?.length" class="tech-list">
+                  <mat-chip *ngFor="let tech of project.techs" selected>{{
+                    tech
+                  }}</mat-chip>
+                </mat-chip-set>
+              </mat-card-content>
+
+              <button
+                mat-stroked-button
+                color="primary"
+                class="flip-btn"
+                (click)="toggleCardFlip(project)"
+              >
                 Torna
               </button>
             </div>
           </div>
-        </div>
+        </mat-card>
       </div>
     </ng-template>
   </div>
