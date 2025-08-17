@@ -4,7 +4,6 @@
 
 <div class="container" [class.flipped]="isFlipped">
   <div class="section hero">
-    <!-- Hero in card -->
     <mat-card class="hero-body">
       <div class="header-container">
         <mat-card-header>
@@ -31,16 +30,12 @@
   </div>
 
   <div class="section projects">
-    <h2>I miei progetti</h2>
-
-    <!-- MOBILE: carosello -->
     <div
       class="carousel"
       role="region"
       aria-label="Progetti in evidenza"
       *ngIf="isMobile$ | async; else desktopGrid"
     >
-      <!-- viewport -->
       <div
         #vp
         class="viewport"
@@ -49,8 +44,9 @@
         aria-live="polite"
       >
         <div class="slide" *ngFor="let project of projects">
-          <!-- Card Material per progetto -->
           <mat-card class="card">
+            <h2>I miei progetti</h2>
+
             <div class="card-inner" [class.flipped]="project.isFlipped">
               <div class="card-front">
                 <img
@@ -101,16 +97,18 @@
       </div>
 
       <!-- indicatori -->
-      <div class="dots" *ngIf="projects.length > 1">
-        <button
-          mat-icon-button
-          *ngFor="let _ of projects; let i = index"
-          [class.active]="i === currentIndex"
-          (click)="goTo(i, vp)"
-          [attr.aria-label]="'Vai alla slide ' + (i + 1)"
-        >
-          <span class="dot"></span>
-        </button>
+      <div class="dots-container">
+        <div class="dots" *ngIf="projects.length > 1">
+          <button
+            mat-icon-button
+            *ngFor="let _ of projects; let i = index"
+            [class.active]="i === currentIndex"
+            (click)="goTo(i, vp)"
+            [attr.aria-label]="'Vai alla slide ' + (i + 1)"
+          >
+            <span class="dot"></span>
+          </button>
+        </div>
       </div>
     </div>
 
