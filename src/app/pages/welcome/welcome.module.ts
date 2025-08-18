@@ -11,6 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar'; // ⬅ per <mat-toolbar>
 import { MatChipsModule } from '@angular/material/chips'; // ⬅ per <mat-chip-set>/<mat-chip>
 import { LayoutModule } from '@angular/cdk/layout';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [WelcomeComponent],
@@ -24,6 +26,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatCardModule,
     MatToolbarModule,
     MatChipsModule,
+    MatDividerModule,
+    MatTooltipModule,
   ],
 })
 export class WelcomeModule {}

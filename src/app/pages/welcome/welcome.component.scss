@@ -5,6 +5,74 @@
   color: #fafafa;
 }
 
+/* Divider */
+.hero-divider {
+  margin-block: 1.25rem;
+  opacity: 0.35;
+}
+
+/* Layout lista */
+.languages {
+  margin-top: 0.5rem;
+}
+
+.language-chip {
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 50%;
+}
+
+.mat-mdc-chip-set {
+  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+
+/* Cerchio percentuale */
+
+.ring--inner {
+  border-radius: 50% !important;
+}
+
+.ring {
+  --size: 80px;
+  --p: 75; /* percentuale default */
+  --track: rgba(255, 255, 255, 0.2);
+  --fill: #3b82f6;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  top: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  border-radius: 50% !important;
+
+  /* bordo con gradiente */
+  border: 3px solid transparent;
+  transform: rotateY(180deg);
+
+  border-image: conic-gradient(var(--fill) calc(var(--p) * 1%), var(--track) 0)
+    1 round;
+
+  /* reset per il contenuto dentro */
+  .ring-label {
+    color: #fafafa;
+    font-weight: 500;
+    transform: rotateY(180deg);
+  }
+}
+
+// ----------------------------------------------------------------------------
 .toggle-main {
   position: fixed;
   left: 0;
@@ -33,7 +101,6 @@
   .projects {
     position: absolute;
     transition: transform 0.8s ease, z-index 0.8s ease;
-    padding-inline: 1rem;
     padding-block: 0.5rem;
   }
 
@@ -213,7 +280,7 @@ h2 {
     padding-block: 0.5rem;
 
     .hero {
-      width: 99%;
+      width: 95%;
       left: 50%;
       top: 0;
       transform: translateX(-50%) rotateY(0deg);
@@ -238,6 +305,16 @@ h2 {
             width: 100%;
             background-color: #fafafa;
           }
+
+          .lenguages {
+            display: flex;
+            flex-wrap: wrap;
+            .lenguage {
+              width: 50%;
+              text-align: center;
+              margin-block: 1.5rem;
+            }
+          }
         }
         .mat-mdc-card-subtitle {
           color: #fafafa;
@@ -251,7 +328,7 @@ h2 {
     }
 
     .projects {
-      width: 90vw;
+      width: 100%;
       display: block;
       top: 1rem;
       left: 0.5rem;
@@ -302,7 +379,6 @@ h2 {
 
   .slide .card {
     width: 100%;
-    max-width: 500px;
     background-color: #212121;
   }
   .slide .card .card-front img {
@@ -402,6 +478,10 @@ h2 {
   }
 
   h2 {
+    font-size: 1rem;
+  }
+
+  .mat-mdc-card-title {
     font-size: 1rem;
   }
 
