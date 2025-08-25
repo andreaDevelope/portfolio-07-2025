@@ -19,19 +19,16 @@
       <div class="card-body-section-hero">
         <mat-divider class="hr" aria-hidden="true"></mat-divider>
 
-        <!-- chips con anello percentuale -->
-        <div class="languages">
-          <mat-chip-set aria-label="Linguaggi e percentuali">
-            <mat-chip
-              *ngFor="let s of skills"
-              class="language-chip circle"
-              [matTooltip]="s.name + ': ' + s.level + '%'"
-            >
-              <span class="ring ring--inner" [style.--p]="s.level">
-                <span class="ring-label">{{ s.name }}</span>
-              </span>
-            </mat-chip>
-          </mat-chip-set>
+        <!-- anello percentuale -->
+        <div class="skills">
+          <div class="skill-data-container" *ngFor="let skill of skills">
+            <div class="skill" [style.--border-level]="skill.level + '%'">
+              <div>
+                <span class="skill-name"> {{ skill.name }} </span>
+              </div>
+            </div>
+            <p class="skill-level">{{ skill.level }}%</p>
+          </div>
         </div>
       </div>
       <mat-card-actions>

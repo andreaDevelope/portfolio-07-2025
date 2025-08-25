@@ -100,9 +100,9 @@ export class WelcomeComponent {
 
   skills = [
     { name: 'Angular', level: 85 },
-    { name: 'TypeScript', level: 80 },
+    { name: 'TS', level: 80 },
     { name: 'Java', level: 75 },
-    { name: 'Spring Boot', level: 70 },
+    { name: 'Spring', level: 70 },
     { name: 'SQL', level: 65 },
   ];
 
