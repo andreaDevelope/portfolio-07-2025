@@ -3,6 +3,22 @@
   margin: 0;
   padding: 0;
   color: #fafafa;
+  font-size: 0.8rem;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mdc-button__label {
+  font-size: 0.6rem;
+}
+
+.card {
+  border: 3px solid #fafafa;
 }
 
 .hero-divider {
@@ -27,8 +43,9 @@
 .container {
   margin-inline: auto;
   position: relative;
-  padding-inline: 1.5rem;
   perspective: 1000px;
+  padding-inline: 0;
+  padding-block: 0.5rem;
 
   .section {
     width: 90%;
@@ -42,20 +59,123 @@
   }
 
   .hero {
+    width: 95%;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%) rotateY(0deg);
     z-index: 10;
-    transform: rotateY(0deg);
-    header {
+    .hero-body {
       display: flex;
       justify-content: space-between;
+      background-color: #212121;
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        margin-block: 1rem;
+        .welcome-container {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+
+      .mat-mdc-card-title {
+        font-size: 1.1rem;
+        width: 100%;
+      }
+      .card-body-section-hero {
+        .hr {
+          margin-block: 1.5rem;
+          height: 2px;
+          width: 100%;
+          background-color: #fafafa;
+        }
+
+        /* Cerchio percentuale */
+
+        .skills {
+          display: flex;
+          gap: 1rem;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin-block: 6rem;
+
+          .skill-level {
+            margin-top: 0.5rem;
+          }
+
+          .skill-data-container {
+            text-align: center;
+            .skill {
+              position: relative;
+              width: 80px;
+              height: 80px;
+              border-radius: 50%; // <--- serve qui per il contenitore
+              background: #111; // colore interno (sfondo)
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              &::before {
+                content: "";
+                position: absolute;
+                inset: 0; // copre tutto il box
+                border-radius: 50%; // mantiene la forma circolare
+                padding: 5px; // spessore del bordo
+                background: linear-gradient(
+                  to right,
+                  #4caf50 var(--border-level),
+                  #ccc var(--border-level)
+                );
+                -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                  linear-gradient(#fff 0 0);
+                -webkit-mask-composite: destination-out;
+
+                mask: linear-gradient(#fff 0 0) content-box,
+                  linear-gradient(#fff 0 0);
+                mask-composite: exclude;
+              }
+
+              .skill-name {
+                position: relative;
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                z-index: 1; // sopra il bordo
+              }
+            }
+          }
+        }
+      }
+      .mat-mdc-card-subtitle {
+        color: #fafafa;
+      }
+      .img-container {
+        position: relative;
+        text-align: center;
+        max-width: 350px;
+      }
+      img {
+        width: 160px;
+        border-radius: 1rem;
+        margin-right: 1rem;
+        z-index: 1000;
+      }
+      .cornice {
+        position: absolute;
+        top: 30%;
+        left: 40%;
+        width: 130px;
+        height: 130px;
+        border: 2px solid #fafafa;
+      }
     }
   }
 
-  .logo img {
-    width: 50px;
-  }
-
   .projects {
-    left: 60%;
+    left: 50%;
     top: 50px;
     transform: translateX(-50%) rotateY(-180deg);
     z-index: 5;
@@ -64,7 +184,7 @@
 
   &.flipped {
     .hero {
-      transform: rotateY(180deg);
+      transform: translateX(-50%) rotateY(180deg);
       z-index: 5;
     }
     .projects {
@@ -74,423 +194,124 @@
   }
 }
 
-h2 {
-  margin-bottom: 1rem;
-  font-weight: bold;
-  margin-top: 0.5rem;
-  text-align: center;
+.carousel {
+  position: relative;
+  margin-inline: auto;
+  max-width: 90vw;
+}
+
+.viewport {
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 1rem;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slide {
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.slide .card {
+  width: 100%;
+  background-color: #0d47a1;
+}
+.slide .card .card-front img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: block;
+  object-position: center;
+}
+
+.carousel-nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  padding-inline: 1rem;
+}
+
+.dots-container {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+
+  .dots {
+    button {
+      width: 20px;
+      height: 20px;
+    }
+    .dot {
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.25);
+    }
+    .active .dot {
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
 }
 
 .projects-grid {
   display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  .card {
+    flex: 1 1 calc(33% - 1rem);
+    max-width: 500px;
+    min-width: 200px;
+    position: relative;
+    perspective: 800px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+.mat-mdc-card-image {
+  object-fit: contain;
+}
+.card-back {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  perspective: 1000px;
+  justify-content: center;
+  .project-title {
+    // margin-top: 2rem;
+  }
 
-  .card {
-    max-width: 500px;
-    height: auto;
-    border: 3px, solid #fafafa;
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-      z-index: 1;
-      &.flipped {
-        transform: rotateY(180deg);
-        z-index: 5;
-      }
-
-      .card-front,
-      .card-back {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-
-      .card-front {
-        position: relative;
-        overflow: visible;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
-      }
-
-      .card-back {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        padding: 1rem;
-        transform: rotateY(180deg);
-        opacity: 0;
-        transition: opacity 0.5s ease 0.3s;
-
-        p {
-          text-align: center;
-        }
-      }
-      &.flipped .card-back {
-        opacity: 1;
-      }
-    }
-
-    .flip-btn {
-      position: absolute;
-      bottom: -1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.6);
-      border: none;
-      border-radius: 1rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-
-      &:hover {
-        background: rgba(0, 0, 0, 0.8);
-      }
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: -0.6rem;
-        left: 50%;
-        transform: translateX(-50%);
-        border-left: 0.6rem solid transparent;
-        border-right: 0.6rem solid transparent;
-        border-bottom: 0.6rem solid rgba(0, 0, 0, 0.6);
-      }
-    }
+  .mat-mdc-card-content {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
-
-.tech-list {
+.card-back .project-desc {
+  margin-top: 1.5rem;
+  inline-size: 200px;
   width: 70%;
-  list-style: none;
-  text-align: center;
-
-  margin-block: 0.5rem;
-  padding: 0;
-  li {
-    margin-block: 2rem;
-    font-size: 0.95rem;
-  }
+  word-wrap: break-word;
+  text-align: left;
 }
 
-.flip-btn {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-.card-inner:not(.flipped) .card-front .flip-btn {
-  opacity: 1;
-  transition-delay: 0.4s;
-}
-.card-inner.flipped .card-front .flip-btn {
-  opacity: 0;
-  transition-delay: 0s;
-}
-.card-inner.flipped .card-back .flip-btn {
-  opacity: 1;
-  transition-delay: 0.4s;
-}
-.card-inner:not(.flipped) .card-back .flip-btn {
-  opacity: 0;
-  transition-delay: 0s;
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding-inline: 0;
-    padding-block: 0.5rem;
-
-    .hero {
-      width: 95%;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%) rotateY(0deg);
-      z-index: 0;
-      .hero-body {
-        display: flex;
-        justify-content: space-between;
-        background-color: #212121;
-
-        .header-container {
-          display: flex;
-          justify-content: space-between;
-          margin-block: 1rem;
-          .welcome-container {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-          }
-        }
-
-        .mat-mdc-card-title {
-          font-size: 1.1rem;
-          width: 100%;
-        }
-        .card-body-section-hero {
-          .hr {
-            margin-block: 1.5rem;
-            height: 2px;
-            width: 100%;
-            background-color: #fafafa;
-          }
-
-          /* Cerchio percentuale */
-
-          .skills {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-block: 6rem;
-
-            .skill-level {
-              margin-top: 0.5rem;
-            }
-
-            .skill-data-container {
-              text-align: center;
-              .skill {
-                position: relative;
-                width: 80px;
-                height: 80px;
-                border-radius: 50%; // <--- serve qui per il contenitore
-                background: #111; // colore interno (sfondo)
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                &::before {
-                  content: "";
-                  position: absolute;
-                  inset: 0; // copre tutto il box
-                  border-radius: 50%; // mantiene la forma circolare
-                  padding: 5px; // spessore del bordo
-                  background: linear-gradient(
-                    to right,
-                    #4caf50 var(--border-level),
-                    #ccc var(--border-level)
-                  );
-                  -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
-                  -webkit-mask-composite: destination-out;
-
-                  mask: linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
-                  mask-composite: exclude;
-                }
-
-                .skill-name {
-                  position: relative;
-                  font-size: 0.8rem;
-                  font-weight: bold;
-                  color: white;
-                  text-align: center;
-                  z-index: 1; // sopra il bordo
-                }
-              }
-            }
-          }
-        }
-        .mat-mdc-card-subtitle {
-          color: #fafafa;
-        }
-        .img-container {
-          position: relative;
-          text-align: center;
-          max-width: 350px;
-        }
-        img {
-          width: 160px;
-          border-radius: 1rem;
-          margin-right: 1rem;
-          z-index: 1000;
-        }
-        .cornice {
-          position: absolute;
-          top: 30%;
-          left: 40%;
-          width: 130px;
-          height: 130px;
-          border: 2px solid #fafafa;
-        }
-      }
-    }
-
-    .projects {
-      width: 100%;
-      display: block;
-      top: 1rem;
-      left: 0.5rem;
-      transform: translateX(-98%);
-      transition: transform 0.8s ease;
-      z-index: 9;
-    }
-
-    &.flipped {
-      .hero {
-        transform: translateX(-50%);
-      }
-      .projects {
-        transform: translateX(0);
-        z-index: 11;
-      }
-    }
-  }
-
-  .carousel {
-    position: relative;
-    margin-inline: auto;
-    max-width: 90vw;
-  }
-
-  .viewport {
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    gap: 1rem;
-
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
-  .slide {
-    scroll-snap-align: center;
-    display: flex;
-    justify-content: center;
-  }
-
-  .slide .card {
-    width: 100%;
-    background-color: #0d47a1;
-  }
-  .slide .card .card-front img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    display: block;
-    object-position: center;
-  }
-
-  .carousel-nav-container {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 100px;
-    padding-inline: 1rem;
-  }
-
-  .dots-container {
-    height: 100px;
-    display: flex;
-    justify-content: center;
-
-    .dots {
-      button {
-        width: 20px;
-        height: 20px;
-      }
-      .dot {
-        display: block;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.25);
-      }
-      .active .dot {
-        background: rgba(0, 0, 0, 0.7);
-      }
-    }
-  }
-
-  .projects-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    .card {
-      flex: 1 1 calc(33% - 1rem);
-      max-width: 500px;
-      min-width: 200px;
-      position: relative;
-      perspective: 800px;
-
-      img {
-        width: 100%;
-      }
-    }
-  }
-  .mat-mdc-card-image {
-    object-fit: contain;
-  }
-  .card-back {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    .project-title {
-      // margin-top: 2rem;
-    }
-
-    .mat-mdc-card-content {
-      height: 400px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  .card-back .project-desc {
-    margin-top: 1.5rem;
-    inline-size: 200px;
-    width: 70%;
-    word-wrap: break-word;
-    text-align: left;
-  }
-}
-
-@media (max-width: 410px) {
+@media (min-width: 410px) {
   * {
-    font-size: 0.8rem;
-  }
-
-  .header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  h2 {
     font-size: 1rem;
-  }
-
-  .mat-mdc-card-title {
-    font-size: 1rem;
-  }
-
-  .card {
-    border: 3px, solid #fafafa;
   }
 }
