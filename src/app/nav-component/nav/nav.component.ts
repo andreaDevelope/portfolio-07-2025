@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FlipService } from '../../services/flip.service';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCardActions } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-nav',
   standalone: true, // 👈 lo rende standalone
-  imports: [MatButtonModule, MatCardActions],
+  imports: [MatButtonModule, MatToolbarModule],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
 })

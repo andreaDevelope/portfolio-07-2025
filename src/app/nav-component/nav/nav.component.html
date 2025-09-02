@@ -1,8 +1,15 @@
-<mat-card-actions class="nav-container">
-  <button mat-raised-button color="primary" (click)="flipTogle()">
-    {{ isFlipped ? "Bio" : "progetti" }}
+<mat-toolbar color="primary" class="nav-container">
+  <img
+    src="../../../assets/img/ceccarelli-logo.jpeg"
+    alt="logo.jpeg"
+    class="logo"
+  />
+
+  <span class="spacer"></span>
+
+  <button mat-button (click)="flipTogle()">
+    {{ isFlipped ? "Bio" : "Progetti" }}
   </button>
-  <a mat-stroked-button color="primary" href="mailto:tuo.email@esempio.com"
-    >Scrivimi</a
-  >
-</mat-card-actions>
+
+  <a mat-button href="mailto:tuo.email@esempio.com"> Scrivimi </a>
+</mat-toolbar>
