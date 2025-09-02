@@ -58,7 +58,7 @@
       .header-container {
         display: flex;
         justify-content: space-between;
-        margin-block: 1rem;
+        margin-top: 4rem;
         .welcome-container {
           display: flex;
           justify-content: center;
@@ -185,7 +185,7 @@
       z-index: 0;
     }
     .projects {
-      transform: translateX(0);
+      transform: translateX(10%);
       z-index: 11;
     }
   }
@@ -217,7 +217,7 @@
 .slide {
   scroll-snap-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .slide .card {

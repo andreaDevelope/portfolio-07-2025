@@ -1,3 +1,4 @@
+import { FlipService } from './../../services/flip.service';
 import { Component } from '@angular/core';
 import { IProject } from '../../interfaces/iproject';
 import { map, Observable } from 'rxjs';
@@ -106,14 +107,17 @@ export class WelcomeComponent {
     { name: 'SQL', level: 65 },
   ];
 
-  constructor(private bp: BreakpointObserver) {
+  constructor(
+    private bp: BreakpointObserver,
+    private flipService: FlipService
+  ) {
     this.isMobile$ = this.bp
       .observe('(max-width: 768px)')
       .pipe(map((r) => r.matches));
   }
 
-  toggleFlip() {
-    this.isFlipped = !this.isFlipped;
+  ngOnInit() {
+    this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
   }
 
   toggleCardFlip(project: IProject) {

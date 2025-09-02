@@ -1,5 +1,6 @@
 <div class="welcome-container">
   <div class="container" [class.flipped]="isFlipped">
+    <app-nav></app-nav>
     <div class="section hero">
       <mat-card class="hero-body">
         <div class="header-container">
@@ -44,17 +45,6 @@
             </div>
           </div>
         </div>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="toggleFlip()">
-            {{ isFlipped ? "Bio" : "Progetti" }}
-          </button>
-          <a
-            mat-stroked-button
-            color="primary"
-            href="mailto:tuo.email@esempio.com"
-            >Scrivimi</a
-          >
-        </mat-card-actions>
       </mat-card>
     </div>
 
@@ -74,6 +64,8 @@
         >
           <div class="slide" *ngFor="let project of projects">
             <mat-card class="card">
+              <app-nav></app-nav>
+
               <h2>I miei progetti</h2>
 
               <div class="card-inner" [class.flipped]="project.isFlipped">
@@ -103,19 +95,30 @@
                       }}</mat-chip>
                     </mat-chip-set>
                   </mat-card-content>
+
+                  <div class="carousel-nav-container">
+                    <button
+                      mat-mini-fab
+                      class="nav prev"
+                      (click)="prev(vp)"
+                      aria-label="Precedente"
+                    >
+                      <mat-icon>chevron_left</mat-icon>
+                    </button>
+                    <button
+                      mat-mini-fab
+                      class="nav next"
+                      (click)="next(vp)"
+                      aria-label="Successivo"
+                    >
+                      <mat-icon>chevron_right</mat-icon>
+                    </button>
+                  </div>
                 </div>
               </div>
             </mat-card>
           </div>
         </div>
-        <button
-          mat-raised-button
-          color="primary"
-          class="project-btn-toggle"
-          (click)="toggleFlip()"
-        >
-          {{ isFlipped ? "Bio" : "Progetti" }}
-        </button>
 
         <!-- indicatori -->
         <div class="dots-container">

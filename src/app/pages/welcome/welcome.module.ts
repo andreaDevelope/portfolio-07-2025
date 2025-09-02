@@ -13,6 +13,7 @@ import { MatChipsModule } from '@angular/material/chips'; // ⬅ per <mat-chip-s
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { NavComponent } from '../../nav-component/nav/nav.component';
 
 @NgModule({
   declarations: [WelcomeComponent],
@@ -28,6 +29,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatChipsModule,
     MatDividerModule,
     MatTooltipModule,
+    NavComponent,
   ],
 })
 export class WelcomeModule {}
