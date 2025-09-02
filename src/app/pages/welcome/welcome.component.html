@@ -1,4 +1,9 @@
 <div class="welcome-container">
+  <div class="matrix-container">
+    <div class="matrix-pattern" *ngFor="let _ of patterns">
+      <div class="matrix-column" *ngFor="let _ of columns"></div>
+    </div>
+  </div>
   <div class="container" [class.flipped]="isFlipped">
     <div class="section hero">
       <app-nav></app-nav>
@@ -16,35 +21,97 @@
                 SQL</mat-card-subtitle
               >
               <div class="cta" role="group" aria-label="Call to action">
+                <!-- go to project button -->
                 <button
-                  mat-raised-button
-                  color="primary"
+                  class="animated-button"
                   (click)="goToProjects()"
                   aria-label="Vai ai progetti"
                 >
-                  <mat-icon>visibility</mat-icon>
-                  <span>Vedi progetti</span>
+                  <!-- icona entrante -->
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="2.5"></circle>
+                  </svg>
+
+                  <span class="text">Vedi progetti</span>
+                  <span class="circle"></span>
+
+                  <!-- icona uscente -->
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"
+                    ></path>
+                    <circle cx="12" cy="12" r="2.5"></circle>
+                  </svg>
                 </button>
 
-                <!-- se tieni il CV negli assets, metti il path giusto -->
+                <!-- dowload CV:  -->
                 <a
-                  mat-stroked-button
-                  color="accent"
+                  class="animated-button"
                   href="assets/cv/Andrea_Ceccarelli_CV.pdf"
                   download
                   aria-label="Scarica il mio curriculum"
                 >
-                  <mat-icon>file_download</mat-icon>
-                  <span>Scarica CV</span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2 download-btn"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
+                  <span class="text">Scarica CV</span>
+                  <span class="circle"></span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1 download-btn"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
                 </a>
 
+                <!--  Scrivimi email  -->
                 <a
-                  mat-button
-                  class="link-ghost"
+                  class="animated-button"
                   href="mailto:tuo.email@esempio.com"
                   aria-label="Scrivimi via email"
                 >
-                  Scrivimi
+                  <!-- icona entrante -->
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M4 4h16v16H4z" fill="none"></path>
+                    <path d="M4 8l8 5 8-5v10H4V8zm8 3L4 6h16l-8 5z"></path>
+                  </svg>
+
+                  <span class="text">Scrivimi</span>
+                  <span class="circle"></span>
+
+                  <!-- icona uscente -->
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M4 4h16v16H4z" fill="none"></path>
+                    <path d="M4 8l8 5 8-5v10H4V8zm8 3L4 6h16l-8 5z"></path>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -61,15 +128,13 @@
               src="../../../assets/img/lenee-astratte-removebg.png"
               alt=""
             />
-
-            <!-- <img src="../../../assets/img/linea.png" alt="" /> -->
           </div>
         </div>
 
         <div class="card-body-section-hero">
           <mat-divider class="hr" aria-hidden="true"></mat-divider>
 
-          <!-- anello percentuale -->
+          <!-- skills ring-->
           <div class="skills">
             <div class="skill-data-container" *ngFor="let skill of skills">
               <div class="skill" [style.--border-level]="skill.level + '%'">

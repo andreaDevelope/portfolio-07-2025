@@ -10,6 +10,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrl: './welcome.component.scss',
 })
 export class WelcomeComponent {
+  patterns = Array.from({ length: 5 });
+  columns = Array.from({ length: 40 });
   isFlipped = false;
   isMobile$!: Observable<boolean>;
   currentIndex = 0;
