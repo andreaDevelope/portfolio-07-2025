@@ -145,4 +145,8 @@ export class WelcomeComponent {
   onScroll(vp: HTMLElement) {
     this.currentIndex = Math.round(vp.scrollLeft / this.slideWidth(vp));
   }
+
+  goToProjects(): void {
+    this.flipService.toggle();
+  }
 }

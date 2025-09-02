@@ -12,6 +12,35 @@
   gap: 1rem;
 }
 
+.section.hero .hero-body .bio-title mat-card-title {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.section.hero .hero-body .bio-title mat-card-subtitle {
+  margin-top: 0.25rem;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.section.hero .hero-body .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.section.hero .hero-body .cta button,
+.section.hero .hero-body .cta a[mat-stroked-button] {
+  border-radius: 9999px;
+}
+
+.section.hero .hero-body .cta .link-ghost {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
 .projects .project-btn-toggle .mdc-button__label {
   font-size: 0.6rem;
 }
@@ -65,10 +94,6 @@
         }
       }
 
-      .mat-mdc-card-title {
-        font-size: 1.1rem;
-        width: 100%;
-      }
       .card-body-section-hero {
         .hr {
           margin-block: 1.5rem;
@@ -316,8 +341,9 @@
     justify-content: start;
   }
 
-  .bio-title {
+  ::ng-deep .mat-mdc-card-title {
     width: 70%;
+    font-size: 1.6rem !important;
   }
 }
 

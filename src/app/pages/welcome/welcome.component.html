@@ -11,7 +11,42 @@
                 >Benvenuto, <br />
                 Sono Andrea Ceccarelli.</mat-card-title
               >
-              <mat-card-subtitle>Web Developer</mat-card-subtitle>
+              <mat-card-subtitle
+                >Full-Stack Developer – Angular | Spring Boot |
+                SQL</mat-card-subtitle
+              >
+              <div class="cta" role="group" aria-label="Call to action">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  (click)="goToProjects()"
+                  aria-label="Vai ai progetti"
+                >
+                  <mat-icon>visibility</mat-icon>
+                  <span>Vedi progetti</span>
+                </button>
+
+                <!-- se tieni il CV negli assets, metti il path giusto -->
+                <a
+                  mat-stroked-button
+                  color="accent"
+                  href="assets/cv/Andrea_Ceccarelli_CV.pdf"
+                  download
+                  aria-label="Scarica il mio curriculum"
+                >
+                  <mat-icon>file_download</mat-icon>
+                  <span>Scarica CV</span>
+                </a>
+
+                <a
+                  mat-button
+                  class="link-ghost"
+                  href="mailto:tuo.email@esempio.com"
+                  aria-label="Scrivimi via email"
+                >
+                  Scrivimi
+                </a>
+              </div>
             </div>
           </mat-card-header>
           <div class="img-container">
