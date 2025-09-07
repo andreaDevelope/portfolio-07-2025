@@ -11,7 +11,10 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class WelcomeComponent {
   patterns = Array.from({ length: 5 });
-  columns = Array.from({ length: 40 });
+  columns: any[] = [];
+  colWidth: number = 25;
+  maxWidth: number = 5000;
+  count: number = Math.floor(this.maxWidth / this.colWidth);
   isFlipped = false;
   isMobile$!: Observable<boolean>;
   currentIndex = 0;
@@ -120,6 +123,11 @@ export class WelcomeComponent {
 
   ngOnInit() {
     this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
+    this.columns = Array.from({ length: this.count }, (_, i) => ({
+      left: i * this.colWidth,
+      delay: -(Math.random() * 4).toFixed(1) + 's',
+      duration: (2 + Math.random() * 2).toFixed(1) + 's',
+    }));
   }
 
   toggleCardFlip(project: IProject) {

@@ -1,7 +1,13 @@
 <div class="welcome-container">
   <div class="matrix-container">
     <div class="matrix-pattern" *ngFor="let _ of patterns">
-      <div class="matrix-column" *ngFor="let _ of columns"></div>
+      <div
+        class="matrix-column"
+        *ngFor="let col of columns"
+        [style.left.px]="col.left"
+        [style.animation-delay]="col.delay"
+        [style.animation-duration]="col.duration"
+      ></div>
     </div>
   </div>
   <div class="container" [class.flipped]="isFlipped">
