@@ -6,12 +6,33 @@
   font-size: 0.8rem;
 }
 
+body,
+p,
+span,
+a,
+button,
+.mat-mdc-card-subtitle,
+.mat-mdc-card-content {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1,
+h2,
+.mat-mdc-card-title {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2rem;
+  text-align: center;
+}
+
 /*inzio sfondo*/
 .matrix-container {
   position: relative;
   width: 100%;
   height: 100%;
-  background: #000;
   display: flex;
 }
 
@@ -326,12 +347,16 @@
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   line-height: 1.15;
   margin: 0;
+  text-align: center;
+  width: 100%;
+  font-size: 2rem !important;
 }
 
 .section.hero .hero-body .bio-title mat-card-subtitle {
   margin-top: 0.25rem;
   opacity: 0.9;
   font-weight: 500;
+  text-align: center;
 }
 
 .section.hero .hero-body .cta {
@@ -339,6 +364,7 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 // .section.hero .hero-body .cta button,
@@ -423,6 +449,7 @@
   z-index: 1;
   transform: translateX(-12px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 0.8rem;
 }
 
 .animated-button:hover {
@@ -493,6 +520,8 @@
     transform: translateX(-50%) rotateY(0deg);
     z-index: 0;
     .hero-body {
+      margin-inline: auto;
+      width: 80%;
       display: flex;
       justify-content: space-between;
       background-color: #212121;
@@ -500,7 +529,8 @@
       .header-container {
         display: flex;
         justify-content: space-between;
-        margin-top: 4rem;
+        margin-block: 4rem;
+
         .welcome-container {
           display: flex;
           justify-content: center;
@@ -596,6 +626,26 @@
         width: 130px;
         height: 130px;
         border: 2px solid #fafafa;
+        /* glow iniziale */
+        box-shadow: 0 0 15px rgba(0, 255, 65, 0.6),
+          0 0 30px rgba(0, 255, 65, 0.4);
+
+        /* animazione pulsante */
+        animation: pulse-glow 3s ease-in-out infinite;
+      }
+      @keyframes pulse-glow {
+        0% {
+          box-shadow: 0 0 8px rgba(0, 255, 65, 0.4),
+            0 0 20px rgba(0, 255, 65, 0.3);
+        }
+        50% {
+          box-shadow: 0 0 12px rgba(0, 255, 65, 0.8),
+            0 0 50px rgba(0, 255, 65, 0.5);
+        }
+        100% {
+          box-shadow: 0 0 8px rgba(0, 255, 65, 0.4),
+            0 0 12px rgba(0, 255, 65, 0.3);
+        }
       }
     }
   }
@@ -662,6 +712,7 @@
   width: 100%;
   background-color: #0d47a1;
 }
+
 .slide .card .card-front img {
   width: 100%;
   height: 300px;

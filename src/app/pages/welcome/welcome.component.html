@@ -6,20 +6,31 @@
   </div>
   <div class="container" [class.flipped]="isFlipped">
     <div class="section hero">
-      <app-nav></app-nav>
-
       <mat-card class="hero-body">
         <div class="header-container">
           <mat-card-header class="welcome-container">
             <div class="bio-title">
-              <mat-card-title
-                >Benvenuto, <br />
-                Sono Andrea Ceccarelli.</mat-card-title
-              >
+              <h1>
+                Benvenuto, <br />
+                Sono Andrea Ceccarelli.
+              </h1>
               <mat-card-subtitle
                 >Full-Stack Developer – Angular | Spring Boot |
                 SQL</mat-card-subtitle
               >
+              <div class="img-container">
+                <img
+                  mat-card-image
+                  src="../../../assets/img/ritratto-removebg.png"
+                  alt="foto.jpg"
+                />
+                <div class="cornice"></div>
+                <img
+                  class="linee-astratte"
+                  src="../../../assets/img/lenee-astratte-removebg.png"
+                  alt=""
+                />
+              </div>
               <div class="cta" role="group" aria-label="Call to action">
                 <!-- go to project button -->
                 <button
@@ -116,33 +127,36 @@
               </div>
             </div>
           </mat-card-header>
-          <div class="img-container">
-            <img
-              mat-card-image
-              src="../../../assets/img/ritratto-removebg.png"
-              alt="foto.jpg"
-            />
-            <div class="cornice"></div>
-            <img
-              class="linee-astratte"
-              src="../../../assets/img/lenee-astratte-removebg.png"
-              alt=""
-            />
-          </div>
         </div>
 
         <div class="card-body-section-hero">
           <mat-divider class="hr" aria-hidden="true"></mat-divider>
 
           <!-- skills ring-->
-          <div class="skills">
-            <div class="skill-data-container" *ngFor="let skill of skills">
-              <div class="skill" [style.--border-level]="skill.level + '%'">
-                <div>
-                  <span class="skill-name"> {{ skill.name }} </span>
+          <div class="skills-container">
+            <h2>SKILLS</h2>
+            <div class="skills">
+              <div class="skill-data-container" *ngFor="let skill of skills">
+                <div class="skill" [style.--border-level]="skill.level + '%'">
+                  <div>
+                    <span class="skill-name"> {{ skill.name }} </span>
+                  </div>
                 </div>
+                <p class="skill-level">{{ skill.level }}%</p>
               </div>
-              <p class="skill-level">{{ skill.level }}%</p>
+            </div>
+
+            <h2>SOFT SKILLS</h2>
+
+            <div class="skills">
+              <div class="skill-data-container" *ngFor="let skill of skills">
+                <div class="skill" [style.--border-level]="skill.level + '%'">
+                  <div>
+                    <span class="skill-name"> {{ skill.name }} </span>
+                  </div>
+                </div>
+                <p class="skill-level">{{ skill.level }}%</p>
+              </div>
             </div>
           </div>
         </div>
@@ -164,9 +178,7 @@
           aria-live="polite"
         >
           <div class="slide" *ngFor="let project of projects">
-            <mat-card class="card">
-              <app-nav></app-nav>
-
+            <mat-card class="card prj">
               <h2>I miei progetti</h2>
 
               <div class="card-inner" [class.flipped]="project.isFlipped">

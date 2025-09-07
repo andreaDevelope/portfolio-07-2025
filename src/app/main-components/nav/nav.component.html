@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="nav-container">
+<mat-toolbar class="nav-container">
   <img
     src="../../../assets/img/ceccarelli-logo.jpeg"
     alt="logo.jpeg"
@@ -7,9 +7,9 @@
 
   <span class="spacer"></span>
 
-  <button mat-button (click)="flipTogle()">
+  <button class="btn" (click)="flipTogle()">
     {{ isFlipped ? "Bio" : "Progetti" }}
   </button>
 
-  <a mat-button href="mailto:tuo.email@esempio.com"> Scrivimi </a>
+  <button class="btn">Scrivimi</button>
 </mat-toolbar>
