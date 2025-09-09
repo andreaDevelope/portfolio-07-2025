@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IProject } from '../../interfaces/iproject';
 import { map, Observable } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
@@ -17,6 +18,8 @@ export class WelcomeComponent {
   count: number = Math.floor(this.maxWidth / this.colWidth);
   isFlipped = false;
   isMobile$!: Observable<boolean>;
+  @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
+  @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
   currentIndex = 0;
   projects: IProject[] = [
     {
@@ -104,13 +107,40 @@ export class WelcomeComponent {
     },
   ];
 
-  skills = [
-    { name: 'Angular', level: 85 },
-    { name: 'TS', level: 80 },
-    { name: 'Java', level: 75 },
-    { name: 'Spring', level: 70 },
-    { name: 'SQL', level: 65 },
-  ];
+  skills = {
+    languages: [
+      {
+        name: 'TypeScript',
+        level: 80,
+        icon: 'devicon-typescript-plain colored',
+      },
+      { name: 'Java', level: 75, icon: 'devicon-java-plain colored' },
+      { name: 'SQL', level: 65, icon: 'devicon-mysql-plain colored' },
+    ],
+
+    frameworks: [
+      { name: 'Angular', level: 85, icon: 'devicon-angular-plain colored' },
+      { name: 'Spring', level: 70, icon: 'devicon-spring-plain colored' },
+    ],
+
+    libraries: [
+      { name: 'RxJS', level: 70, icon: 'devicon-react-plain colored' },
+      { name: 'Recharts', level: 60, icon: 'devicon-javascript-plain colored' },
+    ],
+
+    tools: [
+      { name: 'Git', level: 80, icon: 'devicon-git-plain colored' },
+      { name: 'Docker', level: 60, icon: 'devicon-docker-plain colored' },
+      { name: 'Postman', level: 65, icon: 'devicon-postman-plain colored' },
+    ],
+    soft: [
+      { name: 'Problem Solving', level: 85, icon: 'psychology' },
+      { name: 'Teamwork', level: 80, icon: 'group' },
+      { name: 'Comunicazione', level: 75, icon: 'chat' },
+      { name: 'Comunicazione', level: 75, icon: 'chat' },
+      { name: 'Comunicazione', level: 75, icon: 'chat' },
+    ],
+  };
 
   constructor(
     private bp: BreakpointObserver,
@@ -128,6 +158,28 @@ export class WelcomeComponent {
       delay: -(Math.random() * 4).toFixed(1) + 's',
       duration: (2 + Math.random() * 2).toFixed(1) + 's',
     }));
+  }
+
+  ngAfterViewInit() {
+    const options = {
+      root: null,
+      threshold: 0,
+      rootMargin: `0px 0px -50% 0px`,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          el.classList.add('animate-title');
+        } else {
+          el.classList.remove('animate-title');
+        }
+      });
+    }, options);
+
+    observer.observe(this.hardSkillTitle.nativeElement);
+    observer.observe(this.softSkillTitle.nativeElement);
   }
 
   toggleCardFlip(project: IProject) {

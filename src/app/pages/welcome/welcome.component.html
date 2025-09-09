@@ -1,6 +1,6 @@
 <div class="welcome-container">
   <div class="matrix-container">
-    <div class="matrix-pattern" *ngFor="let _ of patterns">
+    <!-- <div class="matrix-pattern" *ngFor="let _ of patterns">
       <div
         class="matrix-column"
         *ngFor="let col of columns"
@@ -8,7 +8,7 @@
         [style.animation-delay]="col.delay"
         [style.animation-duration]="col.duration"
       ></div>
-    </div>
+    </div> -->
   </div>
   <div class="container" [class.flipped]="isFlipped">
     <div class="section hero">
@@ -140,26 +140,81 @@
 
           <!-- skills ring-->
           <div class="skills-container">
-            <h2>SKILLS</h2>
+            <h2 #hardSkillTitle class="h2-hard-skills">HARD SKILLS</h2>
+
+            <!-- Linguaggi -->
+            <h3 class="languages">Linguaggi</h3>
             <div class="skills">
-              <div class="skill-data-container" *ngFor="let skill of skills">
+              <div
+                class="skill-data-container"
+                *ngFor="let skill of skills.languages"
+              >
                 <div class="skill" [style.--border-level]="skill.level + '%'">
-                  <div>
-                    <span class="skill-name"> {{ skill.name }} </span>
-                  </div>
+                  <i *ngIf="skill.icon" class="{{ skill.icon }} skill-icon"></i>
+                  <span class="skill-name">{{ skill.name }}</span>
                 </div>
                 <p class="skill-level">{{ skill.level }}%</p>
               </div>
             </div>
 
-            <h2>SOFT SKILLS</h2>
-
+            <!-- Framework -->
+            <h3>Framework</h3>
             <div class="skills">
-              <div class="skill-data-container" *ngFor="let skill of skills">
+              <div
+                class="skill-data-container"
+                *ngFor="let skill of skills.frameworks"
+              >
                 <div class="skill" [style.--border-level]="skill.level + '%'">
-                  <div>
-                    <span class="skill-name"> {{ skill.name }} </span>
-                  </div>
+                  <i *ngIf="skill.icon" class="{{ skill.icon }} skill-icon"></i>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <p class="skill-level">{{ skill.level }}%</p>
+              </div>
+            </div>
+
+            <!-- Librerie -->
+            <h3>Librerie</h3>
+            <div class="skills">
+              <div
+                class="skill-data-container"
+                *ngFor="let skill of skills.libraries"
+              >
+                <div class="skill" [style.--border-level]="skill.level + '%'">
+                  <i *ngIf="skill.icon" class="{{ skill.icon }} skill-icon"></i>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <p class="skill-level">{{ skill.level }}%</p>
+              </div>
+            </div>
+
+            <!-- Tools -->
+            <h3>Tools</h3>
+            <div class="skills">
+              <div
+                class="skill-data-container"
+                *ngFor="let skill of skills.tools"
+              >
+                <div class="skill" [style.--border-level]="skill.level + '%'">
+                  <i *ngIf="skill.icon" class="{{ skill.icon }} skill-icon"></i>
+                  <span class="skill-name">{{ skill.name }}</span>
+                </div>
+                <p class="skill-level">{{ skill.level }}%</p>
+              </div>
+            </div>
+
+            <!-- Soft Skills -->
+            <h2 #softSkillTitle class="h2-soft-skills">SOFT SKILLS</h2>
+            <div class="skills">
+              <div
+                class="skill-data-container"
+                *ngFor="let skill of skills.soft"
+              >
+                <div
+                  class="skill soft-skill"
+                  [style.--border-level]="skill.level + '%'"
+                >
+                  <mat-icon>{{ skill.icon }}</mat-icon>
+                  <span class="skill-name">{{ skill.name }}</span>
                 </div>
                 <p class="skill-level">{{ skill.level }}%</p>
               </div>

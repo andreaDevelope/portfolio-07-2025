@@ -28,6 +28,28 @@ h2,
   text-align: center;
 }
 
+h2 {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  display: inline-block;
+  text-align: center;
+}
+
+h3 {
+  font-family: "Lobster Two", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  text-align: center;
+
+  font-size: 1.4rem;
+}
+
+.languages {
+  margin-top: 3rem;
+}
+
 /*inzio sfondo*/
 .matrix-container {
   overflow-x: clip;
@@ -339,6 +361,13 @@ h2,
       }
 
       .card-body-section-hero {
+        .h2-hard-skills {
+          color: #00ff41;
+        }
+
+        .h2-soft-skills {
+          color: #2196f3;
+        }
         .hr {
           margin-block: 1.5rem;
           height: 2px;
@@ -346,59 +375,128 @@ h2,
           background-color: #fafafa;
         }
 
-        /* Cerchio percentuale */
+        .animate-title {
+          -webkit-animation: tracking-out-expand 0.8s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+          animation: tracking-out-expand 0.8s
+            cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
 
-        .skills {
-          display: flex;
-          gap: 1rem;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          margin-block: 6rem;
-          padding-inline: 1rem;
-
-          .skill-level {
-            margin-top: 0.5rem;
+        @-webkit-keyframes tracking-out-expand {
+          0% {
+            opacity: 1;
           }
+          60% {
+            opacity: 0.8;
+          }
+          100% {
+            letter-spacing: 1em;
+            opacity: 0;
+          }
+        }
+        @keyframes tracking-out-expand {
+          0% {
+            opacity: 1;
+          }
+          60% {
+            opacity: 0.8;
+          }
+          100% {
+            letter-spacing: 1em;
+            opacity: 0;
+          }
+        }
 
-          .skill-data-container {
-            text-align: center;
-            .skill {
-              position: relative;
-              width: 80px;
-              height: 80px;
-              border-radius: 50%;
-              background: #111;
-              display: flex;
-              align-items: center;
-              justify-content: center;
+        /* Cerchio percentuale */
+        .skills-container {
+          .skills {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-block: 6rem;
+            padding-inline: 1rem;
 
-              &::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: 50%;
-                padding: 5px;
-                background: linear-gradient(
-                  to right,
-                  #4caf50 var(--border-level),
-                  #ccc var(--border-level)
-                );
-                -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                  linear-gradient(#fff 0 0);
-                -webkit-mask-composite: destination-out;
+            .skill-level {
+              margin-top: 0.5rem;
+            }
 
-                mask: linear-gradient(#fff 0 0) content-box,
-                  linear-gradient(#fff 0 0);
-                mask-composite: exclude;
-              }
-
-              .skill-name {
+            .skill-data-container {
+              text-align: center;
+              .skill {
                 position: relative;
-                font-size: 0.8rem;
-                font-weight: bold;
-                color: white;
-                text-align: center;
-                z-index: 1;
+                width: 135px;
+                height: 135px;
+                border-radius: 50%;
+                background: #111;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-inline: 0.2rem;
+
+                .skill-icon {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  font-size: 5rem;
+                  filter: drop-shadow(0 0 8px #00ff41);
+                  z-index: 1;
+                  text-align: center;
+                }
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  inset: 0;
+                  border-radius: 50%;
+                  padding: 5px;
+                  background: linear-gradient(
+                    to right,
+                    #4caf50 var(--border-level),
+                    #ccc var(--border-level)
+                  );
+                  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                  -webkit-mask-composite: destination-out;
+
+                  mask: linear-gradient(#fff 0 0) content-box,
+                    linear-gradient(#fff 0 0);
+                  mask-composite: exclude;
+                }
+
+                .skill-name {
+                  position: relative;
+                  font-size: 1.2rem;
+                  font-weight: bold;
+                  text-align: center;
+                  z-index: 2;
+                  background-color: #212121;
+                  padding: 0.2rem;
+                }
+              }
+              .soft-skill {
+                &::before {
+                  content: "";
+                  position: absolute;
+                  inset: 0;
+                  border-radius: 50%;
+                  padding: 5px;
+                  background: linear-gradient(
+                    to right,
+                    #0d47a1 var(--border-level),
+                    #ccc var(--border-level)
+                  );
+                }
+
+                .skill-name {
+                  position: relative;
+                  font-size: 0.8rem;
+                  font-weight: bold;
+                  color: white;
+                  text-align: center;
+                  z-index: 1;
+                }
               }
             }
           }
@@ -586,11 +684,12 @@ h2,
   }
 }
 .card-back .project-desc {
-  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
   inline-size: 200px;
-  width: 70%;
+  width: 100%;
   word-wrap: break-word;
   text-align: left;
+  padding-inline: 0.4rem;
 }
 
 @media (min-width: 410px) {
