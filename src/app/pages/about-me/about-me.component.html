@@ -1,1 +1,97 @@
-<p>about-me works!</p>
+<div class="about-me-container">
+  <div class="header-section">
+    <h1 class="page-title">Il Mio Percorso</h1>
+    <p class="page-subtitle">
+      Dalla formazione al lavoro: la mia evoluzione come Full-Stack Developer
+    </p>
+  </div>
+
+  <div class="timeline-wrapper">
+    <div #timelineContainer class="timeline-container">
+      <div
+        *ngFor="let event of timelineEvents; let i = index"
+        class="timeline-item"
+        [class.left]="i % 2 === 0"
+        [class.right]="i % 2 === 1"
+      >
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div class="timeline-icon-container">
+              <mat-icon [class]="getEventIconClass(event)">{{
+                event.icon
+              }}</mat-icon>
+            </div>
+            <div class="timeline-title-section">
+              <h3 class="timeline-title">{{ event.title }}</h3>
+              <span class="timeline-period">{{ event.period }}</span>
+            </div>
+          </div>
+
+          <div class="timeline-body">
+            <p class="timeline-description">{{ event.description }}</p>
+
+            <div
+              *ngIf="event.achievements?.length"
+              class="achievements-section"
+            >
+              <h4 class="section-title">Risultati Chiave</h4>
+              <ul class="achievements-list">
+                <li
+                  *ngFor="let achievement of event.achievements"
+                  class="achievement-item"
+                >
+                  <mat-icon class="achievement-icon">check_circle</mat-icon>
+                  {{ achievement }}
+                </li>
+              </ul>
+            </div>
+
+            <div
+              *ngIf="event.technologies?.length"
+              class="technologies-section"
+            >
+              <h4 class="section-title">Tecnologie</h4>
+              <div class="tech-chips">
+                <mat-chip-set>
+                  <mat-chip *ngFor="let tech of event.technologies" selected>
+                    {{ tech }}
+                  </mat-chip>
+                </mat-chip-set>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-section">
+    <mat-card class="summary-card">
+      <mat-card-header>
+        <mat-card-title>In Sintesi</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Il mio percorso combina formazione strutturata (Epicode), esperienza
+          pratica (ArchiviaLab) e crescita continua attraverso progetti
+          personali. Ogni fase ha contribuito a sviluppare competenze tecniche
+          solide e soft skills essenziali per il lavoro in team.
+        </p>
+        <div class="key-stats">
+          <div class="stat-item">
+            <mat-icon>code</mat-icon>
+            <span>Full-Stack Development</span>
+          </div>
+          <div class="stat-item">
+            <mat-icon>group</mat-icon>
+            <span>Team Collaboration</span>
+          </div>
+          <div class="stat-item">
+            <mat-icon>trending_up</mat-icon>
+            <span>Continuous Learning</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -8,13 +8,20 @@ import { FlipService } from '../../services/flip.service';
 })
 export class NavComponent {
   isFlipped: boolean = false;
+  isMatrix = false;
+
   constructor(private flipService: FlipService) {}
 
   ngOnInit() {
     this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
+    this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
   }
 
   flipTogle() {
     this.flipService.toggle();
+  }
+
+  matrixToggle() {
+    this.flipService.matrixToggle();
   }
 }

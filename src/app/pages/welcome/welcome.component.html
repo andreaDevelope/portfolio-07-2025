@@ -1,5 +1,5 @@
 <div class="welcome-container">
-  <!-- <div class="matrix-container">
+  <div class="matrix-container" *ngIf="isMatrix">
     <div class="matrix-pattern" *ngFor="let _ of patterns">
       <div
         class="matrix-column"
@@ -9,7 +9,7 @@
         [style.animation-duration]="col.duration"
       ></div>
     </div>
-  </div> -->
+  </div>
   <div class="container" [class.flipped]="isFlipped">
     <div class="section hero">
       <mat-card class="hero-body">
@@ -41,8 +41,8 @@
                 <!-- go to project button -->
                 <button
                   class="animated-button"
-                  (click)="goToProjects()"
-                  aria-label="Vai ai progetti"
+                  (click)="matrixToggle()"
+                  aria-label="Attiva Matrix Mode"
                 >
                   <!-- icona entrante -->
                   <svg
@@ -56,7 +56,7 @@
                     <circle cx="12" cy="12" r="2.5"></circle>
                   </svg>
 
-                  <span class="text">Vedi progetti</span>
+                  <span class="text">Matrix Mode</span>
                   <span class="circle"></span>
 
                   <!-- icona uscente -->

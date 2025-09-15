@@ -15,6 +15,7 @@ export class WelcomeComponent {
   maxWidth: number = 5000;
   count: number = Math.floor(this.maxWidth / this.colWidth);
   isFlipped = false;
+  isMatrix = false;
   @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
   @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
   currentIndex = 0;
@@ -143,6 +144,7 @@ export class WelcomeComponent {
 
   ngOnInit() {
     this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
+    this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
     this.columns = Array.from({ length: this.count }, (_, i) => ({
       left: i * this.colWidth,
       delay: -(Math.random() * 4).toFixed(1) + 's',
@@ -194,7 +196,7 @@ export class WelcomeComponent {
     this.currentIndex = Math.round(vp.scrollLeft / this.slideWidth(vp));
   }
 
-  goToProjects(): void {
-    this.flipService.toggle();
+  matrixToggle(): void {
+    this.flipService.matrixToggle();
   }
 }
