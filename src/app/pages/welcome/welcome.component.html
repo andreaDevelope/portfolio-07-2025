@@ -1,6 +1,6 @@
 <div class="welcome-container">
-  <div class="matrix-container">
-    <!-- <div class="matrix-pattern" *ngFor="let _ of patterns">
+  <!-- <div class="matrix-container">
+    <div class="matrix-pattern" *ngFor="let _ of patterns">
       <div
         class="matrix-column"
         *ngFor="let col of columns"
@@ -8,8 +8,8 @@
         [style.animation-delay]="col.delay"
         [style.animation-duration]="col.duration"
       ></div>
-    </div> -->
-  </div>
+    </div>
+  </div> -->
   <div class="container" [class.flipped]="isFlipped">
     <div class="section hero">
       <mat-card class="hero-body">
@@ -225,12 +225,7 @@
     </div>
 
     <div class="section projects">
-      <div
-        class="carousel"
-        role="region"
-        aria-label="Progetti in evidenza"
-        *ngIf="isMobile$ | async; else desktopGrid"
-      >
+      <div class="carousel" role="region" aria-label="Progetti in evidenza">
         <div
           #vp
           class="viewport"
@@ -293,73 +288,7 @@
             </mat-card>
           </div>
         </div>
-
-        <!-- indicatori -->
-        <div class="dots-container">
-          <div class="dots" *ngIf="projects.length > 1">
-            <button
-              mat-icon-button
-              *ngFor="let _ of projects; let i = index"
-              [class.active]="i === currentIndex"
-              (click)="goTo(i, vp)"
-              [attr.aria-label]="'Vai alla slide ' + (i + 1)"
-            >
-              <span class="dot"></span>
-            </button>
-          </div>
-        </div>
       </div>
-
-      <!-- DESKTOP -->
-      <ng-template #desktopGrid>
-        <div class="projects-grid">
-          <mat-card class="card" *ngFor="let project of projects">
-            <div class="card-inner" [class.flipped]="project.isFlipped">
-              <div class="card-front">
-                <img mat-card-image [src]="project.img" alt="project.png" />
-                <button
-                  mat-stroked-button
-                  color="primary"
-                  class="flip-btn"
-                  (click)="toggleCardFlip(project)"
-                >
-                  Info
-                </button>
-              </div>
-              <div class="card-back">
-                <mat-card-header>
-                  <mat-card-title class="project-title">{{
-                    project.title
-                  }}</mat-card-title>
-                </mat-card-header>
-
-                <mat-card-content>
-                  <p class="project-desc">
-                    <span class="desc-inner" data-debug="CIAO">{{
-                      project.description
-                    }}</span>
-                  </p>
-
-                  <mat-chip-set *ngIf="project.techs?.length" class="tech-list">
-                    <mat-chip *ngFor="let tech of project.techs" selected>{{
-                      tech
-                    }}</mat-chip>
-                  </mat-chip-set>
-                </mat-card-content>
-
-                <button
-                  mat-stroked-button
-                  color="primary"
-                  class="flip-btn"
-                  (click)="toggleCardFlip(project)"
-                >
-                  Torna
-                </button>
-              </div>
-            </div>
-          </mat-card>
-        </div>
-      </ng-template>
     </div>
   </div>
 </div>

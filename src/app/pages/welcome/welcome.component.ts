@@ -1,8 +1,6 @@
 import { FlipService } from './../../services/flip.service';
 import { Component } from '@angular/core';
 import { IProject } from '../../interfaces/iproject';
-import { map, Observable } from 'rxjs';
-import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
@@ -17,7 +15,6 @@ export class WelcomeComponent {
   maxWidth: number = 5000;
   count: number = Math.floor(this.maxWidth / this.colWidth);
   isFlipped = false;
-  isMobile$!: Observable<boolean>;
   @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
   @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
   currentIndex = 0;
@@ -142,14 +139,7 @@ export class WelcomeComponent {
     ],
   };
 
-  constructor(
-    private bp: BreakpointObserver,
-    private flipService: FlipService
-  ) {
-    this.isMobile$ = this.bp
-      .observe('(max-width: 768px)')
-      .pipe(map((r) => r.matches));
-  }
+  constructor(private flipService: FlipService) {}
 
   ngOnInit() {
     this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
@@ -180,10 +170,6 @@ export class WelcomeComponent {
 
     observer.observe(this.hardSkillTitle.nativeElement);
     observer.observe(this.softSkillTitle.nativeElement);
-  }
-
-  toggleCardFlip(project: IProject) {
-    project.isFlipped = !project.isFlipped;
   }
 
   // carosello
