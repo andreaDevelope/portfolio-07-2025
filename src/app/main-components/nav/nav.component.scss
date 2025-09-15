@@ -132,4 +132,11 @@
   .matrix-btn:hover::before {
     background-color: #00cc00;
   }
+
+  // Mobile responsive - hide buttons on small screens
+  @media (max-width: 768px) {
+    .btn {
+      display: none;
+    }
+  }
 }
