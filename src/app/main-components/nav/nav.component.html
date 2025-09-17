@@ -8,7 +8,12 @@
   <span class="spacer"></span>
 
   <!-- From Uiverse.io by adamgiebl -->
-  <input id="checkbox2" type="checkbox" />
+  <input
+    id="checkbox2"
+    type="checkbox"
+    [checked]="isMobileMenuOpen"
+    (change)="toggleMobileMenu()"
+  />
   <label class="toggle toggle2" for="checkbox2">
     <div id="bar4" class="bars"></div>
     <div id="bar5" class="bars"></div>
@@ -22,3 +27,19 @@
   <button class="btn">Scrivimi</button>
   <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
 </mat-toolbar>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" [class.open]="isMobileMenuOpen">
+  <div class="mobile-menu-content">
+    <button class="mobile-btn" (click)="flipTogle(); toggleMobileMenu()">
+      {{ isFlipped ? "Bio" : "Progetti" }}
+    </button>
+    <button class="mobile-btn" (click)="toggleMobileMenu()">Scrivimi</button>
+    <button
+      class="mobile-btn matrix-btn"
+      (click)="matrixToggle(); toggleMobileMenu()"
+    >
+      Matrix
+    </button>
+  </div>
+</div>

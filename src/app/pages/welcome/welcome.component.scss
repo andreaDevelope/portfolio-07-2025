@@ -376,6 +376,9 @@ h3 {
         }
 
         .animate-title {
+          position: relative;
+          overflow: hidden;
+          transform-origin: center;
           -webkit-animation: tracking-out-expand 0.8s
             cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           animation: tracking-out-expand 0.8s
@@ -385,25 +388,35 @@ h3 {
         @-webkit-keyframes tracking-out-expand {
           0% {
             opacity: 1;
+            letter-spacing: 0;
+            transform: scaleX(1);
           }
           60% {
             opacity: 0.8;
+            letter-spacing: 0.5em;
+            transform: scaleX(1.2);
           }
           100% {
             letter-spacing: 1em;
             opacity: 0;
+            transform: scaleX(1.5);
           }
         }
         @keyframes tracking-out-expand {
           0% {
             opacity: 1;
+            letter-spacing: 0;
+            transform: scaleX(1);
           }
           60% {
             opacity: 0.8;
+            letter-spacing: 0.5em;
+            transform: scaleX(1.2);
           }
           100% {
             letter-spacing: 1em;
             opacity: 0;
+            transform: scaleX(1.5);
           }
         }
 
