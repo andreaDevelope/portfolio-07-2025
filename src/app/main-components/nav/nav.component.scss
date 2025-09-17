@@ -139,4 +139,12 @@
       display: none;
     }
   }
+
+  // Hide hamburger menu on large screens
+  @media (min-width: 769px) {
+    #checkbox2,
+    .toggle2 {
+      display: none;
+    }
+  }
 }
