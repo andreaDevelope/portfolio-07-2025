@@ -207,8 +207,7 @@ h3 {
   background-color: inherit;
   border-radius: 100px;
   font-weight: 600;
-  color: greenyellow;
-  box-shadow: 0 0 0 2px greenyellow;
+  box-shadow: 0 0 0 2px #4caf50;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -224,7 +223,6 @@ h3 {
   line-height: 1;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  color: greenyellow; /* stesso colore del bordo/testo */
 }
 
 .animated-button:hover .btn__icon {
@@ -236,7 +234,7 @@ h3 {
 .animated-button svg {
   position: absolute;
   width: 24px;
-  fill: greenyellow;
+  fill: #4caf50;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -376,9 +374,6 @@ h3 {
         }
 
         .animate-title {
-          position: relative;
-          overflow: hidden;
-          transform-origin: center;
           -webkit-animation: tracking-out-expand 0.8s
             cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
           animation: tracking-out-expand 0.8s
@@ -388,35 +383,25 @@ h3 {
         @-webkit-keyframes tracking-out-expand {
           0% {
             opacity: 1;
-            letter-spacing: 0;
-            transform: scaleX(1);
           }
           60% {
             opacity: 0.8;
-            letter-spacing: 0.5em;
-            transform: scaleX(1.2);
           }
           100% {
             letter-spacing: 1em;
             opacity: 0;
-            transform: scaleX(1.5);
           }
         }
         @keyframes tracking-out-expand {
           0% {
             opacity: 1;
-            letter-spacing: 0;
-            transform: scaleX(1);
           }
           60% {
             opacity: 0.8;
-            letter-spacing: 0.5em;
-            transform: scaleX(1.2);
           }
           100% {
             letter-spacing: 1em;
             opacity: 0;
-            transform: scaleX(1.5);
           }
         }
 

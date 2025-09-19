@@ -245,3 +245,56 @@
     display: none;
   }
 }
+
+/* --- Touchscreen specific styles --- */
+@media (hover: none) and (pointer: coarse) {
+  .toggle2 {
+    animation: toggleRotate 2s ease-in-out infinite;
+  }
+
+  #bar5 {
+    animation: bar5Scale 2s ease-in-out infinite;
+  }
+
+  #bar4 {
+    animation: bar4Rotate 2s ease-in-out infinite;
+  }
+
+  #bar6 {
+    animation: bar6Rotate 2s ease-in-out infinite;
+  }
+}
+
+/* --- Touchscreen: loop automatico dei bottoni nav --- */
+@media (hover: none) and (pointer: coarse) {
+  .nav-container {
+    .btn {
+      &::before {
+        animation: shineLoop 3s linear infinite;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+/* keyframes che replicano il ::before di hover */
+@keyframes shineLoop {
+  0% {
+    background-color: #212121;
+    color: #fff;
+    transform: skewX(30deg) translate(-150%, -50%);
+  }
+  50% {
+    background-color: #2183c6;
+    color: #fff;
+    transform: skewX(30deg) translate(150%, -50%);
+  }
+  100% {
+    background-color: #212121;
+    color: #fff;
+    transform: skewX(30deg) translate(-150%, -50%);
+  }
+}
