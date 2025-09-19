@@ -246,55 +246,81 @@
   }
 }
 
-/* --- Touchscreen specific styles --- */
-@media (hover: none) and (pointer: coarse) {
-  .toggle2 {
-    animation: toggleRotate 2s ease-in-out infinite;
-  }
-
-  #bar5 {
-    animation: bar5Scale 2s ease-in-out infinite;
-  }
-
-  #bar4 {
-    animation: bar4Rotate 2s ease-in-out infinite;
-  }
-
-  #bar6 {
-    animation: bar6Rotate 2s ease-in-out infinite;
-  }
-}
-
 /* --- Touchscreen: loop automatico dei bottoni nav --- */
 @media (hover: none) and (pointer: coarse) {
   .nav-container {
     .btn {
+      animation: btnColorLoop 5s linear infinite;
+
       &::before {
-        animation: shineLoop 3s linear infinite;
+        animation: shineLoop 5s linear infinite;
       }
 
       &:active {
         transform: scale(0.9);
       }
     }
+
+    .matrix-btn {
+      animation: matrixColorLoop 5s linear infinite;
+
+      &::before {
+        animation: shineLoop 5s linear infinite;
+        background-color: #00cc00; /* fascio verde */
+      }
+    }
   }
 }
 
-/* keyframes che replicano il ::before di hover */
-@keyframes shineLoop {
+@keyframes btnColorLoop {
   0% {
     background-color: #212121;
     color: #fff;
-    transform: skewX(30deg) translate(-150%, -50%);
   }
-  50% {
-    background-color: #2183c6;
+  20% {
+    background-color: #2183c6; /* blu hover */
     color: #fff;
-    transform: skewX(30deg) translate(150%, -50%);
+  }
+  30% {
+    background-color: #212121;
+    color: #fff;
+  }
+  100% {
+    background-color: #212121;
+    color: #fff; /* resto fermo per 5s */
+  }
+}
+
+@keyframes matrixColorLoop {
+  0% {
+    background-color: #212121;
+    color: #fff;
+  }
+  20% {
+    background-color: #00ff00; /* verde hover */
+    color: #000;
+  }
+  30% {
+    background-color: #212121;
+    color: #fff;
   }
   100% {
     background-color: #212121;
     color: #fff;
+  }
+}
+
+@keyframes shineLoop {
+  0% {
     transform: skewX(30deg) translate(-150%, -50%);
+  }
+  20% {
+    transform: skewX(30deg) translate(150%, -50%);
+  }
+  30% {
+    transform: skewX(30deg) translate(-150%, -50%);
+  }
+  100% {
+    transform: skewX(30deg) translate(-150%, -50%); /* fermo per 5s */
   }
 }
