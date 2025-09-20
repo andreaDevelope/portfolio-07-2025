@@ -110,7 +110,12 @@
   }
 
   .btn:hover {
-    background-color: #2183c6;
+    background-image: linear-gradient(
+      135deg,
+      #462062 0%,
+      #5c2a80 50%,
+      #7a3ba3 100%
+    );
     color: #fff;
   }
 
@@ -278,7 +283,12 @@
     color: #fff;
   }
   20% {
-    background-color: #2183c6; /* blu hover */
+    background-image: linear-gradient(
+      135deg,
+      #462062 0%,
+      #5c2a80 50%,
+      #7a3ba3 100%
+    );
     color: #fff;
   }
   30% {
@@ -301,6 +311,14 @@
     color: #000;
   }
   30% {
+    background-color: #00ff00; /* verde hover */
+    color: #000;
+  }
+  60% {
+    background-color: #212121;
+    color: #fff;
+  }
+  80% {
     background-color: #212121;
     color: #fff;
   }
@@ -317,7 +335,10 @@
   20% {
     transform: skewX(30deg) translate(150%, -50%);
   }
-  30% {
+  70% {
+    transform: skewX(30deg) translate(-150%, -50%);
+  }
+  90% {
     transform: skewX(30deg) translate(-150%, -50%);
   }
   100% {
