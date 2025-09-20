@@ -163,9 +163,12 @@ export class WelcomeComponent {
       entries.forEach((entry) => {
         const el = entry.target as HTMLElement;
         if (entry.isIntersecting) {
-          el.classList.add('animate-title');
-        } else {
+          // Rimuovi la classe se esiste già e aggiungila nuovamente per riavviare l'animazione
           el.classList.remove('animate-title');
+          // Piccolo delay per permettere il reset completo
+          setTimeout(() => {
+            el.classList.add('animate-title');
+          }, 10);
         }
       });
     }, options);
