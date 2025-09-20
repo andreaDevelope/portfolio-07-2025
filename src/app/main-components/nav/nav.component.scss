@@ -31,13 +31,19 @@
     box-shadow: inset 0px 0px 180px 5px #ffffff;
   }
 
-  .main {
+  .nav-btn-items {
     display: flex;
     flex-wrap: wrap;
     width: 14em;
     align-items: center;
     justify-content: center;
     z-index: 1;
+    transform: translate(0%, 43%);
+  }
+  .card.hidden {
+    opacity: 0;
+    // pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
   }
 
   .card {
@@ -54,6 +60,7 @@
     backdrop-filter: blur(5px);
     border: 1px solid transparent;
     -webkit-backdrop-filter: blur(5px);
+    opacity: 1;
   }
 
   .card .instagram {
@@ -146,16 +153,16 @@
     transition: 0.2s ease-in-out;
   }
 
-  .main:hover {
+  .nav-btn-items:hover {
     width: 14em;
     cursor: pointer;
   }
 
-  .main:hover .main_back {
+  .nav-btn-items:hover .main_back {
     opacity: 0;
   }
 
-  .main:hover .card {
+  .nav-btn-items:hover .card {
     margin: 0.2em;
     border-radius: 10px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -163,48 +170,48 @@
     background: rgba(255, 255, 255, 0.2);
   }
 
-  .main:hover .card:nth-child(5) {
+  .nav-btn-items:hover .card:nth-child(5) {
     border: transparent;
   }
 
-  .main:hover .text {
+  .nav-btn-items:hover .text {
     opacity: 0;
     z-index: -3;
   }
 
-  .main:hover .instagram {
+  .nav-btn-items:hover .instagram {
     opacity: 1;
   }
 
-  .main:hover .twitter {
+  .nav-btn-items:hover .twitter {
     opacity: 1;
   }
 
-  .main:hover .dribble {
+  .nav-btn-items:hover .dribble {
     opacity: 1;
   }
 
-  .main:hover .codepen {
+  .nav-btn-items:hover .codepen {
     opacity: 1;
   }
 
-  .main:hover .uiverse {
+  .nav-btn-items:hover .uiverse {
     opacity: 1;
   }
 
-  .main:hover .discord {
+  .nav-btn-items:hover .discord {
     opacity: 1;
   }
 
-  .main:hover .github {
+  .nav-btn-items:hover .github {
     opacity: 1;
   }
 
-  .main:hover .telegram {
+  .nav-btn-items:hover .telegram {
     opacity: 1;
   }
 
-  .main:hover .reddit {
+  .nav-btn-items:hover .reddit {
     opacity: 1;
   }
 
@@ -593,6 +600,14 @@
     color: #fff;
   }
   30% {
+    background-color: #212121;
+    color: #fff;
+  }
+  60% {
+    background-color: #212121;
+    color: #fff;
+  }
+  80% {
     background-color: #212121;
     color: #fff;
   }

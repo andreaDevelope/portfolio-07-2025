@@ -7,6 +7,7 @@ import { FlipService } from '../../services/flip.service';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
+  showCards = false;
   isFlipped: boolean = false;
   isMatrix = false;
   isMobileMenuOpen: boolean = false;
@@ -28,5 +29,9 @@ export class NavComponent {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  onMainBackClick() {
+    this.showCards = !this.showCards;
   }
 }
