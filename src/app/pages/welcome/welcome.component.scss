@@ -185,7 +185,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 6em;
   justify-content: center;
 }
 
@@ -507,13 +507,16 @@ h3 {
         position: relative;
         text-align: center;
         max-width: 350px;
-        margin-right: 2rem;
+        margin-inline: auto;
+        margin-top: 2.5rem;
       }
       img {
-        width: 160px;
+        width: 170px;
+        height: 170px;
+        background-size: contain;
         border-radius: 1rem;
-        margin-right: 1rem;
         z-index: 1000;
+        transform: translate(-13%, 0);
       }
       .cornice {
         position: absolute;
