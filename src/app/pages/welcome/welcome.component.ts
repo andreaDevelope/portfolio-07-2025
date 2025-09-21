@@ -202,4 +202,8 @@ export class WelcomeComponent {
   matrixToggle(): void {
     this.flipService.matrixToggle();
   }
+
+  flipTogle() {
+    this.flipService.toggle();
+  }
 }

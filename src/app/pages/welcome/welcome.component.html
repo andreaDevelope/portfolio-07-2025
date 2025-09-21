@@ -39,6 +39,32 @@
               </div>
               <div class="cta" role="group" aria-label="Call to action">
                 <!-- go to project button -->
+                <!-- Bottone Progetti identico a nav -->
+                <button
+                  class="animated-button"
+                  (click)="flipTogle()"
+                  aria-label="Vai ai Progetti"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                  </svg>
+
+                  <span class="text">{{ isFlipped ? "Bio" : "Progetti" }}</span>
+                  <span class="circle"></span>
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="arr-1"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"></path>
+                  </svg>
+                </button>
+
                 <button
                   class="animated-button"
                   (click)="matrixToggle()"
