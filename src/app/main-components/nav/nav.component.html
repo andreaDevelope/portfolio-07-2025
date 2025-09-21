@@ -16,17 +16,29 @@
   ></label>
 
   <div class="nav-buttons">
+    <!-- Toggle Bio / Progetti -->
     <button class="btn" (click)="flipTogle()">
       {{ isFlipped ? "Bio" : "Progetti" }}
     </button>
 
-    <a
-      class="btn"
-      href="https://wa.me/393518714382"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Scrivimi</a
-    >
+    <!-- Vai a Bio -->
+    <button class="btn">
+      <a routerLink="/about-me" aria-label="Vai alla mia biografia">
+        La Mia Bio
+      </a>
+    </button>
+    <!-- Scrivimi (WhatsApp) -->
+    <button class="btn">
+      <a
+        href="https://wa.me/393518714382"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Scrivimi
+      </a>
+    </button>
+
+    <!-- Matrix mode -->
     <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
   </div>
 </mat-toolbar>
