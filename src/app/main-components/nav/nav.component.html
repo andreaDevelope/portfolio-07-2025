@@ -20,7 +20,13 @@
       {{ isFlipped ? "Bio" : "Progetti" }}
     </button>
 
-    <button class="btn">Scrivimi</button>
+    <a
+      class="btn"
+      href="https://wa.me/393518714382"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Scrivimi</a
+    >
     <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
   </div>
 </mat-toolbar>
@@ -31,7 +37,14 @@
     <button class="mobile-btn" (click)="flipTogle(); toggleMobileMenu()">
       {{ isFlipped ? "Bio" : "Progetti" }}
     </button>
-    <button class="mobile-btn" (click)="toggleMobileMenu()">Scrivimi</button>
+    <a
+      class="mobile-btn"
+      href="https://wa.me/393518714382"
+      target="_blank"
+      rel="noopener noreferrer"
+      (click)="toggleMobileMenu()"
+      >Scrivimi</a
+    >
     <button
       class="mobile-btn matrix-btn"
       (click)="matrixToggle(); toggleMobileMenu()"
