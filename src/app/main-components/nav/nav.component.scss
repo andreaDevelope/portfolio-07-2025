@@ -18,402 +18,53 @@
     color: white;
   }
 
-  .main_back {
-    border-radius: 10px;
-    transform: rotate(90deg);
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(270deg, #03a9f4, #cc39a4, #ffb5d2);
-    z-index: 0;
-    box-shadow: inset 0px 0px 180px 5px #ffffff;
+  .label-check {
+    display: none;
   }
 
-  .nav-btn-items {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1;
-    transform: translate(0%, 43%);
-    width: 100%;
-    position: relative;
-    margin-bottom: 2rem;
-  }
-
-  .nav-btn-items-left {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .card.hidden {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-top-left-radius: 10px;
-    background: lightgrey;
-    transition: 0.4s ease-in-out, 0.2s background-color ease-in-out,
-      0.2s background-image ease-in-out;
-    background: rgba(255, 255, 255, 0.596);
-    backdrop-filter: blur(5px);
-    border: 1px solid transparent;
-    -webkit-backdrop-filter: blur(5px);
-    opacity: 1;
-  }
-
-  .card:nth-child(2) {
-    border-radius: 0px;
-  }
-
-  .card:nth-child(3) {
-    border-top-right-radius: 10px;
-    border-top-left-radius: 0px;
-  }
-
-  .card:nth-child(4) {
-    border-radius: 0px;
-  }
-
-  .card:nth-child(5) {
-    border-radius: 0px;
-  }
-
-  .card:nth-child(6) {
-    border-radius: 0px;
-  }
-
-  .card:nth-child(7) {
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 0px;
-  }
-
-  .card:nth-child(8) {
-    border-radius: 0px;
-  }
-
-  .card:nth-child(9) {
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 0px;
-  }
-
-  .nav-btn-items:hover {
+  .hamburger-label {
+    width: 50px;
+    height: 38px;
+    display: block;
     cursor: pointer;
+    transform: rotate(180deg);
   }
 
-  .nav-btn-items:hover .main_back {
-    opacity: 0;
-  }
-
-  .nav-btn-items:hover .card {
-    margin: 0.2em;
-    border-radius: 10px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.2);
-  }
-
-  .nav-btn-items:hover .card:nth-child(5) {
-    border: transparent;
-  }
-
-  .nav-btn-items:hover .text {
-    opacity: 0;
-    z-index: -3;
-  }
-
-  .nav-btn-items:hover .instagram {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .twitter {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .dribble {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .codepen {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .uiverse {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .discord {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .github {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .telegram {
-    opacity: 1;
-  }
-
-  .nav-btn-items:hover .reddit {
-    opacity: 1;
-  }
-
-  .card:nth-child(1):hover {
-    background-color: #cc39a4;
-  }
-
-  .card:nth-child(1):hover .instagram {
-    fill: white;
-  }
-
-  .card:nth-child(2):hover {
-    background-color: #03a9f4;
-  }
-
-  .card:nth-child(2):hover .twitter {
-    fill: white;
-  }
-
-  .card:nth-child(3):hover {
-    background-color: #ffb5d2;
-  }
-
-  .card:nth-child(3):hover .dribble {
-    fill: white;
-  }
-
-  .card:nth-child(4):hover {
-    background-color: #1e1f26;
-  }
-
-  .card:nth-child(4):hover .codepen {
-    fill: white;
-  }
-
-  .card:nth-child(5):hover {
-    animation: backgroundIMG 0.1s;
-    animation-fill-mode: forwards;
-  }
-
-  .card:nth-child(5):hover .uiverse #paint0_linear_501_142 stop {
-    stop-color: white;
-  }
-
-  .card:nth-child(5):hover .uiverse #paint1_linear_501_142 stop {
-    stop-color: white;
-  }
-
-  .card:nth-child(5):hover .uiverse #paint2_linear_501_142 stop {
-    stop-color: white;
-  }
-
-  @keyframes backgroundIMG {
-    100% {
-      background-image: linear-gradient(#bf66ff, #6248ff, #00ddeb);
-    }
-  }
-
-  .card:nth-child(6):hover {
-    background-color: #8c9eff;
-  }
-
-  .card:nth-child(6):hover .discord {
-    fill: white;
-  }
-
-  .card:nth-child(7):hover {
-    background-color: black;
-  }
-
-  .card:nth-child(7):hover .github {
-    fill: white;
-  }
-
-  .card:nth-child(8):hover {
-    background-color: #29b6f6;
-  }
-
-  .card:nth-child(8):hover .telegram > path:nth-of-type(1) {
-    fill: white;
-  }
-
-  .card:nth-child(8):hover .telegram > path:nth-of-type(2) {
-    fill: #29b6f6;
-  }
-
-  .card:nth-child(8):hover .telegram > path:nth-of-type(3) {
-    fill: #29b6f6;
-  }
-
-  .card:nth-child(9):hover {
-    background-color: rgb(255, 69, 0);
-  }
-
-  @media (hover: none) and (pointer: coarse) {
-    .card:nth-child(6):hover {
-      background-color: #8c9eff;
-    }
-
-    .card:nth-child(6):hover .discord {
-      fill: white;
-    }
-
-    .card:nth-child(7):hover {
-      background-color: black;
-    }
-
-    .card:nth-child(7):hover .github {
-      fill: white;
-    }
-
-    .card:nth-child(8):hover {
-      background-color: #29b6f6;
-    }
-
-    .card:nth-child(8):hover .telegram > path:nth-of-type(1) {
-      fill: white;
-    }
-
-    .card:nth-child(8):hover .telegram > path:nth-of-type(2) {
-      fill: #29b6f6;
-    }
-
-    .card:nth-child(8):hover .telegram > path:nth-of-type(3) {
-      fill: #29b6f6;
-    }
-
-    .card:nth-child(9):hover {
-      background-color: rgb(255, 69, 0);
-    }
-
-    .nav-btn-items:hover {
-      width: 14em;
-      cursor: pointer;
-    }
-
-    .nav-btn-items:hover .main_back {
-      opacity: 0;
-    }
-
-    .nav-btn-items:hover .card {
-      margin: 0.2em;
-      border-radius: 10px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-btn-items:hover .card:nth-child(5) {
-      border: transparent;
-    }
-
-    .nav-btn-items:hover .text {
-      opacity: 0;
-      z-index: -3;
-    }
-
-    .nav-btn-items:hover .instagram {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .twitter {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .dribble {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .codepen {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .uiverse {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .discord {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .github {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .telegram {
-      opacity: 1;
-    }
-
-    .nav-btn-items:hover .reddit {
-      opacity: 1;
-    }
-
-    .card:nth-child(1):hover {
-      background-color: #cc39a4;
-    }
-
-    .card:nth-child(1):hover .instagram {
-      fill: white;
-    }
-
-    .card:nth-child(2):hover {
-      background-color: #03a9f4;
-    }
-
-    .card:nth-child(2):hover .twitter {
-      fill: white;
-    }
-
-    .card:nth-child(3):hover {
-      background-color: #ffb5d2;
-    }
-
-    .card:nth-child(3):hover .dribble {
-      fill: white;
-    }
-
-    .card:nth-child(4):hover {
-      background-color: #1e1f26;
-    }
-
-    .card:nth-child(4):hover .codepen {
-      fill: white;
-    }
-
-    .card:nth-child(5):hover {
-      animation: backgroundIMG 0.1s;
-      animation-fill-mode: forwards;
-    }
-
-    .card:nth-child(5):hover .uiverse #paint0_linear_501_142 stop {
-      stop-color: white;
-    }
-
-    .card:nth-child(5):hover .uiverse #paint1_linear_501_142 stop {
-      stop-color: white;
-    }
-
-    .card:nth-child(5):hover .uiverse #paint2_linear_501_142 stop {
-      stop-color: white;
-    }
-  }
-
-  .text {
+  .hamburger-label div {
+    width: 40px;
+    height: 4px;
+    background-color: #fff;
     position: absolute;
-    font-size: 0.7em;
-    transition: 0.4s ease-in-out;
-    color: black;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 0.33em;
-    z-index: 3;
+  }
+
+  .line1 {
+    transition: all 0.3s;
+  }
+
+  .line2 {
+    margin: 14px 0 0 0;
+    transition: 0.3s;
+  }
+
+  .line3 {
+    margin: 28px 0 0 0;
+    transition: 0.3s;
+  }
+
+  #label-check:checked + .hamburger-label .line1 {
+    transform: rotate(35deg) scaleX(0.55) translate(39px, -4.5px);
+    border-radius: 50px 50px 50px 0;
+  }
+
+  #label-check:checked + .hamburger-label .line3 {
+    transform: rotate(-35deg) scaleX(0.55) translate(39px, 4.5px);
+    border-radius: 0 50px 50px 50px;
+  }
+
+  #label-check:checked + .hamburger-label .line2 {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    width: 30px;
   }
 
   .btn {
