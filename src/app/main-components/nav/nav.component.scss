@@ -67,6 +67,45 @@
     width: 30px;
   }
 
+  /* BOTTONI DESKTOP/TABLET */
+  .nav-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  /* NASCONDI hamburger su desktop/tablet */
+  @media (min-width: 769px) {
+    .label-check,
+    .hamburger-label {
+      display: none;
+    }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-buttons {
+      position: absolute;
+      top: 60px; /* sotto la toolbar */
+      left: 0;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      border-radius: 0 0 12px 12px;
+      width: 100%;
+      z-index: 10000;
+      transform: translateX(-100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    #label-check:checked ~ .nav-buttons {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
   .btn {
     padding: 1.1em 2em;
     background: none;
@@ -120,12 +159,6 @@
 
   .matrix-btn:hover::before {
     background-color: #00cc00;
-  }
-
-  @media (max-width: 768px) {
-    .btn {
-      display: none;
-    }
   }
 
   @media (min-width: 769px) {

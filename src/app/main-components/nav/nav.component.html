@@ -15,12 +15,14 @@
     <label></label
   ></label>
 
-  <button class="btn" (click)="flipTogle()">
-    {{ isFlipped ? "Bio" : "Progetti" }}
-  </button>
+  <div class="nav-buttons">
+    <button class="btn" (click)="flipTogle()">
+      {{ isFlipped ? "Bio" : "Progetti" }}
+    </button>
 
-  <button class="btn">Scrivimi</button>
-  <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
+    <button class="btn">Scrivimi</button>
+    <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
+  </div>
 </mat-toolbar>
 
 <!-- Mobile Menu -->
