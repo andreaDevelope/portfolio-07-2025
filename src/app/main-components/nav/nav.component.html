@@ -7,7 +7,12 @@
 
   <span class="spacer"></span>
 
-  <input class="label-check" id="label-check" type="checkbox" />
+  <input
+    class="label-check"
+    id="label-check"
+    type="checkbox"
+    [(ngModel)]="isMenuOpen"
+  />
   <label for="label-check" class="hamburger-label">
     <div class="line1"></div>
     <div class="line2"></div>
@@ -17,18 +22,24 @@
 
   <div class="nav-buttons">
     <!-- Toggle Bio / Progetti -->
-    <button class="btn" (click)="flipTogle()">
+    <button class="btn" (click)="flipTogle()" (click)="closeHamburgerMenu()">
       {{ isFlipped ? "Bio" : "Progetti" }}
     </button>
 
     <!-- Vai a Bio -->
 
-    <a class="btn" routerLink="/about-me" aria-label="Vai alla mia biografia">
+    <a
+      class="btn"
+      routerLink="/about-me"
+      aria-label="Vai alla mia biografia"
+      (click)="closeHamburgerMenu()"
+    >
       La Mia Bio
     </a>
 
     <!-- Scrivimi (WhatsApp) -->
     <a
+      (click)="closeHamburgerMenu()"
       class="btn"
       href="https://wa.me/393518714382"
       target="_blank"
@@ -38,6 +49,12 @@
     </a>
 
     <!-- Matrix mode -->
-    <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
+    <button
+      class="btn matrix-btn"
+      (click)="matrixToggle()"
+      (click)="closeHamburgerMenu()"
+    >
+      Matrix
+    </button>
   </div>
 </mat-toolbar>

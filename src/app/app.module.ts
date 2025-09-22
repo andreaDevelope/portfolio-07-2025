@@ -8,10 +8,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NavComponent } from './main-components/nav/nav.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule],
+  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, FormsModule],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

@@ -7,6 +7,7 @@ import { FlipService } from '../../services/flip.service';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
+  isMenuOpen: boolean = false;
   isFlipped: boolean = false;
   isMatrix = false;
 
@@ -23,5 +24,9 @@ export class NavComponent {
 
   matrixToggle() {
     this.flipService.matrixToggle();
+  }
+
+  closeHamburgerMenu() {
+    this.isMenuOpen = false;
   }
 }
