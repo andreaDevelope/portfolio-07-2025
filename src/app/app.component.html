@@ -7,4 +7,14 @@
   <main>
     <router-outlet></router-outlet>
   </main>
+
+  <!-- Loading globale per le transizioni tra pagine -->
+  <app-loading-spinner
+    *ngIf="isGlobalLoading"
+    [overlay]="true"
+    size="large"
+    message="Caricamento pagina..."
+    color="#3f51b5"
+  >
+  </app-loading-spinner>
 </body>

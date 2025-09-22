@@ -212,6 +212,7 @@ h3 {
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   text-decoration: none;
+  width: 150px;
 }
 /* Material Icon a destra -> sinistra all'hover (come le frecce SVG) */
 .animated-button .btn__icon {
@@ -760,5 +761,12 @@ h3 {
 
   .carousel-nav-container {
     display: flex;
+  }
+}
+
+// Animazione per il fade in del contenuto
+.welcome-container {
+  .container {
+    transition: opacity 0.3s ease-in-out;
   }
 }

@@ -9,10 +9,17 @@ import { NavComponent } from './main-components/nav/nav.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.module';
 
 @NgModule({
   declarations: [AppComponent, NavComponent],
-  imports: [BrowserModule, AppRoutingModule, MatToolbarModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatToolbarModule,
+    FormsModule,
+    LoadingSpinnerModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

@@ -1,4 +1,14 @@
 <div class="welcome-container">
+  <!-- Loading overlay per il caricamento iniziale -->
+  <app-loading-spinner
+    *ngIf="isLoading"
+    [overlay]="true"
+    size="large"
+    message="Caricamento portfolio..."
+    color="#3f51b5"
+  >
+  </app-loading-spinner>
+
   <div class="matrix-container" *ngIf="isMatrix">
     <div class="matrix-pattern" *ngFor="let _ of patterns">
       <div

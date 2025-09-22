@@ -16,6 +16,7 @@ export class WelcomeComponent {
   count: number = Math.floor(this.maxWidth / this.colWidth);
   isFlipped = false;
   isMatrix = false;
+  isLoading = false;
   @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
   @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
   currentIndex = 0;
@@ -143,13 +144,33 @@ export class WelcomeComponent {
   constructor(private flipService: FlipService) {}
 
   ngOnInit() {
-    this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
-    this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
-    this.columns = Array.from({ length: this.count }, (_, i) => ({
-      left: i * this.colWidth,
-      delay: -(Math.random() * 4).toFixed(1) + 's',
-      duration: (2 + Math.random() * 2).toFixed(1) + 's',
-    }));
+    this.initializeComponent();
+  }
+
+  private async initializeComponent() {
+    this.isLoading = true;
+
+    try {
+      // Simula il caricamento iniziale dei dati
+      await this.simulateDataLoading();
+
+      this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
+      this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
+      this.columns = Array.from({ length: this.count }, (_, i) => ({
+        left: i * this.colWidth,
+        delay: -(Math.random() * 4).toFixed(1) + 's',
+        duration: (2 + Math.random() * 2).toFixed(1) + 's',
+      }));
+    } finally {
+      this.isLoading = false;
+    }
+  }
+
+  private async simulateDataLoading(): Promise<void> {
+    // Simula il caricamento dei dati (immagini, configurazioni, etc.)
+    return new Promise((resolve) => {
+      setTimeout(resolve, 1500);
+    });
   }
 
   ngAfterViewInit() {

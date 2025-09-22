@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatDividerModule } from '@angular/material/divider';
+import { LoadingSpinnerModule } from '../../shared/loading-spinner/loading-spinner.module';
 
 @NgModule({
   declarations: [WelcomeComponent],
@@ -24,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatCardModule,
     MatChipsModule,
     MatDividerModule,
+    LoadingSpinnerModule,
   ],
 })
 export class WelcomeModule {}
