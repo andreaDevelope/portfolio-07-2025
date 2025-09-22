@@ -9,7 +9,6 @@ import { FlipService } from '../../services/flip.service';
 export class NavComponent {
   isFlipped: boolean = false;
   isMatrix = false;
-  isMobileMenuOpen: boolean = false;
 
   constructor(private flipService: FlipService) {}
 
@@ -24,8 +23,5 @@ export class NavComponent {
 
   matrixToggle() {
     this.flipService.matrixToggle();
-  }
-  toggleMobileMenu() {
-    this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 }

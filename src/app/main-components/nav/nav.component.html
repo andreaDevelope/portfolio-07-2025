@@ -41,26 +41,3 @@
     <button class="btn matrix-btn" (click)="matrixToggle()">Matrix</button>
   </div>
 </mat-toolbar>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" [class.open]="isMobileMenuOpen">
-  <div class="mobile-menu-content">
-    <button class="mobile-btn" (click)="flipTogle(); toggleMobileMenu()">
-      {{ isFlipped ? "Bio" : "Progetti" }}
-    </button>
-    <a
-      class="mobile-btn"
-      href="https://wa.me/393518714382"
-      target="_blank"
-      rel="noopener noreferrer"
-      (click)="toggleMobileMenu()"
-      >Scrivimi</a
-    >
-    <button
-      class="mobile-btn matrix-btn"
-      (click)="matrixToggle(); toggleMobileMenu()"
-    >
-      Matrix
-    </button>
-  </div>
-</div>
