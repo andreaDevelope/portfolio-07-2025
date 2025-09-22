@@ -252,7 +252,7 @@
                   class="skill soft-skill"
                   [style.--border-level]="skill.level + '%'"
                 >
-                  <mat-icon>{{ skill.icon }}</mat-icon>
+                  <i *ngIf="skill.icon" class="{{ skill.icon }} skill-icon"></i>
                   <span class="skill-name">{{ skill.name }}</span>
                 </div>
                 <p class="skill-level">{{ skill.level }}%</p>

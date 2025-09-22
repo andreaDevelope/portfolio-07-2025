@@ -133,11 +133,11 @@ export class WelcomeComponent {
       { name: 'Postman', level: 65, icon: 'devicon-postman-plain colored' },
     ],
     soft: [
-      { name: 'Problem Solving', level: 85, icon: 'psychology' },
-      { name: 'Teamwork', level: 80, icon: 'group' },
-      { name: 'Comunicazione', level: 75, icon: 'chat' },
-      { name: 'Comunicazione', level: 75, icon: 'chat' },
-      { name: 'Comunicazione', level: 75, icon: 'chat' },
+      { name: 'Problem Solving', level: 85, icon: 'fa-solid fa-puzzle-piece' },
+      { name: 'Teamwork', level: 80, icon: 'fa-solid fa-users' },
+      { name: 'Communication', level: 75, icon: 'fa-solid fa-comments' },
+      { name: 'Resilience', level: 70, icon: 'fa-solid fa-bolt' },
+      { name: 'Time Management', level: 65, icon: 'fa-solid fa-clock' },
     ],
   };
 
