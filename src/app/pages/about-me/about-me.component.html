@@ -6,7 +6,34 @@
     </p>
   </div>
 
-  <div class="timeline-wrapper">
+  <section *ngIf="!isTimelineVisible" class="bio-hero">
+    <div class="hero-content">
+      <img
+        class="profile-pic"
+        src="../../../assets/img/ceccarelli-092025-nobg.png"
+        alt="Andrea Ceccarelli"
+      />
+      <div class="bio-text">
+        <h1>Ciao, sono Andrea Ceccarelli</h1>
+        <p>
+          Full-Stack Developer con oltre <strong>4 anni di esperienza</strong>
+          in applicazioni web e back-end. Ho lavorato in start-up e aziende
+          strutturate, con focus su Angular, Spring Boot e database relazionali.
+        </p>
+        <p>
+          Amo le sfide che combinano <strong>tecnologia e creatività</strong>, e
+          credo nel miglioramento continuo attraverso lo studio e il lavoro di
+          squadra.
+        </p>
+
+        <button class="btn" (click)="toggleTimeline()">
+          Scopri la mia Timeline
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="timeline-wrapper" *ngIf="isTimelineVisible">
     <div #timelineContainer class="timeline-container">
       <div
         *ngFor="let event of timelineEvents; let i = index"
@@ -60,6 +87,11 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="back-btn-container">
+      <button class="btn back-btn" (click)="toggleTimeline()">
+        Torna alla Bio
+      </button>
     </div>
   </div>
 

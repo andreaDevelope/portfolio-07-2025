@@ -92,6 +92,8 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     },
   ];
 
+  isTimelineVisible = false;
+
   ngOnInit(): void {
     // Inizializzazione component
   }
@@ -122,17 +124,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getEventIconClass(event: TimelineEvent): string {
-    const baseClass = 'timeline-icon';
-    switch (event.type) {
-      case 'education':
-        return `${baseClass} education`;
-      case 'work':
-        return `${baseClass} work`;
-      case 'project':
-        return `${baseClass} project`;
-      default:
-        return baseClass;
-    }
+  toggleTimeline() {
+    this.isTimelineVisible = !this.isTimelineVisible;
   }
 }
