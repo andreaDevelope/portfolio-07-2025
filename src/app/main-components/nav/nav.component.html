@@ -21,13 +21,28 @@
   ></label>
 
   <div class="nav-buttons">
-    <!-- Toggle Bio / Progetti -->
-    <button class="btn" (click)="flipTogle()" (click)="closeHamburgerMenu()">
-      {{ isFlipped ? "Bio" : "Progetti" }}
+    <!-- Toggle Profile / Progetti -->
+    <button
+      class="btn"
+      (click)="flipTogle()"
+      (click)="closeHamburgerMenu()"
+      *ngIf="currentRoute === '/'"
+    >
+      {{ isFlipped ? "Profile" : "Progetti" }}
     </button>
 
-    <!-- Vai a Bio -->
     <a
+      *ngIf="currentRoute === '/about-me'"
+      class="btn"
+      routerLink="/"
+      (click)="closeHamburgerMenu()"
+    >
+      Home
+    </a>
+
+    <!-- Vai a Profile -->
+    <a
+      *ngIf="currentRoute != '/about-me'"
       class="btn"
       routerLink="/about-me"
       aria-label="Vai alla mia biografia"

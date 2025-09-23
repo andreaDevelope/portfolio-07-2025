@@ -3,6 +3,20 @@
   margin: 0 auto;
   padding: 2rem 1rem;
   min-height: 100vh;
+
+  // Stile generale per le icone Material
+  mat-icon {
+    font-family: "Material Icons" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    word-wrap: normal !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+  }
 }
 
 .header-section {
@@ -114,6 +128,23 @@
   position: absolute;
   top: 1.5rem;
   z-index: 10;
+
+  mat-icon {
+    color: white !important;
+    font-size: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: inline-block !important;
+    font-family: "Material Icons" !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    word-wrap: normal !important;
+    white-space: nowrap !important;
+    direction: ltr !important;
+  }
 }
 
 .timeline-icon {
@@ -264,7 +295,12 @@
     color: rgba(255, 255, 255, 0.9);
 
     mat-icon {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.8) !important;
+      font-size: 16px !important;
+      width: 16px !important;
+      height: 16px !important;
+      display: inline-block !important;
+      font-family: "Material Icons" !important;
     }
   }
 }

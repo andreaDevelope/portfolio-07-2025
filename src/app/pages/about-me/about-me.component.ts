@@ -26,52 +26,69 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   @ViewChild('timelineContainer', { static: false })
   timelineContainer!: ElementRef;
 
-  timelineEvents: TimelineEvent[] = [
+  timelineEvents = [
     {
-      id: 1,
-      title: 'Corso Full-Stack Developer',
-      period: '2024',
+      title: 'Full-Stack Developer & Team Lead',
+      period: '02/2025 – 06/2025',
       description:
-        'Formazione intensiva in programmazione full-stack con focus su Angular, Spring Boot e metodologie agili.',
-      icon: 'school',
-      type: 'education',
+        'Start-up ArchiviaLab: sviluppo piattaforma SaaS per editoria digitale.',
       achievements: [
-        'Progetti hands-on con tecnologie enterprise',
-        'Metodologie Agile e Scrum',
-        'Collaborazione in team di sviluppo',
+        'Coordinato 2 front-end dev e 1 web designer',
+        'Realizzate API in Spring Boot e frontend Angular responsive',
       ],
-      technologies: ['Angular', 'Spring Boot', 'TypeScript', 'Java', 'SQL'],
-    },
-    {
-      id: 2,
-      title: 'Autoformazione e Progetti Personali',
-      period: '2024 - Presente',
-      description:
-        'Sviluppo continuo di competenze attraverso progetti personali e studio autonomo delle ultime tecnologie.',
+      technologies: ['Angular', 'Spring Boot', 'Oracle', 'GitLab'],
       icon: 'code',
-      type: 'project',
-      achievements: [
-        'Portfolio responsive con Angular',
-        'Progetti full-stack completi',
-        'Integrazione API e database',
-      ],
-      technologies: ['Angular', 'Spring Boot', 'Docker', 'Git', 'REST APIs'],
     },
     {
-      id: 3,
-      title: 'Team Developer - ArchiviaLab',
-      period: '2024 - Presente',
-      description:
-        "Sviluppo software per startup innovativa, contribuendo alla creazione di soluzioni digitali per l'archiviazione e gestione documentale.",
-      icon: 'work',
-      type: 'work',
+      title: 'Web Scraping Developer',
+      period: '03/2025',
+      description: 'Assicura Point Trade Srl – sviluppo crawler assicurativi.',
       achievements: [
-        'Sviluppo frontend con Angular',
-        'Integrazione backend Spring Boot',
-        'Collaborazione in team agile',
-        'Gestione database e API',
+        'Automatizzato raccolta dati polizze',
+        'Integrazione con API interne',
       ],
-      technologies: ['Angular', 'Spring Boot', 'PostgreSQL', 'Docker', 'Git'],
+      technologies: ['Java', 'Jsoup', 'Selenium', 'Postman'],
+      icon: 'search',
+    },
+    {
+      title: 'Back-End Developer (Tirocinio)',
+      period: '04/2015 – 05/2018',
+      description:
+        'Enova Srl – sviluppo software gestionali e protocolli sicurezza.',
+      achievements: [
+        'Progettato moduli Java per gestione clienti',
+        'Implementato protocolli standardizzati',
+      ],
+      technologies: ['Java', 'Spring', 'SQL'],
+      icon: 'build',
+    },
+    {
+      title: 'Formazione Full-Stack Developer',
+      period: '07/2024 – 02/2025',
+      description:
+        'Epicode – corso intensivo di programmazione web full-stack.',
+      achievements: [
+        'Progetti Angular + Spring Boot',
+        'Certificazione finale conseguita',
+      ],
+      technologies: ['Angular', 'Spring Boot', 'Docker', 'Git'],
+      icon: 'school',
+    },
+    {
+      title: 'Certificazione Sicurezza Lavoratori',
+      period: '08/2024',
+      description: 'Gi Group – Badge ID: 549194',
+      achievements: ['Formazione sicurezza generale e specifica'],
+      technologies: [],
+      icon: 'verified',
+    },
+    {
+      title: 'Lingue',
+      period: 'Corrente',
+      description: 'Competenze linguistiche',
+      achievements: ['Italiano – Madrelingua', 'Inglese – Livello B2'],
+      technologies: [],
+      icon: 'language',
     },
   ];
 

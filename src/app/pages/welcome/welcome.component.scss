@@ -166,7 +166,7 @@ h3 {
   gap: 1rem;
 }
 
-.section.hero .hero-body .bio-title mat-card-title {
+.section.hero .hero-body .profile-title mat-card-title {
   font-size: clamp(1.6rem, 5vw, 2.2rem);
   line-height: 1.15;
   margin: 0;
@@ -175,7 +175,7 @@ h3 {
   font-size: 2rem !important;
 }
 
-.section.hero .hero-body .bio-title mat-card-subtitle {
+.section.hero .hero-body .profile-title mat-card-subtitle {
   margin-top: 0.25rem;
   opacity: 0.9;
   font-weight: 500;
