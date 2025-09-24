@@ -468,14 +468,46 @@ button {
   background: transparent;
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (max-width: 768px) {
   .box:before {
+    -webkit-animation: aboutMeBtnBorderBefore 4s linear infinite;
     animation: aboutMeBtnBorderBefore 4s linear infinite;
   }
 
   .box:after {
+    -webkit-animation: aboutMeBtnBorderAfter 4s linear infinite;
     animation: aboutMeBtnBorderAfter 4s linear infinite;
-    animation-delay: 0.3s; // sfalsato
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+  }
+}
+
+/* ---- Keyframes con prefisso ---- */
+@-webkit-keyframes aboutMeBtnBorderBefore {
+  0% {
+    border-color: transparent;
+    height: 4px;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  40% {
+    border-color: #262626;
+    height: 4px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  70%,
+  90% {
+    border-color: #262626;
+    height: 100%;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    border-color: transparent;
+    height: 4px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
@@ -488,18 +520,46 @@ button {
   40% {
     border-color: #262626;
     height: 4px;
-    transform: translateX(0); // linea orizzontale
+    transform: translateX(0);
   }
   70%,
   90% {
     border-color: #262626;
-    height: 100%; // bordo completato
+    height: 100%;
     transform: translateX(0);
   }
   100% {
     border-color: transparent;
     height: 4px;
-    transform: translateX(0); // reset immediato
+    transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes aboutMeBtnBorderAfter {
+  0% {
+    border-color: transparent;
+    height: 4px;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  40% {
+    border-color: #262626;
+    height: 4px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  70%,
+  90% {
+    border-color: #262626;
+    height: 100%;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  100% {
+    border-color: transparent;
+    height: 4px;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
