@@ -1,5 +1,5 @@
 .about-me-container {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 1rem;
   min-height: 100vh;
@@ -46,6 +46,7 @@
 .timeline-wrapper {
   position: relative;
   margin: 3rem 0;
+  padding: 2rem 1rem;
 }
 
 .timeline-container {
@@ -68,10 +69,9 @@
 
 .timeline-item {
   position: relative;
-  margin: 2rem 0;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
 
   &.animate-in {
     opacity: 1;
@@ -79,26 +79,27 @@
   }
 
   &.left {
+    left: 0;
+    text-align: right;
+
     .timeline-content {
-      margin-right: 50%;
-      padding-right: 2rem;
-      text-align: right;
+      margin-left: auto;
     }
 
     .timeline-icon-container {
-      right: -2rem;
+      right: -28px;
     }
   }
 
   &.right {
+    left: 50%;
+
     .timeline-content {
-      margin-left: 50%;
-      padding-left: 2rem;
-      text-align: left;
+      margin-right: auto;
     }
 
     .timeline-icon-container {
-      left: -2rem;
+      left: -28px;
     }
   }
 }
@@ -126,36 +127,19 @@
 
 .timeline-icon-container {
   position: absolute;
-  top: 1.5rem;
+  top: 20px;
   z-index: 10;
-
-  mat-icon {
-    color: white !important;
-    font-size: 24px !important;
-    width: 24px !important;
-    height: 24px !important;
-    display: inline-block !important;
-    font-family: "Material Icons" !important;
-    font-weight: normal !important;
-    font-style: normal !important;
-    line-height: 1 !important;
-    text-transform: none !important;
-    letter-spacing: normal !important;
-    word-wrap: normal !important;
-    white-space: nowrap !important;
-    direction: ltr !important;
-  }
 }
 
 .timeline-icon {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
   &.education {
@@ -322,6 +306,11 @@
   }
 
   .timeline-item {
+    width: 100%;
+    left: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+
     &.left,
     &.right {
       .timeline-content {
@@ -337,6 +326,11 @@
         right: auto;
       }
     }
+  }
+
+  .timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   }
 
   .key-stats {

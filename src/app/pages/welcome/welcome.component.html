@@ -1,5 +1,4 @@
 <div class="welcome-container">
-  <!-- Loading overlay per il caricamento iniziale -->
   <app-loading-spinner
     *ngIf="isLoading"
     [overlay]="true"
@@ -41,15 +40,8 @@
                   alt="foto.jpg"
                 />
                 <div class="cornice"></div>
-                <!-- <img
-                  class="linee-astratte"
-                  src="../../../assets/img/lenee-astratte-removebg.png"
-                  alt=""
-                /> -->
               </div>
               <div class="cta" role="group" aria-label="Call to action">
-                <!-- go to project button -->
-                <!-- Bottone Progetti identico a nav -->
                 <button
                   class="animated-button"
                   (click)="flipTogle()"

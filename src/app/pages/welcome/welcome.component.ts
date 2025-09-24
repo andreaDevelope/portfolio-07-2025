@@ -17,6 +17,9 @@ export class WelcomeComponent {
   isFlipped = false;
   isMatrix = false;
   isLoading = false;
+
+  private readonly MIN_LOADING_DURATION = 300;
+  private readonly MAX_LOADING_DURATION = 3000;
   @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
   @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
   currentIndex = 0;
@@ -149,28 +152,82 @@ export class WelcomeComponent {
 
   private async initializeComponent() {
     this.isLoading = true;
+    const startTime = Date.now();
 
     try {
-      // Simula il caricamento iniziale dei dati
-      await this.simulateDataLoading();
+      const timeoutPromise = new Promise<void>((_, reject) => {
+        setTimeout(
+          () => reject(new Error('Loading timeout')),
+          this.MAX_LOADING_DURATION
+        );
+      });
 
-      this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
-      this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
-      this.columns = Array.from({ length: this.count }, (_, i) => ({
-        left: i * this.colWidth,
-        delay: -(Math.random() * 4).toFixed(1) + 's',
-        duration: (2 + Math.random() * 2).toFixed(1) + 's',
-      }));
+      // Carica i dati reali in parallelo con timeout
+      await Promise.race([
+        Promise.all([
+          this.loadImages(),
+          this.initializeServices(),
+          this.setupAnimations(),
+        ]),
+        timeoutPromise,
+      ]);
+
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(
+        0,
+        this.MIN_LOADING_DURATION - elapsedTime
+      );
+
+      if (remainingTime > 0) {
+        await new Promise((resolve) => setTimeout(resolve, remainingTime));
+      }
+    } catch (error) {
+      console.warn('Loading timeout o errore durante il caricamento:', error);
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(
+        0,
+        this.MIN_LOADING_DURATION - elapsedTime
+      );
+
+      if (remainingTime > 0) {
+        await new Promise((resolve) => setTimeout(resolve, remainingTime));
+      }
     } finally {
       this.isLoading = false;
     }
   }
 
-  private async simulateDataLoading(): Promise<void> {
-    // Simula il caricamento dei dati (immagini, configurazioni, etc.)
-    return new Promise((resolve) => {
-      setTimeout(resolve, 1500);
+  private async loadImages(): Promise<void> {
+    const imagePromises = this.projects.map((project) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+        img.src = project.img;
+      });
     });
+
+    const profileImgPromise = new Promise<void>((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve();
+      img.onerror = () => resolve();
+      img.src = '../../../assets/img/ceccarelli-092025-nobg.png';
+    });
+
+    await Promise.all([...imagePromises, profileImgPromise]);
+  }
+
+  private async initializeServices(): Promise<void> {
+    this.flipService.flipped$.subscribe((data) => (this.isFlipped = data));
+    this.flipService.isMatrix$.subscribe((data) => (this.isMatrix = data));
+  }
+
+  private async setupAnimations(): Promise<void> {
+    this.columns = Array.from({ length: this.count }, (_, i) => ({
+      left: i * this.colWidth,
+      delay: -(Math.random() * 4).toFixed(1) + 's',
+      duration: (2 + Math.random() * 2).toFixed(1) + 's',
+    }));
   }
 
   ngAfterViewInit() {
@@ -184,9 +241,7 @@ export class WelcomeComponent {
       entries.forEach((entry) => {
         const el = entry.target as HTMLElement;
         if (entry.isIntersecting) {
-          // Rimuovi la classe se esiste già e aggiungila nuovamente per riavviare l'animazione
           el.classList.remove('animate-title');
-          // Piccolo delay per permettere il reset completo
           setTimeout(() => {
             el.classList.add('animate-title');
           }, 10);
