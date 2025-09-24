@@ -177,7 +177,7 @@
   }
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (max-width: 768px) {
   .nav-container {
     position: relative;
     .btn {
