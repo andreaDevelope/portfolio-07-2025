@@ -180,10 +180,13 @@
 @media (max-width: 768px) {
   .nav-container {
     position: relative;
+
     .btn {
+      -webkit-animation: btnColorLoop 5s linear infinite;
       animation: btnColorLoop 5s linear infinite;
 
       &::before {
+        -webkit-animation: shineLoop 5s linear infinite;
         animation: shineLoop 5s linear infinite;
       }
 
@@ -193,9 +196,11 @@
     }
 
     .matrix-btn {
+      -webkit-animation: matrixColorLoop 5s linear infinite;
       animation: matrixColorLoop 5s linear infinite;
 
       &::before {
+        -webkit-animation: shineLoop 5s linear infinite;
         animation: shineLoop 5s linear infinite;
         background-color: #00cc00; /* fascio verde */
       }
@@ -203,7 +208,7 @@
   }
 }
 
-@keyframes btnColorLoop {
+@-webkit-keyframes btnColorLoop {
   0% {
     background-color: #212121;
     color: #fff;
@@ -235,7 +240,7 @@
   }
 }
 
-@keyframes matrixColorLoop {
+@-webkit-keyframes matrixColorLoop {
   0% {
     background-color: #212121;
     color: #fff;
@@ -262,7 +267,7 @@
   }
 }
 
-@keyframes shineLoop {
+@-webkit-keyframes shineLoop {
   0% {
     transform: skewX(30deg) translate(-150%, -50%);
   }
