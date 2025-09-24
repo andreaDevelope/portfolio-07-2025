@@ -8,7 +8,7 @@ import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
 })
-export class WelcomeComponent {
+export class WelcomeComponent implements AfterViewInit {
   patterns = Array.from({ length: 5 });
   columns: any[] = [];
   colWidth: number = 25;
@@ -22,6 +22,7 @@ export class WelcomeComponent {
   private readonly MAX_LOADING_DURATION = 3000;
   @ViewChild('hardSkillTitle', { static: true }) hardSkillTitle!: ElementRef;
   @ViewChild('softSkillTitle', { static: true }) softSkillTitle!: ElementRef;
+  @ViewChild('container', { static: true }) container!: ElementRef;
   currentIndex = 0;
   projects: IProject[] = [
     {
@@ -150,6 +151,32 @@ export class WelcomeComponent {
     this.initializeComponent();
   }
 
+  ngAfterViewInit() {
+    const height = this.container.nativeElement.scrollHeight;
+    this.container.nativeElement.style.minHeight = `${height}px`;
+
+    const options = {
+      root: null,
+      threshold: 0,
+      rootMargin: `0px 0px -50% 0px`,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target as HTMLElement;
+        if (entry.isIntersecting) {
+          el.classList.remove('animate-title');
+          setTimeout(() => {
+            el.classList.add('animate-title');
+          }, 10);
+        }
+      });
+    }, options);
+
+    observer.observe(this.hardSkillTitle.nativeElement);
+    observer.observe(this.softSkillTitle.nativeElement);
+  }
+
   private async initializeComponent() {
     this.isLoading = true;
     const startTime = Date.now();
@@ -228,29 +255,6 @@ export class WelcomeComponent {
       delay: -(Math.random() * 4).toFixed(1) + 's',
       duration: (2 + Math.random() * 2).toFixed(1) + 's',
     }));
-  }
-
-  ngAfterViewInit() {
-    const options = {
-      root: null,
-      threshold: 0,
-      rootMargin: `0px 0px -50% 0px`,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const el = entry.target as HTMLElement;
-        if (entry.isIntersecting) {
-          el.classList.remove('animate-title');
-          setTimeout(() => {
-            el.classList.add('animate-title');
-          }, 10);
-        }
-      });
-    }, options);
-
-    observer.observe(this.hardSkillTitle.nativeElement);
-    observer.observe(this.softSkillTitle.nativeElement);
   }
 
   // carosello

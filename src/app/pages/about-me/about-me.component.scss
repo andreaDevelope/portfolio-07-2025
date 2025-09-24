@@ -4,6 +4,28 @@
   padding: 2rem 1rem;
   min-height: 100vh;
 
+  body,
+  p,
+  span,
+  a,
+  button,
+  .mat-mdc-card-subtitle,
+  .mat-mdc-card-content {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h1,
+  h2,
+  .mat-mdc-card-title {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+    text-align: center;
+  }
+
   // Stile generale per le icone Material
   mat-icon {
     font-family: "Material Icons" !important;
