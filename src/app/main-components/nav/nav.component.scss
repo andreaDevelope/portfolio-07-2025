@@ -68,13 +68,11 @@
     width: 30px;
   }
 
-  /* BOTTONI DESKTOP/TABLET */
   .nav-buttons {
     display: flex;
     gap: 1rem;
   }
 
-  /* NASCONDI hamburger su desktop/tablet */
   @media (min-width: 769px) {
     .label-check,
     .hamburger-label {

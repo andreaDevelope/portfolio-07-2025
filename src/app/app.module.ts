@@ -10,9 +10,10 @@ import { NavComponent } from './main-components/nav/nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.module';
+import { FooterComponent } from './main-components/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
