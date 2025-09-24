@@ -12,7 +12,7 @@ export class NavComponent {
   isFlipped: boolean = false;
   isMatrix = false;
   currentRoute: string = '';
-
+  isTimelineVisible = false;
   constructor(private flipService: FlipService, private router: Router) {}
 
   ngOnInit() {
@@ -23,6 +23,10 @@ export class NavComponent {
         this.currentRoute = e.urlAfterRedirects;
       }
     });
+
+    this.flipService.isTimelineVisible$.subscribe(
+      (value) => (this.isTimelineVisible = value)
+    );
   }
 
   flipTogle() {
@@ -35,5 +39,9 @@ export class NavComponent {
 
   closeHamburgerMenu() {
     this.isMenuOpen = false;
+  }
+
+  toggleTimeline() {
+    this.flipService.toggleTimeline();
   }
 }

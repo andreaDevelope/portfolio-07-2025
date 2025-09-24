@@ -51,6 +51,14 @@
       La Mia Bio
     </a>
 
+    <button
+      class="btn"
+      *ngIf="currentRoute === '/about-me'"
+      (click)="toggleTimeline(); closeHamburgerMenu()"
+    >
+      {{ isTimelineVisible ? "Bio" : "Percorso" }}
+    </button>
+
     <!-- Scrivimi (WhatsApp) -->
     <a
       (click)="closeHamburgerMenu()"
@@ -64,6 +72,7 @@
 
     <!-- Matrix mode -->
     <button
+      *ngIf="currentRoute !== '/about-me'"
       class="btn matrix-btn"
       (click)="matrixToggle()"
       (click)="closeHamburgerMenu()"

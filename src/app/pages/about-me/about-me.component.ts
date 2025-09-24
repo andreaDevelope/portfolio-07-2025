@@ -5,6 +5,7 @@ import {
   ElementRef,
   AfterViewInit,
 } from '@angular/core';
+import { FlipService } from '../../services/flip.service';
 
 interface TimelineEvent {
   id: number;
@@ -94,8 +95,12 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
 
   isTimelineVisible = false;
 
+  constructor(private flipService: FlipService) {}
+
   ngOnInit(): void {
-    // Inizializzazione component
+    this.flipService.isTimelineVisible$.subscribe((value) => {
+      this.isTimelineVisible = value;
+    });
   }
 
   ngAfterViewInit(): void {
@@ -125,6 +130,6 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
   }
 
   toggleTimeline() {
-    this.isTimelineVisible = !this.isTimelineVisible;
+    this.flipService.toggleTimeline();
   }
 }
