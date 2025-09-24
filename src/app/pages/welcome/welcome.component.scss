@@ -268,6 +268,16 @@ h3 {
   font-size: 0.8rem;
 }
 
+#project-btn-toggle {
+  background-color: #642e89;
+}
+
+.prj-cta {
+  display: flex;
+  justify-content: center;
+  margin-block: 2rem;
+}
+
 .animated-button:hover {
   box-shadow: 0 0 0 12px transparent;
   color: #212121;
@@ -764,9 +774,25 @@ h3 {
   }
 }
 
-// Animazione per il fade in del contenuto
 .welcome-container {
   .container {
     transition: opacity 0.3s ease-in-out;
   }
+}
+
+.container .section {
+  transition: opacity 0.5s ease;
+}
+
+.container:not(.flipped) .projects {
+  opacity: 0.2;
+}
+
+.container.flipped .hero {
+  opacity: 0.2;
+}
+
+.container .hero,
+.container .projects {
+  opacity: 1;
 }
