@@ -114,34 +114,34 @@ export class WelcomeComponent implements AfterViewInit {
     languages: [
       {
         name: 'TypeScript',
-        level: 80,
+        level: 95,
         icon: 'devicon-typescript-plain colored',
       },
-      { name: 'Java', level: 75, icon: 'devicon-java-plain colored' },
-      { name: 'SQL', level: 65, icon: 'devicon-mysql-plain colored' },
+      { name: 'Java', level: 95, icon: 'devicon-java-plain colored' },
+      { name: 'SQL', level: 85, icon: 'devicon-mysql-plain colored' },
     ],
 
     frameworks: [
-      { name: 'Angular', level: 85, icon: 'devicon-angular-plain colored' },
-      { name: 'Spring', level: 70, icon: 'devicon-spring-plain colored' },
+      { name: 'Angular', level: 95, icon: 'devicon-angular-plain colored' },
+      { name: 'Spring', level: 95, icon: 'devicon-spring-plain colored' },
     ],
 
     libraries: [
-      { name: 'RxJS', level: 70, icon: 'devicon-react-plain colored' },
-      { name: 'Recharts', level: 60, icon: 'devicon-javascript-plain colored' },
+      { name: 'RxJS', level: 90, icon: 'devicon-react-plain colored' },
+      { name: 'Recharts', level: 90, icon: 'devicon-javascript-plain colored' },
     ],
 
     tools: [
-      { name: 'Git', level: 80, icon: 'devicon-git-plain colored' },
-      { name: 'Docker', level: 60, icon: 'devicon-docker-plain colored' },
-      { name: 'Postman', level: 65, icon: 'devicon-postman-plain colored' },
+      { name: 'Git', level: 99, icon: 'devicon-git-plain colored' },
+      { name: 'Docker', level: 80, icon: 'devicon-docker-plain colored' },
+      { name: 'Postman', level: 95, icon: 'devicon-postman-plain colored' },
     ],
     soft: [
-      { name: 'Problem Solving', level: 85, icon: 'fa-solid fa-puzzle-piece' },
-      { name: 'Teamwork', level: 80, icon: 'fa-solid fa-users' },
-      { name: 'Communication', level: 75, icon: 'fa-solid fa-comments' },
-      { name: 'Resilience', level: 70, icon: 'fa-solid fa-bolt' },
-      { name: 'Time Management', level: 65, icon: 'fa-solid fa-clock' },
+      { name: 'Problem Solving', level: 95, icon: 'fa-solid fa-puzzle-piece' },
+      { name: 'Teamwork', level: 100, icon: 'fa-solid fa-users' },
+      { name: 'Communication', level: 95, icon: 'fa-solid fa-comments' },
+      { name: 'Resilience', level: 100, icon: 'fa-solid fa-bolt' },
+      { name: 'Time Management', level: 95, icon: 'fa-solid fa-clock' },
     ],
   };
 
