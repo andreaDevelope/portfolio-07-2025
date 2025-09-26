@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   downloadCV() {
     const link = document.createElement('a');
-    link.href = 'assets/files/Andrea_Ceccarelli_CV.pdf';
+    link.href = 'assets/files/Andrea_Ceccarelli_CV_Agg.pdf';
     link.download = 'Andrea_Ceccarelli_CV.pdf';
     link.click();
   }
