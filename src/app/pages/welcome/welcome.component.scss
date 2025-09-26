@@ -209,13 +209,29 @@ h3 {
   text-decoration: none;
   width: 150px;
 }
-/* Material Icon a destra -> sinistra all'hover (come le frecce SVG) */
+.project-btn-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-block: 2rem;
+}
+
+#project-btn-toggle {
+  background-color: #212121;
+  color: #fafafa;
+  box-shadow: 0 0 0 2px #4caf50;
+}
+
+#project-btn-toggle:hover {
+  background-color: #333;
+  color: #333;
+}
+
 .animated-button .btn__icon {
   position: absolute;
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 24px; /* match con gli SVG 24px */
+  font-size: 24px;
   line-height: 1;
   z-index: 9;
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
@@ -224,7 +240,7 @@ h3 {
 .animated-button:hover .btn__icon {
   right: auto;
   left: 16px;
-  color: #212121; /* come .animated-button:hover svg */
+  color: #212121;
 }
 
 .animated-button svg {
