@@ -268,16 +268,6 @@ h3 {
   font-size: 0.8rem;
 }
 
-#project-btn-toggle {
-  background-color: #642e89;
-}
-
-.prj-cta {
-  display: flex;
-  justify-content: center;
-  margin-block: 2rem;
-}
-
 .animated-button:hover {
   box-shadow: 0 0 0 12px transparent;
   color: #212121;
@@ -593,10 +583,21 @@ h3 {
   &.flipped {
     .hero {
       z-index: 0;
+      opacity: 0.3;
     }
     .projects {
       transform: translateX(10%);
       z-index: 11;
+      opacity: 1;
+    }
+  }
+
+  &:not(.flipped) {
+    .hero {
+      opacity: 1;
+    }
+    .projects {
+      opacity: 0.3;
     }
   }
 }
@@ -752,7 +753,7 @@ h3 {
   }
 
   .container .projects {
-    left: 60%;
+    left: 50%;
     top: 50px;
     transform: translateX(-50%) rotateY(-180deg);
     z-index: 5;
@@ -778,21 +779,4 @@ h3 {
   .container {
     transition: opacity 0.3s ease-in-out;
   }
-}
-
-.container .section {
-  transition: opacity 0.5s ease;
-}
-
-.container:not(.flipped) .projects {
-  opacity: 0.2;
-}
-
-.container.flipped .hero {
-  opacity: 0.2;
-}
-
-.container .hero,
-.container .projects {
-  opacity: 1;
 }
