@@ -327,6 +327,7 @@ h3 {
   perspective: 1000px;
   padding-inline: 0;
   padding-block: 0.5rem;
+  transform-style: preserve-3d;
 
   .section {
     width: 90%;
@@ -335,8 +336,10 @@ h3 {
   .hero,
   .projects {
     position: absolute;
-    transition: transform 0.8s ease, z-index 0.8s ease;
+    transition: transform 0.8s ease;
     padding-block: 0.5rem;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
   }
 
   .hero {
@@ -344,7 +347,7 @@ h3 {
     left: 50%;
     top: 0;
     transform: translateX(-50%) rotateY(0deg);
-    z-index: 0;
+    z-index: 2;
     .hero-body {
       margin-inline: auto;
       width: 80%;
@@ -575,12 +578,10 @@ h3 {
   .projects {
     width: 80%;
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 50%;
     top: 1rem;
-    transform: translateX(-95%);
-    transition: transform 0.8s ease;
-    z-index: 9;
+    transform: translateX(-50%) rotateY(180deg);
+    z-index: 1;
     padding-bottom: 2rem;
   }
 
@@ -592,11 +593,12 @@ h3 {
 
   &.flipped {
     .hero {
-      z-index: 0;
+      transform: translateX(-50%) rotateY(-180deg);
+      z-index: 1;
     }
     .projects {
-      transform: translateX(10%);
-      z-index: 11;
+      transform: translateX(-50%) rotateY(0deg);
+      z-index: 2;
     }
   }
 }
@@ -751,22 +753,16 @@ h3 {
     transform: translateX(-50%) rotateY(0deg);
   }
 
-  .container .projects {
-    left: 60%;
-    top: 50px;
-    transform: translateX(-50%) rotateY(-180deg);
-    z-index: 5;
-    padding-bottom: 2rem;
+  .projects {
+    transform: translateX(-95%);
+    z-index: 1;
   }
+}
 
-  .container.flipped .hero {
-    transform: translateX(-50%) rotateY(180deg);
-    z-index: 5;
-  }
-
-  .container.flipped .projects {
-    transform: translateX(-50%) rotateY(0deg);
-    z-index: 10;
+/* Desktop: Effetto flip 3D */
+@media (min-width: 768px) {
+  .projects .project-btn-toggle {
+    display: none;
   }
 
   .carousel-nav-container {
@@ -780,19 +776,4 @@ h3 {
   }
 }
 
-.container .section {
-  transition: opacity 0.5s ease;
-}
-
-.container:not(.flipped) .projects {
-  opacity: 0.2;
-}
-
-.container.flipped .hero {
-  opacity: 0.2;
-}
-
-.container .hero,
-.container .projects {
-  opacity: 1;
-}
+/* Le regole di opacità sono ora gestite nelle media queries specifiche */
