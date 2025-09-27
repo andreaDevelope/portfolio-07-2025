@@ -102,7 +102,7 @@
 
   &.left {
     left: 0;
-    text-align: right;
+    text-align: left;
 
     .timeline-content {
       margin-left: auto;
@@ -197,12 +197,12 @@
   border-radius: 20px;
 }
 
-.timeline-body {
-  .timeline-description {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
+.timeline-description {
+  color: #666;
+  line-height: 1.6;
+  margin-block: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid #6e66c9;
 }
 
 .achievements-section,
@@ -213,7 +213,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 0.75rem;
+    margin-block: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
