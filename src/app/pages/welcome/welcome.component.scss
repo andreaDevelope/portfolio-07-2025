@@ -35,6 +35,7 @@ h2 {
   white-space: nowrap;
   display: inline-block;
   text-align: center;
+  margin-block: 1.5rem;
 }
 
 h3 {
@@ -795,4 +796,22 @@ h3 {
   .container {
     transition: opacity 0.3s ease-in-out;
   }
+}
+
+.mat-mdc-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.project-title {
+  text-align: center;
+  width: 100%;
+  border-bottom: 3px solid rgb(17, 0, 255);
+}
+
+.mat-mdc-card-content {
+  text-align: center;
 }
