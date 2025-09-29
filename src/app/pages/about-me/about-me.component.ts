@@ -52,7 +52,7 @@ export class AboutMeComponent implements OnInit, AfterViewInit {
       icon: 'search',
     },
     {
-      title: 'Back-End Developer (Tirocinio)',
+      title: 'Java Developer',
       period: '04/2015 – 05/2018',
       description:
         'Enova Srl – sviluppo software gestionali e protocolli sicurezza.',
