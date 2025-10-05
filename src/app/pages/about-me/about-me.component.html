@@ -1,11 +1,4 @@
 <div class="about-me-container">
-  <div class="header-section">
-    <h1 class="page-title">Il Mio Percorso</h1>
-    <p class="page-subtitle">
-      Dalla formazione al lavoro: la mia evoluzione come Full-Stack Developer
-    </p>
-  </div>
-
   <section *ngIf="!isTimelineVisible" class="bio-hero">
     <div class="hero-content">
       <!-- <img
@@ -34,6 +27,12 @@
   </section>
 
   <div class="timeline-wrapper" *ngIf="isTimelineVisible">
+    <div class="header-section">
+      <h1 class="page-title">Il Mio Percorso</h1>
+      <p class="page-subtitle">
+        Dalla formazione al lavoro: la mia evoluzione come Full-Stack Developer
+      </p>
+    </div>
     <div class="timeline-container">
       <div
         *ngFor="let event of timelineEvents; let i = index"

@@ -203,31 +203,10 @@
       &::before {
         -webkit-animation: shineLoop 5s linear infinite;
         animation: shineLoop 5s linear infinite;
-        background-color: #212121; /* fascio verde */
+        background-color: #212121;
       }
     }
   }
-  // .nav-buttons {
-  //   .btn:nth-child(1)::before {
-  //     animation-delay: 0s;
-  //   }
-  //   .btn:nth-child(2)::before {
-  //     animation-delay: 1s;
-  //   }
-  //   .btn:nth-child(3)::before {
-  //     animation-delay: 2s;
-  //   }
-  //   .btn:nth-child(4)::before {
-  //     animation-delay: 3s;
-  //   }
-  //   .btn:nth-child(5)::before {
-  //     animation-delay: 4s;
-  //   }
-
-  //   .matrix-btn::before {
-  //     animation-delay: 5s;
-  //   }
-  // }
 }
 
 @-webkit-keyframes btnColorLoop {
@@ -258,7 +237,7 @@
   }
   100% {
     background-color: #212121;
-    color: #fff; /* resto fermo per 5s */
+    color: #fff;
   }
 }
 
@@ -268,11 +247,11 @@
     color: #fff;
   }
   20% {
-    background-color: #00ff00; /* verde hover */
+    background-color: #00ff00;
     color: #000;
   }
   30% {
-    background-color: #00ff00; /* verde hover */
+    background-color: #00ff00;
     color: #000;
   }
   60% {
