@@ -119,29 +119,57 @@ export class WelcomeComponent implements AfterViewInit {
       },
       { name: 'Java', level: 95, icon: 'devicon-java-plain colored' },
       { name: 'SQL', level: 85, icon: 'devicon-mysql-plain colored' },
+      { name: 'Python', icon: 'devicon-python-plain', level: 75 },
+      { name: 'PHP', icon: 'devicon-php-plain', level: 70 },
     ],
 
     frameworks: [
       { name: 'Angular', level: 95, icon: 'devicon-angular-plain colored' },
       { name: 'Spring', level: 95, icon: 'devicon-spring-plain colored' },
+      { name: 'React', icon: 'devicon-react-original', level: 80 },
+      { name: 'Vue.js', icon: 'devicon-vuejs-plain', level: 85 },
+      { name: 'Django', icon: 'devicon-django-plain', level: 70 },
     ],
 
     libraries: [
-      { name: 'RxJS', level: 90, icon: 'devicon-react-plain colored' },
-      { name: 'Recharts', level: 90, icon: 'devicon-javascript-plain colored' },
+      { name: 'RxJS', icon: 'devicon-react-original', level: 90 },
+      { name: 'Angular Material', icon: 'devicon-angular-plain', level: 92 },
+      { name: 'Chart.js', icon: 'devicon-javascript-plain', level: 88 },
+      { name: 'MapStruct', icon: 'fa-solid fa-diagram-project', level: 95 },
+      { name: 'Lombok', icon: 'fa-solid fa-leaf', level: 92 },
     ],
 
     tools: [
       { name: 'Git', level: 99, icon: 'devicon-git-plain colored' },
-      { name: 'Docker', level: 80, icon: 'devicon-docker-plain colored' },
+      { name: 'Docker', level: 95, icon: 'devicon-docker-plain colored' },
       { name: 'Postman', level: 95, icon: 'devicon-postman-plain colored' },
+      {
+        name: 'IntelliJ IDEA',
+        level: 90,
+        icon: 'devicon-intellij-plain colored',
+      },
+      {
+        name: 'VS Code / Cursor',
+        level: 90,
+        icon: 'devicon-vscode-plain colored',
+      },
+      { name: 'Maven', level: 88, icon: 'devicon-apache-plain colored' },
+      { name: 'Jira', level: 80, icon: 'devicon-jira-plain colored' },
     ],
+
     soft: [
       { name: 'Problem Solving', level: 95, icon: 'fa-solid fa-puzzle-piece' },
       { name: 'Teamwork', level: 100, icon: 'fa-solid fa-users' },
       { name: 'Communication', level: 95, icon: 'fa-solid fa-comments' },
       { name: 'Resilience', level: 100, icon: 'fa-solid fa-bolt' },
       { name: 'Time Management', level: 95, icon: 'fa-solid fa-clock' },
+      { name: 'Adaptability', level: 95, icon: 'fa-solid fa-shuffle' },
+      { name: 'Creativity', level: 95, icon: 'fa-solid fa-lightbulb' },
+      {
+        name: 'Attention to Detail',
+        level: 95,
+        icon: 'fa-solid fa-magnifying-glass',
+      },
     ],
   };
 

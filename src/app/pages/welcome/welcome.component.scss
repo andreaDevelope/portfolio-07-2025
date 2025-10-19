@@ -9,6 +9,7 @@
 .welcome-container {
   max-width: 1000px;
   margin-inline: auto;
+  min-height: 100vh;
 }
 body,
 p,
@@ -231,6 +232,35 @@ h3 {
   color: #333;
 }
 
+#hero-btn-toggle {
+  background-color: #5e2d91;
+  color: #fafafa;
+  box-shadow: 0 0 0 2px #1100ff;
+}
+
+#hero-btn-toggle svg {
+  fill: #1100ff;
+}
+
+#hero-btn-toggle:hover {
+  background-color: #1100ff;
+  color: #212121;
+  box-shadow: 0 0 12px #df7ff0, 0 0 25px #9256fc; /* glow morbido */
+}
+
+#hero-btn-toggle:hover svg {
+  fill: #1100ff;
+}
+
+#hero-btn-toggle .circle {
+  background-color: #833dfc; /* effetto “wave” coerente */
+}
+
+#hero-btn-toggle:active {
+  box-shadow: 0 0 0 4px #7d32fd;
+  scale: 0.96;
+}
+
 .animated-button .btn__icon {
   position: absolute;
   right: 16px;
@@ -286,7 +316,8 @@ h3 {
   z-index: 1;
   transform: translateX(-12px);
   transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
 .animated-button:hover {
@@ -446,6 +477,8 @@ h3 {
 
             .skill-level {
               margin-top: 0.5rem;
+              font-size: 1.5rem;
+              font-weight: 700;
             }
 
             .skill-data-container {
@@ -499,12 +532,17 @@ h3 {
 
                 .skill-name {
                   position: relative;
-                  font-size: 1.2rem;
+                  font-size: 0.8rem;
                   font-weight: bold;
                   text-align: center;
                   z-index: 2;
                   background-color: #212121;
                   padding: 0.2rem;
+                  transform: translateY(62px);
+                  border: 3px solid #4caf50;
+                  border-radius: 1rem;
+                  padding-inline: 0.8rem;
+                  padding-block: 0.5rem;
                 }
               }
               .soft-skill {
@@ -523,11 +561,11 @@ h3 {
 
                 .skill-name {
                   position: relative;
-                  font-size: 0.8rem;
                   font-weight: bold;
                   color: white;
                   text-align: center;
                   z-index: 1;
+                  border: 3px solid #0d47a1;
                 }
               }
             }
