@@ -12,6 +12,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatDividerModule } from '@angular/material/divider';
 import { LoadingSpinnerModule } from '../../shared/loading-spinner/loading-spinner.module';
+import { FlipService } from '../../services/flip.service';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [WelcomeComponent],
@@ -27,5 +30,6 @@ import { LoadingSpinnerModule } from '../../shared/loading-spinner/loading-spinn
     MatDividerModule,
     LoadingSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WelcomeModule {}

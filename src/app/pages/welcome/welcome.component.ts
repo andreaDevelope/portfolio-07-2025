@@ -173,6 +173,22 @@ export class WelcomeComponent implements AfterViewInit {
     ],
   };
 
+  customOptions = {
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 4000,
+    autoplayHoverPause: true,
+    dots: true,
+    nav: true,
+    navText: ['<', '>'],
+    smartSpeed: 600,
+    responsive: {
+      0: { items: 1 },
+      768: { items: 2 },
+      1200: { items: 3 },
+    },
+  };
+
   constructor(private flipService: FlipService) {}
 
   ngOnInit() {
@@ -288,14 +304,6 @@ export class WelcomeComponent implements AfterViewInit {
   // carosello
   private slideWidth(vp: HTMLElement): number {
     return vp.clientWidth;
-  }
-
-  next(vp: HTMLElement) {
-    vp.scrollBy({ left: this.slideWidth(vp), behavior: 'smooth' });
-  }
-
-  prev(vp: HTMLElement) {
-    vp.scrollBy({ left: -this.slideWidth(vp), behavior: 'smooth' });
   }
 
   goTo(i: number, vp: HTMLElement) {

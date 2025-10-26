@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerModule } from './shared/loading-spinner/loading-spinner.module';
 import { FooterComponent } from './main-components/footer/footer.component';
+import { FlipService } from './services/flip.service';
 
 @NgModule({
   declarations: [AppComponent, NavComponent, FooterComponent],
