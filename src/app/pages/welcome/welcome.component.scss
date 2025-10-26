@@ -899,3 +899,59 @@ swiper-slide {
 .mat-mdc-card-content {
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .swiper-container {
+    width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .card.prj {
+    width: 100%;
+    max-width: 95%;
+    border-radius: 0.8rem;
+    margin-inline: auto;
+    padding-bottom: 4rem;
+  }
+
+  .card-front img {
+    height: auto;
+    max-height: 280px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .mat-mdc-card-header h2,
+  .project-title {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    margin-bottom: 2.5rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.8rem auto 1.5rem;
+    max-width: 90%;
+  }
+
+  .tech-list mat-chip {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    transform: scale(0.8);
+    top: 45%;
+  }
+
+  .swiper-pagination {
+    bottom: 0.2rem !important;
+  }
+}
