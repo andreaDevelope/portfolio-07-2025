@@ -2,11 +2,13 @@ import { FlipService } from './../../services/flip.service';
 import { Component } from '@angular/core';
 import { IProject } from '../../interfaces/iproject';
 import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class WelcomeComponent implements AfterViewInit {
   patterns = Array.from({ length: 5 });

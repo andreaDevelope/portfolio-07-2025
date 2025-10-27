@@ -623,7 +623,7 @@ h3 {
   }
 
   .projects {
-    width: 80%;
+    width: 100%;
     position: absolute;
     left: 0;
     right: 0;
@@ -646,7 +646,7 @@ h3 {
       opacity: 0.3;
     }
     .projects {
-      transform: translateX(10%);
+      transform: translateX(0%);
       z-index: 11;
       opacity: 1;
     }
@@ -785,7 +785,15 @@ swiper-slide {
 }
 
 /* ---- RESPONSIVE ---- */
+
 @media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: auto !important;
+    bottom: 2.5rem !important;
+    transform: scale(0.8);
+  }
+
   .card.prj {
     max-width: 90%;
   }
@@ -848,6 +856,9 @@ swiper-slide {
 }
 
 @media (min-width: 768px) {
+  .projects {
+    width: 93%;
+  }
   .projects .project-btn-toggle {
     display: none;
   }
@@ -913,8 +924,7 @@ swiper-slide {
   }
 
   .card.prj {
-    width: 100%;
-    max-width: 95%;
+    max-width: 100%;
     border-radius: 0.8rem;
     margin-inline: auto;
     padding-bottom: 4rem;
@@ -953,5 +963,39 @@ swiper-slide {
 
   .swiper-pagination {
     bottom: 0.2rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .swiper-container {
+    width: 80%;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (min-width: 790px) {
+  .swiper-container {
+    width: 70%;
+    padding: 0 0.5rem;
+  }
+  swiper-container::part(button-next),
+  swiper-container::part(button-prev) {
+    top: 60% !important;
+    bottom: auto !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .swiper-container {
+    width: 60%;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 580px) {
+  swiper-container::part(button-next),
+  swiper-container::part(button-prev) {
+    top: 96% !important;
+    bottom: auto !important;
   }
 }
