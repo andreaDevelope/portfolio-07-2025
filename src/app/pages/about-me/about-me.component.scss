@@ -406,7 +406,9 @@
   margin-block: 2rem;
 }
 .box {
-  width: 140px;
+  font-family: "Ubuntu Mono" !important;
+  font-size: 1.4rem;
+  width: 180px;
   height: auto;
   float: left;
   transition: 0.5s linear;
@@ -476,6 +478,15 @@ button {
 }
 
 @media (max-width: 768px) {
+  p {
+    font-size: 1.2rem;
+  }
+
+  .box {
+    font-size: 0.9rem;
+    width: 140px;
+  }
+
   .box:before {
     -webkit-animation: aboutMeBtnBorderBefore 4s linear infinite;
     animation: aboutMeBtnBorderBefore 4s linear infinite;
