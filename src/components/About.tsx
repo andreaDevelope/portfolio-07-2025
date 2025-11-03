@@ -76,7 +76,7 @@ export function About({ onViewMore }: { onViewMore?: () => void }) {
                 }}
               >
                 <ImageWithFallback
-                  src="../../public/images/projects/foto-portfolio.png"
+                  src="/images/projects/foto-portfolio.png"
                   alt="Andrea Ceccarelli"
                   className="w-full h-auto aspect-square object-cover"
                 />

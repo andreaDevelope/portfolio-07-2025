@@ -28,7 +28,7 @@ const projects: Project[] = [
     description: "University marketplace and study platform connecting students, libraries, and universities.",
     longDescription:
       "Archivia is an innovative full-stack platform designed to simplify academic life. It connects students, libraries, and universities through a digital ecosystem where users can buy and sell books, share study materials, and access collaborative tools. Built with Angular, Spring Boot, and PostgreSQL, it integrates secure authentication, file management via AWS S3, and modular microservices for scalability.",
-    image: "../../public/images/projects/project1.png",
+    image: "/images/projects/project1.png",
     category: "Full-Stack",
     tech: ["Angular", "Spring Boot", "PostgreSQL", "Docker", "AWS S3", "Elasticsearch"],
     github: "Private Repo",
@@ -41,7 +41,7 @@ const projects: Project[] = [
     description: "Next-generation personal portfolio built with modern animations and responsive UI.",
     longDescription:
       "A redesigned personal portfolio built with React, TypeScript, and Framer Motion. Features smooth animations, interactive sections, responsive layout, and dynamic project filtering with clean modern aesthetics.",
-    image: "../../public/images/projects/portfolio-v2.png",
+    image: "/images/projects/portfolio-v2.png",
     category: "Frontend",
     tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite"],
     github: "https://github.com/andreaDevelope/portfolio-v2.git",
@@ -54,7 +54,7 @@ const projects: Project[] = [
     description: "Collection of Java-based algorithm and data structure solutions.",
     longDescription:
       "A personal repository of algorithm implementations and problem-solving exercises inspired by LeetCode challenges. Written in Java with JUnit testing and performance optimizations.",
-    image: "../../public/images/projects/let-code.png",
+    image: "/images/projects/let-code.png",
     category: "Backend",
     tech: ["Java", "JUnit", "Data Structures", "Algorithms", "OOP"],
     github: "https://github.com/andreaDevelope/leetcode-problems-10-2025.git",
@@ -67,7 +67,7 @@ const projects: Project[] = [
     description: "Interactive pirate-themed Angular game mixing quizzes, logic, and treasure hunting.",
     longDescription:
       "A gamified web app built entirely in Angular featuring avatar customization, interactive quizzes, and a treasure hunt system. Players earn scores based on click sequences and compete on a live leaderboard managed with JSON Server.",
-    image: "../../public/images/projects/c.b.p.img.png",
+    image: "/images/projects/c.b.p.img.png",
     category: "Frontend",
     tech: ["Angular", "SCSS", "Bootstrap", "JSON Server"],
     github: "https://github.com/andreaDevelope/caccia-al-bug-perduto.git",
@@ -80,7 +80,7 @@ const projects: Project[] = [
     description: "Task management platform with collaboration and analytics features.",
     longDescription:
       "A full-stack enterprise application built with Angular and Spring Boot. Includes real-time task updates, team collaboration tools, JWT-based authentication, and data visualization dashboards.",
-    image: "../../public/images/projects/spaient+.png",
+    image: "/images/projects/spaient+.png",
     category: "Full-Stack",
     tech: ["Angular", "Spring Boot", "WebSocket", "Redis", "JWT"],
     github: "https://github.com/andreaDevelope/Capstom-Epicode-FullStack",

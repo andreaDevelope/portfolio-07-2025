@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Archivia",
     description: "University marketplace and study platform connecting students, libraries, and universities.",
-    image: "../../public/images/projects/project1.png",
+    image: "/images/projects/project1.png",
     tech: ["Angular", "Spring Boot", "PostgreSQL", "Docker", "Material UI", "Chart.js"],
     color: "#00ff41",
     private: true,
@@ -15,7 +15,7 @@ const projects = [
   {
     title: "The Lost Bug Hunt",
     description: "Interactive pirate-themed Angular game mixing quizzes, logic, and treasure hunting.",
-    image: "../../public/images/projects/c.b.p.img.png",
+    image: "/images/projects/c.b.p.img.png",
     tech: ["Angular", "SCSS", "Bootstrap", "JSON Server"],
     color: "#00ffff",
     repoUrl: "https://github.com/andreaDevelope/Capstom-Epicode-FullStack.git",
@@ -23,7 +23,7 @@ const projects = [
   {
     title: "Java & LeetCode Exercises",
     description: "Collection of Java-based algorithm and data structure solutions",
-    image: "../../public/images/projects/let-code.png",
+    image: "/images/projects/let-code.png",
     tech: ["Java", "JUnit", "Data Structures", "Algorithms", "OOP"],
     color: "#b026ff",
     repoUrl: "https://github.com/andreaDevelope/leetcode-problems-10-2025.git",
