@@ -18,7 +18,7 @@ const socialLinks = [
 
 export function Footer({ onNavigate }: { onNavigate?: (page: "home" | "projects" | "about" | "skills" | "contact") => void }) {
   return (
-    <footer className="relative py-12 px-6 border-t" style={{ borderColor: "rgba(255, 255, 255, 0.1)", background: "#000000" }}>
+    <footer className="relative py-12 px-6 border-t" style={{ borderColor: "rgba(255, 255, 254, 0.1)", background: "#000000" }}>
       <div className="max-w-7xl mx-auto">
         {/* Top section */}
         <div className="flex flex-col items-center mb-8">
