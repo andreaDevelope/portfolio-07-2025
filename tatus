@@ -1,0 +1,163 @@
+warning: in the working copy of 'src/components/Footer.tsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/components/Footer.tsx b/src/components/Footer.tsx[m
+[1mindex 86abfeb..388e942 100644[m
+[1m--- a/src/components/Footer.tsx[m
+[1m+++ b/src/components/Footer.tsx[m
+[36m@@ -1,36 +1,36 @@[m
+[31m-import { motion } from 'motion/react';[m
+[31m-import { Github, Linkedin, Mail, Twitter, Heart } from 'lucide-react';[m
+[32m+[m[32mimport { motion } from "motion/react";[m
+[32m+[m[32mimport { Github, Linkedin, Mail, Twitter, Heart } from "lucide-react";[m
+ [m
+ const socialLinks = [[m
+   {[m
+[31m-    name: 'GitHub',[m
+[32m+[m[32m    name: "GitHub",[m
+     icon: Github,[m
+[31m-    url: 'https://github.com',[m
+[31m-    color: '#00ff41',[m
+[32m+[m[32m    url: "https://github.com",[m
+[32m+[m[32m    color: "#00ff41",[m
+   },[m
+   {[m
+[31m-    name: 'LinkedIn',[m
+[32m+[m[32m    name: "LinkedIn",[m
+     icon: Linkedin,[m
+[31m-    url: 'https://linkedin.com',[m
+[31m-    color: '#00ffff',[m
+[32m+[m[32m    url: "https://linkedin.com",[m
+[32m+[m[32m    color: "#00ffff",[m
+   },[m
+   {[m
+[31m-    name: 'Twitter',[m
+[32m+[m[32m    name: "Twitter",[m
+     icon: Twitter,[m
+[31m-    url: 'https://twitter.com',[m
+[31m-    color: '#b026ff',[m
+[32m+[m[32m    url: "https://twitter.com",[m
+[32m+[m[32m    color: "#b026ff",[m
+   },[m
+   {[m
+[31m-    name: 'Email',[m
+[32m+[m[32m    name: "Email",[m
+     icon: Mail,[m
+[31m-    url: 'mailto:andrea@example.com',[m
+[31m-    color: '#00ff41',[m
+[32m+[m[32m    url: "mailto:andrea@example.com",[m
+[32m+[m[32m    color: "#00ff41",[m
+   },[m
+ ];[m
+ [m
+[31m-export function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects' | 'about' | 'skills' | 'contact') => void }) {[m
+[32m+[m[32mexport function Footer({ onNavigate }: { onNavigate?: (page: "home" | "projects" | "about" | "skills" | "contact") => void }) {[m
+   return ([m
+[31m-    <footer className="relative py-12 px-6 border-t" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>[m
+[32m+[m[32m    <footer className="relative py-12 px-6 border-t" style={{ borderColor: "rgba(255, 255, 255, 0.1)", background: "#000000" }}>[m
+       <div className="max-w-7xl mx-auto">[m
+         {/* Top section */}[m
+         <div className="flex flex-col items-center mb-8">[m
+[36m@@ -44,13 +44,13 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+           >[m
+             <h3[m
+               style={{[m
+[31m-                fontSize: '2rem',[m
+[32m+[m[32m                fontSize: "2rem",[m
+                 fontWeight: 700,[m
+[31m-                color: '#e0e0e0',[m
+[31m-                textShadow: '0 0 20px rgba(0,255,65,0.3)',[m
+[32m+[m[32m                color: "#e0e0e0",[m
+[32m+[m[32m                textShadow: "0 0 20px rgba(0,255,65,0.3)",[m
+               }}[m
+             >[m
+[31m-              {'<'} Ceck {'/>'} [m
+[32m+[m[32m              {"<"} Ceck {"/>"}[m
+             </h3>[m
+           </motion.div>[m
+ [m
+[36m@@ -72,20 +72,20 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+                   rel="noopener noreferrer"[m
+                   className="w-12 h-12 rounded-lg flex items-center justify-center border relative group"[m
+                   style={{[m
+[31m-                    background: 'rgba(26, 31, 58, 0.5)',[m
+[31m-                    borderColor: 'rgba(255, 255, 255, 0.1)',[m
+[32m+[m[32m                    background: "rgba(26, 31, 58, 0.5)",[m
+[32m+[m[32m                    borderColor: "rgba(255, 255, 255, 0.1)",[m
+                   }}[m
+                   whileHover={{ scale: 1.1, y: -5 }}[m
+                   whileTap={{ scale: 0.95 }}[m
+                 >[m
+                   <Icon size={20} style={{ color: social.color }} />[m
+[31m-                  [m
+[32m+[m
+                   {/* Glow effect on hover */}[m
+                   <motion.div[m
+                     className="absolute inset-0 rounded-lg -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"[m
+                     style={{[m
+                       background: `${social.color}30`,[m
+[31m-                      filter: 'blur(8px)',[m
+[32m+[m[32m                      filter: "blur(8px)",[m
+                     }}[m
+                   />[m
+ [m
+[36m@@ -93,10 +93,10 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+                   <div[m
+                     className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap"[m
+                     style={{[m
+[31m-                      background: 'rgba(10, 14, 39, 0.95)',[m
+[32m+[m[32m                      background: "rgba(10, 14, 39, 0.95)",[m
+                       border: `1px solid ${social.color}`,[m
+                       color: social.color,[m
+[31m-                      fontSize: '0.75rem',[m
+[32m+[m[32m                      fontSize: "0.75rem",[m
+                     }}[m
+                   >[m
+                     {social.name}[m
+[36m@@ -115,17 +115,17 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+             className="flex flex-wrap justify-center gap-6 mb-8"[m
+           >[m
+             {[[m
+[31m-              { label: 'Home', page: 'home' as const },[m
+[31m-              { label: 'Skills', page: 'skills' as const },[m
+[31m-              { label: 'Projects', page: 'projects' as const },[m
+[31m-              { label: 'About', page: 'about' as const },[m
+[31m-              { label: 'Contact', page: 'contact' as const },[m
+[32m+[m[32m              { label: "Home", page: "home" as const },[m
+[32m+[m[32m              { label: "Skills", page: "skills" as const },[m
+[32m+[m[32m              { label: "Projects", page: "projects" as const },[m
+[32m+[m[32m              { label: "About", page: "about" as const },[m
+[32m+[m[32m              { label: "Contact", page: "contact" as const },[m
+             ].map((item) => ([m
+               <button[m
+                 key={item.label}[m
+                 onClick={() => onNavigate?.(item.page)}[m
+                 className="text-[#b0b0b0] hover:text-[#00ff41] transition-colors duration-300"[m
+[31m-                style={{ fontSize: '0.9375rem' }}[m
+[32m+[m[32m                style={{ fontSize: "0.9375rem" }}[m
+               >[m
+                 {item.label}[m
+               </button>[m
+[36m@@ -140,15 +140,15 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+           viewport={{ once: true }}[m
+           transition={{ duration: 0.6, delay: 0.4 }}[m
+           className="pt-8 border-t text-center"[m
+[31m-          style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}[m
+[32m+[m[32m          style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}[m
+         >[m
+[31m-          <p className="text-[#808080] flex items-center justify-center gap-2 flex-wrap" style={{ fontSize: '0.875rem' }}>[m
+[32m+[m[32m          <p className="text-[#808080] flex items-center justify-center gap-2 flex-wrap" style={{ fontSize: "0.875rem" }}>[m
+             <span>© 2025 Developed by</span>[m
+             <span[m
+               style={{[m
+[31m-                color: '#00ff41',[m
+[32m+[m[32m                color: "#00ff41",[m
+                 fontWeight: 600,[m
+[31m-                textShadow: '0 0 10px rgba(0,255,65,0.5)',[m
+[32m+[m[32m                textShadow: "0 0 10px rgba(0,255,65,0.5)",[m
+               }}[m
+             >[m
+               Ceck[m
+[36m@@ -156,14 +156,14 @@[m [mexport function Footer({ onNavigate }: { onNavigate?: (page: 'home' | 'projects'[m
+             <span className="inline-flex items-center gap-1">[m
+               with <Heart size={14} className="text-red-500" fill="currentColor" /> and[m
+             </span>[m
+[31m-            <span style={{ co
