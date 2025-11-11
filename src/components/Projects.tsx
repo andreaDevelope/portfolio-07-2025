@@ -5,6 +5,14 @@ import { Button } from "./ui/button";
 
 const projects = [
   {
+    title: "Digital Age Quiz",
+    description: "Interactive single-page React quiz exploring generational digital identity.",
+    image: "/images/projects/RinoTalk.png",
+    tech: ["React", "Tailwind CSS", "Framer Motion", "Netlify"],
+    color: "#00ffff",
+    demoUrl: "https://snazzy-squirrel-ccc5c7.netlify.app/",
+  },
+  {
     title: "Archivia",
     description: "University marketplace and study platform connecting students, libraries, and universities.",
     image: "/images/projects/project1.png",
@@ -19,14 +27,6 @@ const projects = [
     tech: ["Angular", "SCSS", "Bootstrap", "JSON Server"],
     color: "#00ffff",
     repoUrl: "https://github.com/andreaDevelope/Capstom-Epicode-FullStack.git",
-  },
-  {
-    title: "Java & LeetCode Exercises",
-    description: "Collection of Java-based algorithm and data structure solutions",
-    image: "/images/projects/let-code.png",
-    tech: ["Java", "JUnit", "Data Structures", "Algorithms", "OOP"],
-    color: "#b026ff",
-    repoUrl: "https://github.com/andreaDevelope/leetcode-problems-10-2025.git",
   },
 ];
 
@@ -84,12 +84,10 @@ export function Projects({ onViewProjects }: { onViewProjects?: () => void }) {
 
                   {/* Overlay on hover */}
                   {project.private ? (
-                    // 👇 Mostra etichetta "Private Repository"
+                    // 👇 Etichetta Private
                     <motion.div
                       className="absolute inset-0 flex items-center justify-center"
-                      style={{
-                        background: "rgba(10, 14, 39, 0.85)",
-                      }}
+                      style={{ background: "rgba(10, 14, 39, 0.85)" }}
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -111,28 +109,41 @@ export function Projects({ onViewProjects }: { onViewProjects?: () => void }) {
                       </span>
                     </motion.div>
                   ) : (
-                    // 👇 Mostra il bottone GitHub solo se pubblica
+                    // 👇 Mostra bottone GitHub o Demo (a seconda dei campi presenti)
                     <motion.div
                       className="absolute inset-0 flex items-center justify-center"
-                      style={{
-                        background: "rgba(10, 14, 39, 0.9)",
-                      }}
+                      style={{ background: "rgba(10, 14, 39, 0.9)" }}
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-12 h-12 rounded-full flex items-center justify-center border"
-                        style={{
-                          background: "transparent",
-                          borderColor: project.color,
-                        }}
-                        onClick={() => window.open(project.repoUrl, "_blank")}
-                      >
-                        <Github size={20} style={{ color: project.color }} />
-                      </motion.button>
+                      {project.repoUrl ? (
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-12 h-12 rounded-full flex items-center justify-center border"
+                          style={{
+                            background: "transparent",
+                            borderColor: project.color,
+                          }}
+                          onClick={() => window.open(project.repoUrl, "_blank")}
+                        >
+                          <Github size={20} style={{ color: project.color }} />
+                        </motion.button>
+                      ) : project.demoUrl ? (
+                        <motion.button
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-12 h-12 rounded-full flex items-center justify-center border"
+                          style={{
+                            background: project.color,
+                            borderColor: project.color,
+                          }}
+                          onClick={() => window.open(project.demoUrl, "_blank")}
+                        >
+                          <span style={{ color: "#0a0e27", fontWeight: 600 }}>Demo</span>
+                        </motion.button>
+                      ) : null}
                     </motion.div>
                   )}
                 </div>

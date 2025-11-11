@@ -87,6 +87,20 @@ const projects: Project[] = [
     year: "2024",
     highlights: ["Real-time Updates", "Team Collaboration", "Secure Auth", "Analytics Dashboard"],
   },
+  {
+    id: 6,
+    title: "Digital Age Quiz",
+    description: "Interactive single-page quiz exploring generational digital identity.",
+    longDescription:
+      "A playful React web app created for a talkshow project themed around generational differences in digital behavior. Users discover their 'digital twin generation' through a set of five interactive questions. Deployed via Netlify, it’s designed as a light and responsive experience. A backend layer will be integrated soon to evolve it into a full-stack app.",
+    image: "/images/projects/RinoTalk.png", // salva uno screenshot del quiz e mettilo in public/images/projects/
+    category: "Frontend",
+    tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Netlify"],
+    github: "", // se repo privata, metti "Private Repo"
+    demo: "https://snazzy-squirrel-ccc5c7.netlify.app/",
+    year: "2025",
+    highlights: ["Generational quiz design", "Mobile responsive layout", "Framer Motion animations", "Client delivery with printed QR codes"],
+  },
 ];
 
 const categories: ProjectCategory[] = ["All", "Frontend", "Backend", "Full-Stack"];
