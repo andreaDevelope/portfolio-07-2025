@@ -89,17 +89,24 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "Digital Age Quiz",
-    description: "Interactive single-page quiz exploring generational digital identity.",
+    title: "RinoTalks – Digital Age Quiz",
+    description: "Full-stack quiz experience powered by React, Supabase, and a custom analytics dashboard.",
     longDescription:
-      "A playful React web app created for a talkshow project themed around generational differences in digital behavior. Users discover their 'digital twin generation' through a set of five interactive questions. Deployed via Netlify, it’s designed as a light and responsive experience. A backend layer will be integrated soon to evolve it into a full-stack app.",
-    image: "/images/projects/RinoTalk.png", // salva uno screenshot del quiz e mettilo in public/images/projects/
-    category: "Frontend",
-    tech: ["React", "TypeScript", "Framer Motion", "Tailwind CSS", "Netlify"],
-    github: "", // se repo privata, metti "Private Repo"
+      "RinoTalks is a full-stack project combining an interactive generational quiz with a real backend powered by Supabase. The application stores quiz results securely, computes generational scoring serverless-side, and provides an authenticated admin dashboard with real-time analytics using Recharts. Built for a client talk-show, this project integrates modern animations, full mobile responsiveness, and an end-to-end data flow from quiz submission to admin statistics.",
+    image: "/images/projects/rino_dashboard.png",
+    category: "Full-Stack",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
+    github: "",
     demo: "https://snazzy-squirrel-ccc5c7.netlify.app/",
     year: "2025",
-    highlights: ["Generational quiz design", "Mobile responsive layout", "Framer Motion animations", "Client delivery with printed QR codes"],
+    highlights: [
+      "Full-stack architecture with Supabase",
+      "Admin dashboard with analytics",
+      "Real-time data visualization",
+      "RLS-secured writes",
+      "Modern UI/UX with animations",
+      "Produced for a real talk-show client",
+    ],
   },
 ];
 

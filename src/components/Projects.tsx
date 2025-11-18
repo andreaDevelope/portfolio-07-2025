@@ -5,10 +5,10 @@ import { Button } from "./ui/button";
 
 const projects = [
   {
-    title: "Digital Age Quiz",
-    description: "Interactive single-page React quiz exploring generational digital identity.",
-    image: "/images/projects/RinoTalk.png",
-    tech: ["React", "Tailwind CSS", "Framer Motion", "Netlify"],
+    title: "RinoTalks – Digital Age Quiz",
+    description: "Full-stack generational quiz with Supabase backend, admin dashboard, and real-time analytics.",
+    image: "/images/projects/rino_dashboard.png",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
     color: "#00ffff",
     demoUrl: "https://snazzy-squirrel-ccc5c7.netlify.app/",
   },
