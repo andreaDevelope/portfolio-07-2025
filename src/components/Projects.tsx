@@ -26,7 +26,7 @@ const projects = [
     image: "/images/projects/c.b.p.img.png",
     tech: ["Angular", "SCSS", "Bootstrap", "JSON Server"],
     color: "#00ffff",
-    repoUrl: "https://github.com/andreaDevelope/Capstom-Epicode-FullStack.git",
+    repoUrl: "https://github.com/andreaDevelope/caccia-al-bug-perduto.git",
   },
 ];
 
