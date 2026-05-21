@@ -27,6 +27,15 @@ interface Certification {
 
 const timeline: TimelineItem[] = [
   {
+    year: "2026 - Present",
+    title: "Angular Developer",
+    company: "Cy4Gate",
+    description:
+      "Frontend development on enterprise Angular applications for cyber/intelligence platforms, with focus on dashboard management, complex UI flows, Elasticsearch data integration, map visualization, and production-level debugging.",
+    icon: Briefcase,
+    color: "#00ffff",
+  },
+  {
     year: "Feb 2025 - Jun 2025",
     title: "Full-Stack Developer & Team Lead",
     company: "Start-up Tech",
