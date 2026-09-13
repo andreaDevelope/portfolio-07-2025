@@ -8,7 +8,7 @@ import { Badge } from "./ui/badge";
 type ProjectCategory = "All" | "Frontend" | "Backend" | "Full-Stack";
 
 interface Project {
-  id: number;
+  id: number | string;
   title: string;
   description: string;
   longDescription: string;
@@ -22,6 +22,26 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: "cityvoice",
+    title: "CityVoice",
+    description: "Anonymous civic reporting platform for Roman citizens, built solo with a production-grade architecture from day one.",
+    longDescription:
+      "CityVoice lets citizens report civic issues anonymously across Rome's neighborhoods. Built as a solo project with open-source-readiness as a core requirement, it features passphrase-based anonymous account recovery, full server-side rendering with auth-aware routing, and a gamified badge system that rewards civic engagement. Currently in active development, with authentication, profile identity, and the badge engine already live.",
+    image: "/images/projects/cityvoice-missions.png",
+    category: "Full-Stack",
+    tech: ["Angular 21", "Spring Boot 4.1", "PostgreSQL", "Docker", "TypeScript", "JWT"],
+    github: "https://github.com/andreaDevelope/City-Voice",
+    year: "2026",
+    highlights: [
+      "Anonymous accounts with cryptographic passphrase recovery",
+      "Full SSR with auth-aware rendering (Angular 21)",
+      "Gamified badge & mission system",
+      "JWT auth via httpOnly cookies",
+      "Feature-based, open-source-ready architecture",
+      "Actively developed, solo-built",
+    ],
+  },
   {
     id: 1,
     title: "Archivia",
@@ -246,9 +266,9 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
                     }}
                   >
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden" style={{ background: "#0a0e27" }}>
                       <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }} className="w-full h-full">
-                        <ImageWithFallback src={project.image} alt={project.title} className="w-full h-full object-contain bg-[#0a0e27]" />
+                        <ImageWithFallback src={project.image} alt={project.title} className="w-full h-full" style={{ objectFit: "contain" }} />
                       </motion.div>
 
                       {/* Year badge */}
@@ -352,7 +372,7 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
                             }}
                           >
                             <Github size={16} className="mr-2" />
-                            Code
+                            Overview
                           </Button>
                         )}
                         {project.demo && (
@@ -450,17 +470,19 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
 
               {/* Image */}
               <div
-                className="relative overflow-hidden rounded-t-2xl flex items-center justify-center bg-[#0a0e27]"
+                className="relative overflow-hidden rounded-t-2xl flex items-center justify-center"
                 style={{
                   minHeight: "300px",
                   maxHeight: "500px",
                   aspectRatio: "16/9",
+                  background: "#0a0e27",
                 }}
               >
                 <ImageWithFallback
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="w-auto h-auto max-w-full max-h-full object-contain transition-transform duration-500"
+                  className="transition-transform duration-500"
+                  style={{ maxWidth: "100%", maxHeight: "100%", width: "auto", height: "auto", objectFit: "contain" }}
                 />
 
                 {/* Overlay gradient */}
@@ -582,7 +604,7 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
                       onClick={() => window.open(selectedProject.github, "_blank")}
                     >
                       <Github size={20} className="mr-2" />
-                      View Code
+                      View Overview
                     </Button>
                   )}
                   {selectedProject.demo && (

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Code2, Database, Server, GitBranch, Container, Cloud, Blocks, Zap } from "lucide-react";
+import { Code2, Database, Server, GitBranch, Container, Blocks, Zap } from "lucide-react";
 
 const skills = [
   { name: "Angular", icon: Code2, level: 95, color: "#00ff41" },
@@ -8,7 +8,7 @@ const skills = [
   { name: "TypeScript", icon: Code2, level: 92, color: "#00ff41" },
   { name: "PostgreSQL", icon: Database, level: 85, color: "#00ffff" },
   { name: "Docker", icon: Container, level: 88, color: "#b026ff" },
-  { name: "Kubernetes", icon: Cloud, level: 80, color: "#00ff41" },
+  { name: "MongoDB", icon: Database, level: 88, color: "#00ff41" },
   { name: "Git", icon: GitBranch, level: 93, color: "#00ffff" },
   { name: "Microservices", icon: Blocks, level: 87, color: "#b026ff" },
 ];
@@ -34,7 +34,7 @@ export function Skills({ onViewMore }: { onViewMore?: () => void }) {
               textShadow: "0 0 20px rgba(0,255,255,0.3)",
             }}
           >
-            Technical Skills
+            Skills Preview
           </h2>
           <p className="text-[#b0b0b0]" style={{ fontSize: "1.125rem" }}>
             Technologies and tools I use to bring ideas to life
@@ -146,7 +146,7 @@ export function Skills({ onViewMore }: { onViewMore?: () => void }) {
         >
           <h2 className="mb-4 main-title">Main Skills</h2>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {["Angular", "Spring Boot", "Java", "PostgreSQL", "Docker", "Kubernetes"].map((tech) => (
+            {["Angular", "Spring Boot", "Java", "PostgreSQL", "Docker", "MongoDB"].map((tech) => (
               <span key={tech} className="main-skill">
                 {tech}
               </span>
@@ -155,7 +155,7 @@ export function Skills({ onViewMore }: { onViewMore?: () => void }) {
 
           <h2 className="mb-4 next-title">Next Goals</h2>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {["GraphQL", "Redis", "MongoDB", "RabbitMQ", "Jenkins", "AWS", "Azure"].map((tech) => (
+            {["GraphQL", "Redis", "Kubernetes", "RabbitMQ", "Jenkins", "AWS", "Azure"].map((tech) => (
               <span key={tech} className="next-goal">
                 {tech}
               </span>

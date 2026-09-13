@@ -30,7 +30,7 @@ export function Hero({ onViewProjects }: { onViewProjects?: () => void }) {
         {/* Greeting */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-6">
           <span className="inline-block px-4 py-2 rounded-full border border-[#00ff41]/30 bg-[#00ff41]/5 text-[#00ff41] backdrop-blur-sm">
-            {"</>"} Welcome in my Word
+            {"</>"} git commit -m 'hello'
           </span>
         </motion.div>
 
@@ -85,7 +85,7 @@ export function Hero({ onViewProjects }: { onViewProjects?: () => void }) {
           className="mb-10 text-[#b0b0b0] max-w-2xl mx-auto"
           style={{ fontSize: "1.125rem" }}
         >
-          Building scalable web applications with modern technologies. Passionate about clean code, innovative solutions, and continuous learning.
+          4+ years building production systems in Java/Spring Boot and Angular, from enterprise dashboards to founder-stage startups.
         </motion.p>
 
         {/* CTA Buttons */}

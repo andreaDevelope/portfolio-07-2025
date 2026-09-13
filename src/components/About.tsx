@@ -11,8 +11,8 @@ const highlights = [
   },
   {
     icon: Rocket,
-    title: "30+ Projects",
-    description: "Personal & Collaborative Work",
+    title: "500+ Users",
+    description: "Reached via a real client project",
     color: "#00ffff",
   },
   {
@@ -132,16 +132,11 @@ export function About({ onViewMore }: { onViewMore?: () => void }) {
                 </h3>
                 <div className="space-y-4 text-[#b0b0b0]" style={{ fontSize: "1rem", lineHeight: 1.7 }}>
                   <p>
-                    I'm a Full-Stack Developer with a strong foundation in Java, Spring Boot and Angular. Over the past few years I've worked on enterprise
-                    projects and several self-initiated applications that helped me refine both backend and frontend skills.
-                  </p>
-                  <p>
-                    I value clean architecture, readable code and pragmatic design patterns — aiming to build software that’s both reliable and enjoyable to
-                    use.
-                  </p>
-                  <p>
-                    Outside of coding, I enjoy exploring emerging technologies, learning DevOps practices, and experimenting with new ideas through my personal
-                    projects.
+                    I'm a Full-Stack Developer with 4+ years of experience in Java/Spring Boot and Angular. I've built real-time dashboards for a
+                    cyber-intelligence platform in the defense sector, contributing to scalable, reliable architectures. As team lead, I drove full-stack
+                    development on an EdTech startup, coordinating a multidisciplinary team from concept to product. I'm currently dedicating my free time to
+                    CityVoice, a civic reporting platform I'm building with the goal of bringing it to production. My approach is pragmatic: I'd rather ship
+                    solutions that generate real value and actually get used than impressive demos with no follow-through.
                   </p>
                 </div>
               </div>
@@ -201,7 +196,7 @@ export function About({ onViewMore }: { onViewMore?: () => void }) {
                 lineHeight: 1.8,
               }}
             >
-              Code is like humor. When you have to explain it, it's bad. I strive to write self-documenting, elegant code that speaks for itself.
+              I wrote an automatic rollback script so I wouldn't get locked out of my own network. It locked me out of my own network.
             </p>
             <div className="absolute bottom-6 right-6 opacity-20" style={{ fontSize: "4rem", color: "#00ff41", transform: "rotate(180deg)" }}>
               "

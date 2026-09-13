@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 const socialLinks = [
   {
@@ -131,7 +131,7 @@ export function Footer({ onNavigate }: { onNavigate?: (page: "home" | "projects"
           style={{ borderColor: "rgba(255, 255, 255, 0.1)" }}
         >
           <p className="text-[#808080] flex items-center justify-center gap-2 flex-wrap" style={{ fontSize: "0.875rem" }}>
-            <span>© 2025 Developed by</span>
+            <span>© 2026</span>
             <span
               style={{
                 color: "#00ff41",
@@ -139,12 +139,9 @@ export function Footer({ onNavigate }: { onNavigate?: (page: "home" | "projects"
                 textShadow: "0 0 10px rgba(0,255,65,0.5)",
               }}
             >
-              Ceck
+              Andrea Ceccarelli
             </span>
-            <span className="inline-flex items-center gap-1">
-              with <Heart size={14} className="text-red-500" fill="currentColor" /> and
-            </span>
-            <span style={{ color: "#00ffff" }}>lots of coffee</span>
+            <span>— P.IVA 18330101009</span>
           </p>
 
           {/* Decorative line */}

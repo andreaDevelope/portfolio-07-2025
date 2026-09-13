@@ -3,14 +3,27 @@ import { Github } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Button } from "./ui/button";
 
-const projects = [
+interface HomeProject {
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  color: string;
+  private?: boolean;
+  repoUrl?: string;
+  demoUrl?: string;
+  portrait?: boolean;
+}
+
+const projects: HomeProject[] = [
   {
-    title: "RinoTalks – Digital Age Quiz",
-    description: "Full-stack generational quiz with Supabase backend, admin dashboard, and real-time analytics.",
-    image: "/images/projects/rino_dashboard.png",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
-    color: "#00ffff",
-    demoUrl: "https://snazzy-squirrel-ccc5c7.netlify.app/",
+    title: "CityVoice",
+    description: "Anonymous civic reporting platform for Roman citizens, built solo with a production-grade architecture from day one.",
+    image: "/images/projects/cityvoice-home.png",
+    tech: ["Angular 21", "Spring Boot 4.1", "PostgreSQL", "Docker", "TypeScript", "JWT"],
+    color: "#b026ff",
+    repoUrl: "https://github.com/andreaDevelope/City-Voice",
+    portrait: true,
   },
   {
     title: "Archivia",
@@ -21,12 +34,12 @@ const projects = [
     private: true,
   },
   {
-    title: "The Lost Bug Hunt",
-    description: "Interactive pirate-themed Angular game mixing quizzes, logic, and treasure hunting.",
-    image: "/images/projects/c.b.p.img.png",
-    tech: ["Angular", "SCSS", "Bootstrap", "JSON Server"],
+    title: "RinoTalks – Digital Age Quiz",
+    description: "Full-stack generational quiz with Supabase backend, admin dashboard, and real-time analytics.",
+    image: "/images/projects/rino_dashboard.png",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
     color: "#00ffff",
-    repoUrl: "https://github.com/andreaDevelope/caccia-al-bug-perduto.git",
+    demoUrl: "https://snazzy-squirrel-ccc5c7.netlify.app/",
   },
 ];
 
@@ -77,9 +90,14 @@ export function Projects({ onViewProjects }: { onViewProjects?: () => void }) {
                 }}
               >
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-56 overflow-hidden" style={project.portrait ? { background: "#0a0e27" } : undefined}>
                   <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.4 }} className="w-full h-full">
-                    <ImageWithFallback src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    <ImageWithFallback
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full"
+                      style={{ objectFit: project.portrait ? "contain" : "cover" }}
+                    />
                   </motion.div>
 
                   {/* Overlay on hover */}
@@ -119,16 +137,18 @@ export function Projects({ onViewProjects }: { onViewProjects?: () => void }) {
                     >
                       {project.repoUrl ? (
                         <motion.button
-                          whileHover={{ scale: 1.1 }}
+                          whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-12 h-12 rounded-full flex items-center justify-center border"
+                          className="flex items-center gap-2 rounded-lg border"
                           style={{
                             background: "transparent",
                             borderColor: project.color,
+                            padding: "4px",
                           }}
                           onClick={() => window.open(project.repoUrl, "_blank")}
                         >
-                          <Github size={20} style={{ color: project.color }} />
+                          <Github size={18} style={{ color: project.color }} />
+                          <span style={{ color: project.color, fontWeight: 600 }}>Overview</span>
                         </motion.button>
                       ) : project.demoUrl ? (
                         <motion.button

@@ -50,7 +50,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https:linkedin.com/in/andrea-ceccarelli92",
+    url: "https://www.linkedin.com/in/andrea-ceccarelli92",
     color: "#00ffff",
   },
 ];
