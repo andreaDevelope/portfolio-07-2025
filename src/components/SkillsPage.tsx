@@ -38,6 +38,8 @@ const skillCategories: SkillCategory[] = [
       { name: "REST APIs", level: 95, years: 5, color: "#00ffff" },
       { name: "Spring Security", level: 85, years: 4, color: "#00ffff" },
       { name: "JPA / Hibernate", level: 85, years: 5, color: "#00ffff" },
+      { name: "JBoss", level: 82, years: 3, color: "#00ffff" },
+      { name: "JAX-WS", level: 82, years: 3, color: "#00ffff" },
     ],
   },
   {
@@ -46,8 +48,11 @@ const skillCategories: SkillCategory[] = [
     color: "#b026ff",
     skills: [
       { name: "PostgreSQL", level: 90, years: 4, color: "#b026ff" },
-      { name: "Oracle DB", level: 85, years: 5, color: "#b026ff" },
-      { name: "MySQL", level: 75, years: 2, color: "#b026ff" },
+      { name: "Oracle DB", level: 85, years: 3, color: "#b026ff" },
+      { name: "MySQL", level: 85, years: 2, color: "#b026ff" },
+      { name: "MongoDB", level: 88, years: 1, color: "#b026ff" },
+      { name: "DB2", level: 80, years: 1, color: "#b026ff" },
+      { name: "Elasticsearch", level: 85, years: 1, color: "#b026ff" },
     ],
   },
   {
@@ -56,7 +61,6 @@ const skillCategories: SkillCategory[] = [
     color: "#00ff41",
     skills: [
       { name: "Docker", level: 90, years: 3, color: "#00ff41" },
-      { name: "Kubernetes", level: 70, years: 1, color: "#00ff41" },
       { name: "Jenkins", level: 85, years: 2, color: "#00ff41" },
       { name: "GitLab CI/CD", level: 80, years: 2, color: "#00ff41" },
     ],
@@ -329,9 +333,9 @@ export function SkillsPage({ onBackToHome }: { onBackToHome: () => void }) {
             className="mt-16 grid md:grid-cols-4 sm:grid-cols-2 gap-6"
           >
             {[
-              { label: "Years of Experience", value: "5+", color: "#00ff41" },
-              { label: "Technologies Mastered", value: "36+", color: "#00ffff" },
-              { label: "Projects Completed", value: "50+", color: "#b026ff" },
+              { label: "Years of Experience", value: "4+", color: "#00ff41" },
+              { label: "Technologies Mastered", value: "40+", color: "#00ffff" },
+              { label: "Projects Completed", value: "15+", color: "#b026ff" },
               { label: "Certifications", value: "4+", color: "#00ff41" },
             ].map((stat, index) => (
               <motion.div

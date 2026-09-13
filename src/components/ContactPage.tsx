@@ -290,7 +290,7 @@ export function ContactPage({ onBackToHome }: { onBackToHome: () => void }) {
                 <div className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full mt-2 shrink-0" style={{ background: "#00ff41" }} />
                   <p className="text-[#b0b0b0]" style={{ lineHeight: 1.7 }}>
-                    I typically respond within 24 hours. For urgent matters, please reach out via phone or LinkedIn.
+                    I typically respond within 24 hours. For urgent matters, message me on WhatsApp.
                   </p>
                 </div>
               </motion.div>

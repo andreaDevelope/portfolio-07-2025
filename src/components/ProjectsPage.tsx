@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft, ExternalLink, Github, Code2, Layers, Server, X } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
@@ -19,6 +19,7 @@ interface Project {
   demo?: string;
   year: string;
   highlights: string[];
+  section: "Current Project" | "Real-World Work" | "Experiments & Practice";
 }
 
 const projects: Project[] = [
@@ -41,19 +42,50 @@ const projects: Project[] = [
       "Feature-based, open-source-ready architecture",
       "Actively developed, solo-built",
     ],
+    section: "Current Project",
   },
   {
     id: 1,
     title: "Archivia",
-    description: "University marketplace and study platform connecting students, libraries, and universities.",
+    description:
+      "A full-stack EdTech platform I led as team lead — 6 months coordinating a 7-person team on a complex academic domain (universities, courses, professors, students). Development paused before reaching an MVP.",
     longDescription:
-      "Archivia is an innovative full-stack platform designed to simplify academic life. It connects students, libraries, and universities through a digital ecosystem where users can buy and sell books, share study materials, and access collaborative tools. Built with Angular, Spring Boot, and PostgreSQL, it integrates secure authentication, file management via AWS S3, and modular microservices for scalability.",
+      "Archivia was an EdTech startup platform where I served as full-stack team leader for 6 months, coordinating a team of 7 (designers, frontend and backend developers). The project modeled a genuinely complex domain — students, universities, courses, course years, and professors, cross-referenced through a marketplace and subscription system — and I designed the core backend logic and database schema. Development was paused before reaching a shippable MVP, so there's no live product to demo here.",
     image: "/images/projects/project1.png",
     category: "Full-Stack",
     tech: ["Angular", "Spring Boot", "PostgreSQL", "Docker", "AWS S3", "Elasticsearch"],
     github: "Private Repo",
     year: "2024",
-    highlights: ["Book & Notes Marketplace", "University Partnerships", "Collaborative Study Tools", "Secure File Storage (S3)"],
+    highlights: [
+      "Full-stack team leadership (7 people)",
+      "Complex relational domain modeling",
+      "Backend logic & database schema design",
+      "Paused before MVP — architecture only, no live demo",
+    ],
+    section: "Real-World Work",
+  },
+  {
+    id: 6,
+    title: "RinoTalks – Digital Age Quiz",
+    description:
+      "First version — game, data persistence, and analytics dashboard — delivered in under 24 hours for €300. Real client project, now used by 500+ people.",
+    longDescription:
+      "RinoTalks started as a client's idea: a QR code printed at the back of a book on generational themes, linking to a short interactive quiz. The first version — quiz logic, Supabase-backed data persistence, and an admin analytics dashboard — was built and delivered in under 24 hours for €300. It's since grown into a full-stack project with secure, RLS-protected data writes, real-time visualizations built with Recharts, and full mobile responsiveness. The client has used it at public talks, and it now counts over 500 real users.",
+    image: "/images/projects/rino_dashboard.png",
+    category: "Full-Stack",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
+    github: "",
+    demo: "https://snazzy-squirrel-ccc5c7.netlify.app/",
+    year: "2025",
+    highlights: [
+      "Full-stack architecture with Supabase",
+      "First version delivered in <24h for €300",
+      "Admin dashboard with analytics",
+      "Real-time data visualization",
+      "RLS-secured writes",
+      "500+ real users, promoted at public talks",
+    ],
+    section: "Real-World Work",
   },
   {
     id: 2,
@@ -67,6 +99,7 @@ const projects: Project[] = [
     github: "https://github.com/andreaDevelope/portfolio-v2.git",
     year: "2025",
     highlights: ["Framer Animations", "Responsive Design", "Dynamic Filtering", "Modern UI"],
+    section: "Experiments & Practice",
   },
   {
     id: 3,
@@ -80,6 +113,7 @@ const projects: Project[] = [
     github: "https://github.com/andreaDevelope/leetcode-problems-10-2025.git",
     year: "2025",
     highlights: ["100+ Exercises", "Algorithm Optimization", "Clean OOP Design", "Unit Tested"],
+    section: "Experiments & Practice",
   },
   {
     id: 4,
@@ -93,40 +127,22 @@ const projects: Project[] = [
     github: "https://github.com/andreaDevelope/caccia-al-bug-perduto.git",
     year: "2024",
     highlights: ["Gamification", "Avatar Customization", "Quiz Engine", "Leaderboard System"],
+    section: "Experiments & Practice",
   },
   {
     id: 5,
     title: "SapientPlus",
-    description: "Task management platform with collaboration and analytics features.",
+    description:
+      "A mentor-matching platform connecting students who need academic help with peer tutors — solo capstone project for Epicode's Full-Stack Developer course, built in 3 weeks.",
     longDescription:
-      "A full-stack enterprise application built with Angular and Spring Boot. Includes real-time task updates, team collaboration tools, JWT-based authentication, and data visualization dashboards.",
+      "The idea for SapientPlus came from a real situation: during my Epicode course, a classmate who didn't pass the program's initial trial period wanted to keep learning anyway, so I started giving her paid tutoring — for very little money — to help her catch up. That gave me the idea for a platform connecting students who need academic support with mentors who can help them, with real-time messaging via WebSocket, JWT-based authentication, and a Redis-backed caching layer. Built solo in 3 weeks as my capstone project for Epicode's Full-Stack Developer course.",
     image: "/images/projects/spaient+.png",
     category: "Full-Stack",
     tech: ["Angular", "Spring Boot", "WebSocket", "Redis", "JWT"],
     github: "https://github.com/andreaDevelope/Capstom-Epicode-FullStack",
     year: "2024",
-    highlights: ["Real-time Updates", "Team Collaboration", "Secure Auth", "Analytics Dashboard"],
-  },
-  {
-    id: 6,
-    title: "RinoTalks – Digital Age Quiz",
-    description: "Full-stack quiz experience powered by React, Supabase, and a custom analytics dashboard.",
-    longDescription:
-      "RinoTalks is a full-stack project combining an interactive generational quiz with a real backend powered by Supabase. The application stores quiz results securely, computes generational scoring serverless-side, and provides an authenticated admin dashboard with real-time analytics using Recharts. Built for a client talk-show, this project integrates modern animations, full mobile responsiveness, and an end-to-end data flow from quiz submission to admin statistics.",
-    image: "/images/projects/rino_dashboard.png",
-    category: "Full-Stack",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Recharts", "Netlify"],
-    github: "",
-    demo: "https://snazzy-squirrel-ccc5c7.netlify.app/",
-    year: "2025",
-    highlights: [
-      "Full-stack architecture with Supabase",
-      "Admin dashboard with analytics",
-      "Real-time data visualization",
-      "RLS-secured writes",
-      "Modern UI/UX with animations",
-      "Produced for a real talk-show client",
-    ],
+    highlights: ["Epicode capstone — built in 3 weeks", "Mentor-student matching", "Real-time messaging (WebSocket)", "JWT-based authentication"],
+    section: "Experiments & Practice",
   },
 ];
 
@@ -181,7 +197,10 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
               My Projects
             </h1>
             <p className="text-[#b0b0b0] max-w-2xl mx-auto" style={{ fontSize: "1.25rem" }}>
-              A collection of applications, experiments and full-stack works
+              Here's my developer journey: experiments and technical practice built in my free time, plus two real-world engagements. RinoTalks was
+              delivered in under 24 hours for €300, with a working game, data persistence, and an analytics dashboard already in the first version.
+              Archivia gave me the experience of leading a 7-person full-stack team on a complex EdTech platform. CityVoice is the project I'm dedicating
+              my free time to today: a civic platform I'm building with the intention of actually getting it running.
             </p>
           </motion.div>
         </div>
@@ -249,15 +268,33 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
               transition={{ duration: 0.4 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative cursor-pointer"
-                  onClick={() => setSelectedProject(project)}
-                >
+              {filteredProjects.map((project, index) => {
+                const showSectionHeader = selectedCategory === "All" && (index === 0 || project.section !== filteredProjects[index - 1].section);
+                return (
+                  <Fragment key={project.id}>
+                    {showSectionHeader && (
+                      <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        style={{
+                          gridColumn: "1 / -1",
+                          fontSize: "1.25rem",
+                          fontWeight: 600,
+                          color: "#e0e0e0",
+                          marginTop: index === 0 ? 0 : "1rem",
+                        }}
+                      >
+                        {project.section}
+                      </motion.h3>
+                    )}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group relative cursor-pointer"
+                      onClick={() => setSelectedProject(project)}
+                    >
                   <div
                     className="rounded-xl overflow-hidden border backdrop-blur-sm h-full flex flex-col"
                     style={{
@@ -416,8 +453,10 @@ export function ProjectsPage({ onBackToHome }: { onBackToHome: () => void }) {
                       filter: "blur(20px)",
                     }}
                   />
-                </motion.div>
-              ))}
+                    </motion.div>
+                  </Fragment>
+                );
+              })}
             </motion.div>
           </AnimatePresence>
 

@@ -27,18 +27,18 @@ interface Certification {
 
 const timeline: TimelineItem[] = [
   {
-    year: "2026 - Present",
-    title: "Angular Developer",
+    year: "Jan 2026 - Jul 2026",
+    title: "Full-Stack Developer",
     company: "Cy4Gate",
     description:
-      "Frontend development on enterprise Angular applications for cyber/intelligence platforms, with focus on dashboard management, complex UI flows, Elasticsearch data integration, map visualization, and production-level debugging.",
+      "Full-stack development on enterprise applications for a cyber-intelligence platform in the defense sector, building three real-time dashboards: an alert pattern-builder, a geolocation system with historical trajectory reconstruction, and a model-training dashboard powered by Elasticsearch-built datasets. Worked across Angular, Spring Boot microservices, and MongoDB as a secondary datastore.",
     icon: Briefcase,
     color: "#00ffff",
   },
   {
     year: "Feb 2025 - Jun 2025",
     title: "Full-Stack Developer & Team Lead",
-    company: "Start-up Tech",
+    company: "ArchiviaLab Srl",
     description:
       "Led the frontend and backend development of a new digital platform using Angular, Java, and Spring Boot. Coordinated a small dev team, managed Git repositories, and optimized API communication between Angular and Spring microservices.",
     icon: Briefcase,
@@ -49,7 +49,7 @@ const timeline: TimelineItem[] = [
     title: "Python Developer (Web Scraping Project)",
     company: "Assicura Point Trade Srl",
     description:
-      "Developed automated web scraping tools with Python, Jsoup, and Selenium for insurance data extraction. Implemented data cleaning, logging, and automatic report generation.",
+      "Developed automated web scraping tools with Python and Selenium to reproduce identical insurance quotes across multiple insurer portals. Analyzed browser network requests and replicated HTTP calls via Postman to match each portal's exact quote result, aiming to build a comparator tool.",
     icon: Briefcase,
     color: "#00ffff",
   },
@@ -86,9 +86,10 @@ const education: Education[] = [
   },
   {
     year: "2012",
-    degree: "Diploma Odontotecnico",
+    degree: "Dental Technician Diploma",
     institution: "Istituto Tecnico IIS Carlo Urbani",
-    description: "Technical high school diploma with scientific and practical foundations, discipline, and attention to detail.",
+    description:
+      "Technical high school diploma. A different professional path before transitioning into software development, later grounded with additional Java-focused training and Epicode's Full-Stack Developer course.",
   },
 ];
 
@@ -177,8 +178,9 @@ export function AboutPage({ onBackToHome }: { onBackToHome: () => void }) {
               About Me
             </h1>
             <p className="text-[#b0b0b0] max-w-3xl mx-auto" style={{ fontSize: "1.25rem", lineHeight: 1.7 }}>
-              Full-Stack Developer passionate about clean architecture and digital innovation. Skilled in Angular, Spring Boot, and modern backend technologies,
-              I build robust, maintainable applications that bridge design and functionality. Focused on performance, teamwork, and continuous learning.
+              Full-Stack Developer with 4+ years of experience across Java/Spring Boot and Angular, specialized in production-grade systems for regulated,
+              high-stakes environments: from a cyber-intelligence platform in the defense sector to fast-moving startup products. I combine solid backend
+              architecture with clean, maintainable frontend code, and I'm currently building CityVoice, a civic platform, in my free time.
             </p>
           </motion.div>
 
@@ -262,8 +264,10 @@ export function AboutPage({ onBackToHome }: { onBackToHome: () => void }) {
                 </div>
 
                 <p className="text-[#b0b0b0]" style={{ lineHeight: 1.7 }}>
-                  Experienced in building enterprise-level applications with focus on performance, scalability, and user experience. Passionate about clean
-                  architecture and modern development practices.
+                  I have experience building full-stack systems where reliability and clarity truly matter, including real-time dashboards handling
+                  sensitive data in the defense sector, in a context with a ban on generative AI tools. I care deeply about clean architecture, thorough
+                  testing, and code that's easy for a team to pick up and extend. Outside of scheduled work, I keep building: CityVoice today, plus a track
+                  record of shipping fast when a project calls for it.
                 </p>
               </div>
             </div>

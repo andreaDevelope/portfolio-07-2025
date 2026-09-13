@@ -11,7 +11,7 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    url: 'https://linkedin.com/in/andreaceccarelli',
+    url: 'https://www.linkedin.com/in/andrea-ceccarelli92',
     color: '#00ffff',
   },
   {
